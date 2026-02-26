@@ -3,105 +3,74 @@ using QuantityMeasurementApp.Models;
 
 namespace QuantityMeasurementApp.Tests
 {
-    public class QuantityLengthTests
+    public class QuantityConversionTests
     {
-        // Same unit equality
-        [Test]
-        public void TestEquality_FeetToFeet_SameValue()
-        {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(1.0, LengthUnit.Feet);
+        private const double EPSILON = 1e-6;
 
-            Assert.IsTrue(q1.Equals(q2));
+        [Test]
+        public void TestConversion_FeetToInches()
+        {
+            Assert.AreEqual(12.0,
+                QuantityLength.Convert(1.0, LengthUnit.Feet, LengthUnit.Inch),
+                EPSILON);
         }
 
         [Test]
-        public void TestEquality_InchToInch_SameValue()
+        public void TestConversion_InchesToFeet()
         {
-            var q1 = new QuantityLength(5.0, LengthUnit.Inch);
-            var q2 = new QuantityLength(5.0, LengthUnit.Inch);
-
-            Assert.IsTrue(q1.Equals(q2));
-        }
-
-        // Cross unit equality
-        [Test]
-        public void TestEquality_FeetToInch_EquivalentValue()
-        {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(12.0, LengthUnit.Inch);
-
-            Assert.IsTrue(q1.Equals(q2));
+            Assert.AreEqual(2.0,
+                QuantityLength.Convert(24.0, LengthUnit.Inch, LengthUnit.Feet),
+                EPSILON);
         }
 
         [Test]
-        public void TestEquality_InchToFeet_EquivalentValue()
+        public void TestConversion_YardsToInches()
         {
-            var q1 = new QuantityLength(12.0, LengthUnit.Inch);
-            var q2 = new QuantityLength(1.0, LengthUnit.Feet);
-
-            Assert.IsTrue(q1.Equals(q2));
-        }
-
-        // Different values
-        [Test]
-        public void TestEquality_FeetToFeet_DifferentValue()
-        {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(2.0, LengthUnit.Feet);
-
-            Assert.IsFalse(q1.Equals(q2));
+            Assert.AreEqual(36.0,
+                QuantityLength.Convert(1.0, LengthUnit.Yards, LengthUnit.Inch),
+                EPSILON);
         }
 
         [Test]
-        public void TestEquality_InchToInch_DifferentValue()
+        public void TestConversion_CentimetersToInches()
         {
-            var q1 = new QuantityLength(10.0, LengthUnit.Inch);
-            var q2 = new QuantityLength(5.0, LengthUnit.Inch);
-
-            Assert.IsFalse(q1.Equals(q2));
+            Assert.AreEqual(1.0,
+                QuantityLength.Convert(2.54, LengthUnit.Centimeters, LengthUnit.Inch),
+                1e-4);
         }
 
-        // Null handling
         [Test]
-        public void TestEquality_NullComparison()
+        public void TestConversion_RoundTrip_PreservesValue()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
+            double value = 5.0;
 
-            Assert.IsFalse(q1.Equals(null));
+            double converted = QuantityLength.Convert(value, LengthUnit.Feet, LengthUnit.Inch);
+            double back = QuantityLength.Convert(converted, LengthUnit.Inch, LengthUnit.Feet);
+
+            Assert.AreEqual(value, back, EPSILON);
         }
 
-        // Same reference
         [Test]
-        public void TestEquality_SameReference()
+        public void TestConversion_ZeroValue()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-
-            Assert.IsTrue(q1.Equals(q1));
+            Assert.AreEqual(0.0,
+                QuantityLength.Convert(0.0, LengthUnit.Feet, LengthUnit.Inch),
+                EPSILON);
         }
 
-        // Symmetry test
         [Test]
-        public void TestEquality_SymmetricProperty()
+        public void TestConversion_NegativeValue()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(12.0, LengthUnit.Inch);
-
-            Assert.IsTrue(q1.Equals(q2));
-            Assert.IsTrue(q2.Equals(q1));
+            Assert.AreEqual(-12.0,
+                QuantityLength.Convert(-1.0, LengthUnit.Feet, LengthUnit.Inch),
+                EPSILON);
         }
 
-        // Transitive test
         [Test]
-        public void TestEquality_TransitiveProperty()
+        public void TestConversion_InvalidValue_Throws()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(12.0, LengthUnit.Inch);
-            var q3 = new QuantityLength(1.0, LengthUnit.Feet);
-
-            Assert.IsTrue(q1.Equals(q2));
-            Assert.IsTrue(q2.Equals(q3));
-            Assert.IsTrue(q1.Equals(q3));
+            Assert.Throws<System.ArgumentException>(() =>
+                QuantityLength.Convert(double.NaN, LengthUnit.Feet, LengthUnit.Inch));
         }
     }
 }
