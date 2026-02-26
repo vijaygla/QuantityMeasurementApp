@@ -7,6 +7,7 @@ namespace QuantityMeasurementApp.Models
         private readonly double value;
         private readonly LengthUnit unit;
 
+        // Conversion constants
         private const double InchesPerFoot = 12.0;
         private const double FeetPerYard = 3.0;
         private const double CmPerFoot = 30.48;
@@ -26,7 +27,7 @@ namespace QuantityMeasurementApp.Models
         public LengthUnit Unit => unit;
 
         // -------------------------
-        // BASE CONVERSION
+        // Convert to Base Unit (Feet)
         // -------------------------
         private double ConvertToFeet()
         {
@@ -41,7 +42,7 @@ namespace QuantityMeasurementApp.Models
         }
 
         // -------------------------
-        // INSTANCE METHOD CONVERSION
+        // UC5 - Conversion
         // -------------------------
         public QuantityLength ConvertTo(LengthUnit targetUnit)
         {
@@ -59,20 +60,45 @@ namespace QuantityMeasurementApp.Models
             return new QuantityLength(convertedValue, targetUnit);
         }
 
-        // -------------------------
-        // STATIC API METHOD
-        // -------------------------
         public static double Convert(double value, LengthUnit source, LengthUnit target)
         {
-            if (double.IsNaN(value) || double.IsInfinity(value))
-                throw new ArgumentException("Invalid numeric value.");
-
-            QuantityLength q = new QuantityLength(value, source);
+            var q = new QuantityLength(value, source);
             return q.ConvertTo(target).Value;
         }
 
         // -------------------------
-        // EQUALITY OVERRIDE
+        // UC6 - Addition
+        // -------------------------
+        public QuantityLength Add(QuantityLength other)
+        {
+            if (other == null)
+                throw new ArgumentException("Second operand cannot be null.");
+
+            double sumInFeet = this.ConvertToFeet() + other.ConvertToFeet();
+
+            double resultValue = this.unit switch
+            {
+                LengthUnit.Feet => sumInFeet,
+                LengthUnit.Inch => sumInFeet * InchesPerFoot,
+                LengthUnit.Yards => sumInFeet / FeetPerYard,
+                LengthUnit.Centimeters => sumInFeet * CmPerFoot,
+                _ => throw new ArgumentException("Unsupported unit.")
+            };
+
+            return new QuantityLength(resultValue, this.unit);
+        }
+
+        public static QuantityLength Add(
+            double v1, LengthUnit u1,
+            double v2, LengthUnit u2)
+        {
+            var q1 = new QuantityLength(v1, u1);
+            var q2 = new QuantityLength(v2, u2);
+            return q1.Add(q2);
+        }
+
+        // -------------------------
+        // UC1–UC4 Equality
         // -------------------------
         public override bool Equals(object obj)
         {
