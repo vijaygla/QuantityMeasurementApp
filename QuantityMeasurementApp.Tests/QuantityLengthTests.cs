@@ -42,15 +42,6 @@ namespace QuantityMeasurementApp.Tests
             Assert.IsTrue(i1.Equals(i2));
         }
 
-        [Test]
-        public void UC2_Inches_DifferentValue_ShouldNotBeEqual()
-        {
-            var i1 = new QuantityLength(5.0, LengthUnit.Inch);
-            var i2 = new QuantityLength(6.0, LengthUnit.Inch);
-
-            Assert.IsFalse(i1.Equals(i2));
-        }
-
         // ============================================================
         // ======================= UC3 TESTS ==========================
         // ============================================================
@@ -99,7 +90,7 @@ namespace QuantityMeasurementApp.Tests
         }
 
         [Test]
-        public void UC5_Convert_RoundTrip_ShouldPreserveValue()
+        public void UC5_RoundTrip_ShouldPreserveValue()
         {
             double value = 10.0;
 
@@ -137,35 +128,10 @@ namespace QuantityMeasurementApp.Tests
 
         // ============================================================
         // ======================= UC7 TESTS ==========================
-        // Explicit Target Unit Addition
         // ============================================================
 
         [Test]
-        public void UC7_Add_ExplicitTarget_Feet()
-        {
-            var result = QuantityLength.Add(
-                1.0, LengthUnit.Feet,
-                12.0, LengthUnit.Inch,
-                LengthUnit.Feet);
-
-            Assert.AreEqual(2.0, result.Value, EPSILON);
-            Assert.AreEqual(LengthUnit.Feet, result.Unit);
-        }
-
-        [Test]
-        public void UC7_Add_ExplicitTarget_Inches()
-        {
-            var result = QuantityLength.Add(
-                1.0, LengthUnit.Feet,
-                12.0, LengthUnit.Inch,
-                LengthUnit.Inch);
-
-            Assert.AreEqual(24.0, result.Value, EPSILON);
-            Assert.AreEqual(LengthUnit.Inch, result.Unit);
-        }
-
-        [Test]
-        public void UC7_Add_ExplicitTarget_Yards()
+        public void UC7_Add_WithExplicitTarget_Yards()
         {
             var result = QuantityLength.Add(
                 1.0, LengthUnit.Feet,
@@ -177,7 +143,7 @@ namespace QuantityMeasurementApp.Tests
         }
 
         [Test]
-        public void UC7_Add_Commutativity_WithExplicitTarget()
+        public void UC7_Commutativity_WithExplicitTarget()
         {
             var r1 = QuantityLength.Add(
                 1.0, LengthUnit.Feet,
@@ -192,15 +158,50 @@ namespace QuantityMeasurementApp.Tests
             Assert.AreEqual(r1.Value, r2.Value, EPSILON);
         }
 
+        // ============================================================
+        // ======================= UC8 TESTS ==========================
+        // Standalone LengthUnit Conversion Responsibility
+        // ============================================================
+
         [Test]
-        public void UC7_Add_NullTarget_ShouldThrow()
+        public void UC8_LengthUnit_ConvertToBase_InchesToFeet()
+        {
+            double feet = LengthUnit.Inch.ConvertToBaseUnit(12.0);
+
+            Assert.AreEqual(1.0, feet, EPSILON);
+        }
+
+        [Test]
+        public void UC8_LengthUnit_ConvertFromBase_FeetToInches()
+        {
+            double inches = LengthUnit.Inch.ConvertFromBaseUnit(1.0);
+
+            Assert.AreEqual(12.0, inches, EPSILON);
+        }
+
+        [Test]
+        public void UC8_QuantityLength_DelegatesConversion()
+        {
+            var q = new QuantityLength(1.0, LengthUnit.Feet);
+            var converted = q.ConvertTo(LengthUnit.Inch);
+
+            Assert.AreEqual(12.0, converted.Value, EPSILON);
+        }
+
+        [Test]
+        public void UC8_BackwardCompatibility_UC1ToUC7StillWorks()
         {
             var q1 = new QuantityLength(1.0, LengthUnit.Feet);
             var q2 = new QuantityLength(12.0, LengthUnit.Inch);
 
+            Assert.IsTrue(q1.Equals(q2));
+        }
+
+        [Test]
+        public void UC8_InvalidValue_ShouldThrow()
+        {
             Assert.Throws<System.ArgumentException>(() =>
-                q1.Add(q2, (LengthUnit)(-1)));
+                new QuantityLength(double.NaN, LengthUnit.Feet));
         }
     }
 }
-

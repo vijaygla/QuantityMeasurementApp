@@ -7,11 +7,6 @@ namespace QuantityMeasurementApp.Models
         private readonly double value;
         private readonly LengthUnit unit;
 
-        // Conversion constants
-        private const double InchesPerFoot = 12.0;
-        private const double FeetPerYard = 3.0;
-        private const double CmPerFoot = 30.48;
-
         private const double EPSILON = 1e-6;
 
         public QuantityLength(double value, LengthUnit unit)
@@ -30,32 +25,11 @@ namespace QuantityMeasurementApp.Models
         public LengthUnit Unit => unit;
 
         // =========================================================
-        // BASE CONVERSION
+        // BASE CONVERSION (Delegated to LengthUnit)
         // =========================================================
         private double ConvertToFeet()
         {
-            return unit switch
-            {
-                LengthUnit.Feet => value,
-                LengthUnit.Inch => value / InchesPerFoot,
-                LengthUnit.Yards => value * FeetPerYard,
-                LengthUnit.Centimeters => value / CmPerFoot,
-                _ => throw new ArgumentException("Unsupported unit.")
-            };
-        }
-
-        private QuantityLength ConvertFromFeet(double feetValue, LengthUnit targetUnit)
-        {
-            double resultValue = targetUnit switch
-            {
-                LengthUnit.Feet => feetValue,
-                LengthUnit.Inch => feetValue * InchesPerFoot,
-                LengthUnit.Yards => feetValue / FeetPerYard,
-                LengthUnit.Centimeters => feetValue * CmPerFoot,
-                _ => throw new ArgumentException("Unsupported unit.")
-            };
-
-            return new QuantityLength(resultValue, targetUnit);
+            return unit.ConvertToBaseUnit(value);
         }
 
         // =========================================================
@@ -63,27 +37,33 @@ namespace QuantityMeasurementApp.Models
         // =========================================================
         public QuantityLength ConvertTo(LengthUnit targetUnit)
         {
-            double feetValue = ConvertToFeet();
-            return ConvertFromFeet(feetValue, targetUnit);
+            double baseValue = ConvertToFeet();
+            double convertedValue = targetUnit.ConvertFromBaseUnit(baseValue);
+
+            return new QuantityLength(convertedValue, targetUnit);
         }
 
         public static double Convert(double value, LengthUnit source, LengthUnit target)
         {
-            var q = new QuantityLength(value, source);
-            return q.ConvertTo(target).Value;
+            double baseValue = source.ConvertToBaseUnit(value);
+            return target.ConvertFromBaseUnit(baseValue);
         }
 
         // =========================================================
-        // UC6 - ADDITION (Result in First Operand Unit)
+        // UC6 - ADDITION (Implicit Target Unit)
         // =========================================================
         public QuantityLength Add(QuantityLength other)
         {
             if (other == null)
                 throw new ArgumentException("Second operand cannot be null.");
 
-            double sumInFeet = AddInFeet(other);
+            double sumInFeet =
+                this.unit.ConvertToBaseUnit(this.value) +
+                other.unit.ConvertToBaseUnit(other.value);
 
-            return ConvertFromFeet(sumInFeet, this.unit);
+            double resultValue = this.unit.ConvertFromBaseUnit(sumInFeet);
+
+            return new QuantityLength(resultValue, this.unit);
         }
 
         public static QuantityLength Add(
@@ -97,7 +77,7 @@ namespace QuantityMeasurementApp.Models
         }
 
         // =========================================================
-        // UC7 - ADDITION WITH EXPLICIT TARGET UNIT
+        // UC7 - ADDITION (Explicit Target Unit)
         // =========================================================
         public QuantityLength Add(QuantityLength other, LengthUnit targetUnit)
         {
@@ -107,9 +87,13 @@ namespace QuantityMeasurementApp.Models
             if (!Enum.IsDefined(typeof(LengthUnit), targetUnit))
                 throw new ArgumentException("Invalid target unit.");
 
-            double sumInFeet = AddInFeet(other);
+            double sumInFeet =
+                this.unit.ConvertToBaseUnit(this.value) +
+                other.unit.ConvertToBaseUnit(other.value);
 
-            return ConvertFromFeet(sumInFeet, targetUnit);
+            double resultValue = targetUnit.ConvertFromBaseUnit(sumInFeet);
+
+            return new QuantityLength(resultValue, targetUnit);
         }
 
         public static QuantityLength Add(
@@ -124,14 +108,6 @@ namespace QuantityMeasurementApp.Models
         }
 
         // =========================================================
-        // PRIVATE UTILITY FOR ADDITION
-        // =========================================================
-        private double AddInFeet(QuantityLength other)
-        {
-            return this.ConvertToFeet() + other.ConvertToFeet();
-        }
-
-        // =========================================================
         // UC1–UC4 - EQUALITY
         // =========================================================
         public override bool Equals(object obj)
@@ -141,12 +117,15 @@ namespace QuantityMeasurementApp.Models
 
             QuantityLength other = (QuantityLength)obj;
 
-            return Math.Abs(this.ConvertToFeet() - other.ConvertToFeet()) < EPSILON;
+            double thisFeet = this.unit.ConvertToBaseUnit(this.value);
+            double otherFeet = other.unit.ConvertToBaseUnit(other.value);
+
+            return Math.Abs(thisFeet - otherFeet) < EPSILON;
         }
 
         public override int GetHashCode()
         {
-            return ConvertToFeet().GetHashCode();
+            return unit.ConvertToBaseUnit(value).GetHashCode();
         }
 
         public override string ToString()

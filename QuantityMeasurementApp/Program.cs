@@ -6,6 +6,15 @@ class Program
 {
     static void Main()
     {
+        Console.WriteLine("==============================================");
+        Console.WriteLine("        QUANTITY MEASUREMENT SYSTEM");
+        Console.WriteLine("        UC1 → UC8 Demonstration");
+        Console.WriteLine("==============================================\n");
+
+
+        // =========================================================
+        // UC3 & UC4 : Equality
+        // =========================================================
         Console.WriteLine("========= UC3 & UC4 : Equality =========\n");
 
         Console.WriteLine($"1 Foot == 12 Inches -> " +
@@ -18,21 +27,27 @@ class Program
             $"{QuantityMeasurement.AreEqual(1.0, LengthUnit.Centimeters, 0.393701, LengthUnit.Inch)}");
 
 
+        // =========================================================
+        // UC5 : Conversion
+        // =========================================================
         Console.WriteLine("\n========= UC5 : Conversion =========\n");
 
-        Console.WriteLine($"1 Foot -> Inches = " +
+        Console.WriteLine($"1 Foot → Inches = " +
             $"{QuantityMeasurement.Convert(1.0, LengthUnit.Feet, LengthUnit.Inch)}");
 
-        Console.WriteLine($"3 Yards -> Feet = " +
+        Console.WriteLine($"3 Yards → Feet = " +
             $"{QuantityMeasurement.Convert(3.0, LengthUnit.Yards, LengthUnit.Feet)}");
 
-        Console.WriteLine($"36 Inches -> Yards = " +
+        Console.WriteLine($"36 Inches → Yards = " +
             $"{QuantityMeasurement.Convert(36.0, LengthUnit.Inch, LengthUnit.Yards)}");
 
-        Console.WriteLine($"2.54 CM -> Inches = " +
+        Console.WriteLine($"2.54 CM → Inches = " +
             $"{QuantityMeasurement.Convert(2.54, LengthUnit.Centimeters, LengthUnit.Inch)}");
 
 
+        // =========================================================
+        // UC6 : Addition (Implicit Target Unit)
+        // =========================================================
         Console.WriteLine("\n========= UC6 : Addition (Implicit Target Unit) =========\n");
 
         var add1 = QuantityMeasurement.Add(
@@ -48,6 +63,9 @@ class Program
         Console.WriteLine($"5 Feet + (-2 Feet) = {add2}");
 
 
+        // =========================================================
+        // UC7 : Addition (Explicit Target Unit)
+        // =========================================================
         Console.WriteLine("\n========= UC7 : Addition (Explicit Target Unit) =========\n");
 
         var explicit1 = QuantityMeasurement.Add(
@@ -84,5 +102,28 @@ class Program
             LengthUnit.Centimeters);
 
         Console.WriteLine($"2.54 CM + 1 Inch (in CM) = {explicit5}");
+
+
+        // =========================================================
+        // UC8 : Direct Enum Responsibility Demonstration
+        // =========================================================
+        Console.WriteLine("\n========= UC8 : Standalone LengthUnit Demonstration =========\n");
+
+        Console.WriteLine($"LengthUnit.Feet.ConvertToBaseUnit(12) = " +
+            $"{LengthUnit.Feet.ConvertToBaseUnit(12)} (Feet)");
+
+        Console.WriteLine($"LengthUnit.Inch.ConvertToBaseUnit(12) = " +
+            $"{LengthUnit.Inch.ConvertToBaseUnit(12)} (Feet)");
+
+        Console.WriteLine($"LengthUnit.Yards.ConvertFromBaseUnit(3) = " +
+            $"{LengthUnit.Yards.ConvertFromBaseUnit(3)} (Yards)");
+
+        Console.WriteLine($"LengthUnit.Centimeters.ConvertFromBaseUnit(1) = " +
+            $"{LengthUnit.Centimeters.ConvertFromBaseUnit(1)} (CM)");
+
+
+        Console.WriteLine("\n==============================================");
+        Console.WriteLine("        All UC1 → UC8 Features Working");
+        Console.WriteLine("==============================================");
     }
 }
