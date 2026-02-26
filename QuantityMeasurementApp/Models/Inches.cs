@@ -2,12 +2,12 @@ using System;
 
 namespace QuantityMeasurementApp.Models
 {
-    public class Feet
+    public class Inches
     {
-        // Immutable field – once assigned, cannot change
+        // Immutable storage of inch value
         private readonly double value;
 
-        public Feet(double value)
+        public Inches(double value)
         {
             this.value = value;
         }
@@ -16,7 +16,7 @@ namespace QuantityMeasurementApp.Models
 
         public override bool Equals(object obj)
         {
-            // Reflexive: same reference
+            // Reflexive property
             if (this == obj)
                 return true;
 
@@ -24,13 +24,13 @@ namespace QuantityMeasurementApp.Models
             if (obj == null)
                 return false;
 
-            // Type safety check
+            // Ensure same type comparison
             if (this.GetType() != obj.GetType())
                 return false;
 
-            Feet other = (Feet)obj;
+            Inches other = (Inches)obj;
 
-            // Floating point safe comparison
+            // Safe floating point comparison
             return this.value.CompareTo(other.value) == 0;
         }
 
