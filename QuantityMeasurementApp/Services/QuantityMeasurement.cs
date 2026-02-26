@@ -4,11 +4,16 @@ namespace QuantityMeasurementApp.Services
 {
     public static class QuantityMeasurement
     {
-        public static bool AreEqual(double value1, LengthUnit unit1,
-                                    double value2, LengthUnit unit2)
+        public static double Convert(double value, LengthUnit source, LengthUnit target)
         {
-            QuantityLength q1 = new QuantityLength(value1, unit1);
-            QuantityLength q2 = new QuantityLength(value2, unit2);
+            return QuantityLength.Convert(value, source, target);
+        }
+
+        public static bool AreEqual(double v1, LengthUnit u1,
+                                    double v2, LengthUnit u2)
+        {
+            var q1 = new QuantityLength(v1, u1);
+            var q2 = new QuantityLength(v2, u2);
 
             return q1.Equals(q2);
         }

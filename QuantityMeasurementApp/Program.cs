@@ -2,23 +2,18 @@
 using QuantityMeasurementApp.Models;
 using QuantityMeasurementApp.Services;
 
-namespace QuantityMeasurementApp
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine($"Is 1 Yard equal to 3 Feet? -> " + $"{QuantityMeasurement.AreEqual(1.0, LengthUnit.Yards, 3.0, LengthUnit.Feet)}");
+        Console.WriteLine($"1 Foot -> Inches: {QuantityMeasurement.Convert(1.0, LengthUnit.Feet, LengthUnit.Inch)}");
 
-            Console.WriteLine(
-                $"Is 1 Yard equal to 36 Inches? -> " +
-                $"{QuantityMeasurement.AreEqual(1.0, LengthUnit.Yards,
-                                                36.0, LengthUnit.Inch)}");
+        Console.WriteLine($"3 Yards -> Feet: {QuantityMeasurement.Convert(3.0, LengthUnit.Yards, LengthUnit.Feet)}");
 
-            Console.WriteLine(
-                $"Is 1 Centimeter equal to 0.393701 Inches? -> " +
-                $"{QuantityMeasurement.AreEqual(1.0, LengthUnit.Centimeters,
-                                                0.393701, LengthUnit.Inch)}");
-        }
+        Console.WriteLine($"36 Inches -> Yards: {QuantityMeasurement.Convert(36.0, LengthUnit.Inch, LengthUnit.Yards)}");
+
+        Console.WriteLine($"1 CM -> Inches: {QuantityMeasurement.Convert(1.0, LengthUnit.Centimeters, LengthUnit.Inch)}");
+
+        Console.WriteLine($"0 Feet -> Inches: {QuantityMeasurement.Convert(0.0, LengthUnit.Feet, LengthUnit.Inch)}");
     }
 }
