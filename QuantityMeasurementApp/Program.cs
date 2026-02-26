@@ -1,4 +1,5 @@
 ﻿using System;
+using QuantityMeasurementApp.Models;
 using QuantityMeasurementApp.Services;
 
 namespace QuantityMeasurementApp
@@ -7,12 +8,16 @@ namespace QuantityMeasurementApp
     {
         static void Main(string[] args)
         {
-            bool feetResult = QuantityMeasurement.AreFeetEqual(1.0, 1.0);
-            bool inchResult = QuantityMeasurement.AreInchesEqual(1.0, 1.0);
+            bool result1 = QuantityMeasurement.AreEqual(
+                1.0, LengthUnit.Feet,
+                12.0, LengthUnit.Inch);
 
-            Console.WriteLine($"1.0 ft and 1.0 ft -> Equal ({feetResult})");
-            Console.WriteLine($"1.0 inch and 1.0 inch -> Equal ({inchResult})");
+            bool result2 = QuantityMeasurement.AreEqual(
+                1.0, LengthUnit.Inch,
+                1.0, LengthUnit.Inch);
+
+            Console.WriteLine($"1 ft and 12 inches -> Equal ({result1})");
+            Console.WriteLine($"1 inch and 1 inch -> Equal ({result2})");
         }
     }
 }
-
