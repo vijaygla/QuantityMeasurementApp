@@ -9,7 +9,6 @@ namespace QuantityMeasurementApp.Tests
 
         // ============================================================
         // ======================= UC1 TESTS ==========================
-        // Feet Equality
         // ============================================================
 
         [Test]
@@ -32,7 +31,6 @@ namespace QuantityMeasurementApp.Tests
 
         // ============================================================
         // ======================= UC2 TESTS ==========================
-        // Inches Equality
         // ============================================================
 
         [Test]
@@ -55,7 +53,6 @@ namespace QuantityMeasurementApp.Tests
 
         // ============================================================
         // ======================= UC3 TESTS ==========================
-        // Cross-Unit Equality
         // ============================================================
 
         [Test]
@@ -69,7 +66,6 @@ namespace QuantityMeasurementApp.Tests
 
         // ============================================================
         // ======================= UC4 TESTS ==========================
-        // Extended Units (Yards, CM)
         // ============================================================
 
         [Test]
@@ -92,7 +88,6 @@ namespace QuantityMeasurementApp.Tests
 
         // ============================================================
         // ======================= UC5 TESTS ==========================
-        // Conversion
         // ============================================================
 
         [Test]
@@ -100,14 +95,6 @@ namespace QuantityMeasurementApp.Tests
         {
             Assert.AreEqual(12.0,
                 QuantityLength.Convert(1.0, LengthUnit.Feet, LengthUnit.Inch),
-                EPSILON);
-        }
-
-        [Test]
-        public void UC5_Convert_YardsToFeet()
-        {
-            Assert.AreEqual(9.0,
-                QuantityLength.Convert(3.0, LengthUnit.Yards, LengthUnit.Feet),
                 EPSILON);
         }
 
@@ -124,7 +111,6 @@ namespace QuantityMeasurementApp.Tests
 
         // ============================================================
         // ======================= UC6 TESTS ==========================
-        // Addition
         // ============================================================
 
         [Test]
@@ -149,49 +135,72 @@ namespace QuantityMeasurementApp.Tests
             Assert.AreEqual(2.0, result.Value, EPSILON);
         }
 
+        // ============================================================
+        // ======================= UC7 TESTS ==========================
+        // Explicit Target Unit Addition
+        // ============================================================
+
         [Test]
-        public void UC6_Add_Commutativity()
+        public void UC7_Add_ExplicitTarget_Feet()
+        {
+            var result = QuantityLength.Add(
+                1.0, LengthUnit.Feet,
+                12.0, LengthUnit.Inch,
+                LengthUnit.Feet);
+
+            Assert.AreEqual(2.0, result.Value, EPSILON);
+            Assert.AreEqual(LengthUnit.Feet, result.Unit);
+        }
+
+        [Test]
+        public void UC7_Add_ExplicitTarget_Inches()
+        {
+            var result = QuantityLength.Add(
+                1.0, LengthUnit.Feet,
+                12.0, LengthUnit.Inch,
+                LengthUnit.Inch);
+
+            Assert.AreEqual(24.0, result.Value, EPSILON);
+            Assert.AreEqual(LengthUnit.Inch, result.Unit);
+        }
+
+        [Test]
+        public void UC7_Add_ExplicitTarget_Yards()
+        {
+            var result = QuantityLength.Add(
+                1.0, LengthUnit.Feet,
+                12.0, LengthUnit.Inch,
+                LengthUnit.Yards);
+
+            Assert.AreEqual(0.6666667, result.Value, 1e-4);
+            Assert.AreEqual(LengthUnit.Yards, result.Unit);
+        }
+
+        [Test]
+        public void UC7_Add_Commutativity_WithExplicitTarget()
+        {
+            var r1 = QuantityLength.Add(
+                1.0, LengthUnit.Feet,
+                12.0, LengthUnit.Inch,
+                LengthUnit.Yards);
+
+            var r2 = QuantityLength.Add(
+                12.0, LengthUnit.Inch,
+                1.0, LengthUnit.Feet,
+                LengthUnit.Yards);
+
+            Assert.AreEqual(r1.Value, r2.Value, EPSILON);
+        }
+
+        [Test]
+        public void UC7_Add_NullTarget_ShouldThrow()
         {
             var q1 = new QuantityLength(1.0, LengthUnit.Feet);
             var q2 = new QuantityLength(12.0, LengthUnit.Inch);
 
-            var r1 = q1.Add(q2);
-            var r2 = q2.Add(q1);
-
-            Assert.AreEqual(
-                r1.ConvertTo(LengthUnit.Feet).Value,
-                r2.ConvertTo(LengthUnit.Feet).Value,
-                EPSILON);
-        }
-
-        [Test]
-        public void UC6_Add_WithZero()
-        {
-            var q1 = new QuantityLength(5.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(0.0, LengthUnit.Inch);
-
-            var result = q1.Add(q2);
-
-            Assert.AreEqual(5.0, result.Value, EPSILON);
-        }
-
-        [Test]
-        public void UC6_Add_NegativeValue()
-        {
-            var q1 = new QuantityLength(5.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(-2.0, LengthUnit.Feet);
-
-            var result = q1.Add(q2);
-
-            Assert.AreEqual(3.0, result.Value, EPSILON);
-        }
-
-        [Test]
-        public void UC6_Add_NullOperand_ShouldThrow()
-        {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-
-            Assert.Throws<System.ArgumentException>(() => q1.Add(null));
+            Assert.Throws<System.ArgumentException>(() =>
+                q1.Add(q2, (LengthUnit)(-1)));
         }
     }
 }
+

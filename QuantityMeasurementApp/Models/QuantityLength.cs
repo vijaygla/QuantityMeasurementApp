@@ -19,6 +19,9 @@ namespace QuantityMeasurementApp.Models
             if (double.IsNaN(value) || double.IsInfinity(value))
                 throw new ArgumentException("Invalid numeric value.");
 
+            if (!Enum.IsDefined(typeof(LengthUnit), unit))
+                throw new ArgumentException("Invalid unit.");
+
             this.value = value;
             this.unit = unit;
         }
@@ -26,9 +29,9 @@ namespace QuantityMeasurementApp.Models
         public double Value => value;
         public LengthUnit Unit => unit;
 
-        // -------------------------
-        // Convert to Base Unit (Feet)
-        // -------------------------
+        // =========================================================
+        // BASE CONVERSION
+        // =========================================================
         private double ConvertToFeet()
         {
             return unit switch
@@ -41,14 +44,9 @@ namespace QuantityMeasurementApp.Models
             };
         }
 
-        // -------------------------
-        // UC5 - Conversion
-        // -------------------------
-        public QuantityLength ConvertTo(LengthUnit targetUnit)
+        private QuantityLength ConvertFromFeet(double feetValue, LengthUnit targetUnit)
         {
-            double feetValue = ConvertToFeet();
-
-            double convertedValue = targetUnit switch
+            double resultValue = targetUnit switch
             {
                 LengthUnit.Feet => feetValue,
                 LengthUnit.Inch => feetValue * InchesPerFoot,
@@ -57,7 +55,16 @@ namespace QuantityMeasurementApp.Models
                 _ => throw new ArgumentException("Unsupported unit.")
             };
 
-            return new QuantityLength(convertedValue, targetUnit);
+            return new QuantityLength(resultValue, targetUnit);
+        }
+
+        // =========================================================
+        // UC5 - CONVERSION
+        // =========================================================
+        public QuantityLength ConvertTo(LengthUnit targetUnit)
+        {
+            double feetValue = ConvertToFeet();
+            return ConvertFromFeet(feetValue, targetUnit);
         }
 
         public static double Convert(double value, LengthUnit source, LengthUnit target)
@@ -66,26 +73,17 @@ namespace QuantityMeasurementApp.Models
             return q.ConvertTo(target).Value;
         }
 
-        // -------------------------
-        // UC6 - Addition
-        // -------------------------
+        // =========================================================
+        // UC6 - ADDITION (Result in First Operand Unit)
+        // =========================================================
         public QuantityLength Add(QuantityLength other)
         {
             if (other == null)
                 throw new ArgumentException("Second operand cannot be null.");
 
-            double sumInFeet = this.ConvertToFeet() + other.ConvertToFeet();
+            double sumInFeet = AddInFeet(other);
 
-            double resultValue = this.unit switch
-            {
-                LengthUnit.Feet => sumInFeet,
-                LengthUnit.Inch => sumInFeet * InchesPerFoot,
-                LengthUnit.Yards => sumInFeet / FeetPerYard,
-                LengthUnit.Centimeters => sumInFeet * CmPerFoot,
-                _ => throw new ArgumentException("Unsupported unit.")
-            };
-
-            return new QuantityLength(resultValue, this.unit);
+            return ConvertFromFeet(sumInFeet, this.unit);
         }
 
         public static QuantityLength Add(
@@ -94,12 +92,48 @@ namespace QuantityMeasurementApp.Models
         {
             var q1 = new QuantityLength(v1, u1);
             var q2 = new QuantityLength(v2, u2);
+
             return q1.Add(q2);
         }
 
-        // -------------------------
-        // UC1–UC4 Equality
-        // -------------------------
+        // =========================================================
+        // UC7 - ADDITION WITH EXPLICIT TARGET UNIT
+        // =========================================================
+        public QuantityLength Add(QuantityLength other, LengthUnit targetUnit)
+        {
+            if (other == null)
+                throw new ArgumentException("Second operand cannot be null.");
+
+            if (!Enum.IsDefined(typeof(LengthUnit), targetUnit))
+                throw new ArgumentException("Invalid target unit.");
+
+            double sumInFeet = AddInFeet(other);
+
+            return ConvertFromFeet(sumInFeet, targetUnit);
+        }
+
+        public static QuantityLength Add(
+            double v1, LengthUnit u1,
+            double v2, LengthUnit u2,
+            LengthUnit targetUnit)
+        {
+            var q1 = new QuantityLength(v1, u1);
+            var q2 = new QuantityLength(v2, u2);
+
+            return q1.Add(q2, targetUnit);
+        }
+
+        // =========================================================
+        // PRIVATE UTILITY FOR ADDITION
+        // =========================================================
+        private double AddInFeet(QuantityLength other)
+        {
+            return this.ConvertToFeet() + other.ConvertToFeet();
+        }
+
+        // =========================================================
+        // UC1–UC4 - EQUALITY
+        // =========================================================
         public override bool Equals(object obj)
         {
             if (this == obj) return true;
