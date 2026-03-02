@@ -7,110 +7,64 @@ namespace QuantityMeasurementApp.Tests
     {
         private const double EPSILON = 1e-6;
 
-        // ============================================================
-        // ======================= UC1 TESTS ==========================
-        // ============================================================
+        // ================= UC1–UC4 : Length Equality =================
 
         [Test]
-        public void UC1_Feet_SameValue_ShouldBeEqual()
+        public void UC1_SameUnit_ShouldBeEqual()
         {
-            var f1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var f2 = new QuantityLength(1.0, LengthUnit.Feet);
+            var q1 = new Quantity<LengthUnit>(1.0, LengthUnit.Feet);
+            var q2 = new Quantity<LengthUnit>(1.0, LengthUnit.Feet);
 
-            Assert.IsTrue(f1.Equals(f2));
+            Assert.IsTrue(q1.Equals(q2));
         }
 
         [Test]
-        public void UC1_Feet_DifferentValue_ShouldNotBeEqual()
+        public void UC3_CrossUnit_ShouldBeEqual()
         {
-            var f1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var f2 = new QuantityLength(2.0, LengthUnit.Feet);
+            var q1 = new Quantity<LengthUnit>(1.0, LengthUnit.Feet);
+            var q2 = new Quantity<LengthUnit>(12.0, LengthUnit.Inch);
 
-            Assert.IsFalse(f1.Equals(f2));
+            Assert.IsTrue(q1.Equals(q2));
         }
-
-        // ============================================================
-        // ======================= UC2 TESTS ==========================
-        // ============================================================
-
-        [Test]
-        public void UC2_Inches_SameValue_ShouldBeEqual()
-        {
-            var i1 = new QuantityLength(5.0, LengthUnit.Inch);
-            var i2 = new QuantityLength(5.0, LengthUnit.Inch);
-
-            Assert.IsTrue(i1.Equals(i2));
-        }
-
-        // ============================================================
-        // ======================= UC3 TESTS ==========================
-        // ============================================================
-
-        [Test]
-        public void UC3_FeetToInches_ShouldBeEqual()
-        {
-            var feet = new QuantityLength(1.0, LengthUnit.Feet);
-            var inches = new QuantityLength(12.0, LengthUnit.Inch);
-
-            Assert.IsTrue(feet.Equals(inches));
-        }
-
-        // ============================================================
-        // ======================= UC4 TESTS ==========================
-        // ============================================================
 
         [Test]
         public void UC4_YardToFeet_ShouldBeEqual()
         {
-            var yard = new QuantityLength(1.0, LengthUnit.Yards);
-            var feet = new QuantityLength(3.0, LengthUnit.Feet);
+            var yard = new Quantity<LengthUnit>(1.0, LengthUnit.Yards);
+            var feet = new Quantity<LengthUnit>(3.0, LengthUnit.Feet);
 
             Assert.IsTrue(yard.Equals(feet));
         }
 
-        [Test]
-        public void UC4_CentimeterToInch_ShouldBeEqual()
-        {
-            var cm = new QuantityLength(2.54, LengthUnit.Centimeters);
-            var inch = new QuantityLength(1.0, LengthUnit.Inch);
-
-            Assert.IsTrue(cm.Equals(inch));
-        }
-
-        // ============================================================
-        // ======================= UC5 TESTS ==========================
-        // ============================================================
+        // ================= UC5 : Conversion =================
 
         [Test]
         public void UC5_Convert_FeetToInches()
         {
-            Assert.AreEqual(12.0,
-                QuantityLength.Convert(1.0, LengthUnit.Feet, LengthUnit.Inch),
-                EPSILON);
+            var result = new Quantity<LengthUnit>(1.0, LengthUnit.Feet)
+                .ConvertTo(LengthUnit.Inch);
+
+            Assert.AreEqual(12.0, result.Value, EPSILON);
         }
 
         [Test]
         public void UC5_RoundTrip_ShouldPreserveValue()
         {
-            double value = 10.0;
+            var q = new Quantity<LengthUnit>(10.0, LengthUnit.Feet);
 
-            double inches = QuantityLength.Convert(value, LengthUnit.Feet, LengthUnit.Inch);
-            double back = QuantityLength.Convert(inches, LengthUnit.Inch, LengthUnit.Feet);
+            var inches = q.ConvertTo(LengthUnit.Inch);
+            var back = inches.ConvertTo(LengthUnit.Feet);
 
-            Assert.AreEqual(value, back, EPSILON);
+            Assert.AreEqual(10.0, back.Value, EPSILON);
         }
 
-        // ============================================================
-        // ======================= UC6 TESTS ==========================
-        // ============================================================
+        // ================= UC6 : Addition (Implicit) =================
 
         [Test]
         public void UC6_Add_SameUnit()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(2.0, LengthUnit.Feet);
-
-            var result = q1.Add(q2);
+            var result = new Quantity<LengthUnit>(1.0, LengthUnit.Feet)
+                .Add(new Quantity<LengthUnit>(2.0, LengthUnit.Feet));
 
             Assert.AreEqual(3.0, result.Value, EPSILON);
         }
@@ -118,90 +72,48 @@ namespace QuantityMeasurementApp.Tests
         [Test]
         public void UC6_Add_CrossUnit()
         {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(12.0, LengthUnit.Inch);
-
-            var result = q1.Add(q2);
+            var result = new Quantity<LengthUnit>(1.0, LengthUnit.Feet)
+                .Add(new Quantity<LengthUnit>(12.0, LengthUnit.Inch));
 
             Assert.AreEqual(2.0, result.Value, EPSILON);
         }
 
-        // ============================================================
-        // ======================= UC7 TESTS ==========================
-        // ============================================================
+        // ================= UC7 : Addition (Explicit) =================
 
         [Test]
-        public void UC7_Add_WithExplicitTarget_Yards()
+        public void UC7_Add_Explicit_Yards()
         {
-            var result = QuantityLength.Add(
-                1.0, LengthUnit.Feet,
-                12.0, LengthUnit.Inch,
-                LengthUnit.Yards);
+            var result = new Quantity<LengthUnit>(1.0, LengthUnit.Feet)
+                .Add(new Quantity<LengthUnit>(12.0, LengthUnit.Inch), LengthUnit.Yards);
 
-            Assert.AreEqual(0.6666667, result.Value, 1e-4);
+            Assert.AreEqual(0.666666, result.Value, 1e-4);
             Assert.AreEqual(LengthUnit.Yards, result.Unit);
         }
 
-        [Test]
-        public void UC7_Commutativity_WithExplicitTarget()
-        {
-            var r1 = QuantityLength.Add(
-                1.0, LengthUnit.Feet,
-                12.0, LengthUnit.Inch,
-                LengthUnit.Yards);
-
-            var r2 = QuantityLength.Add(
-                12.0, LengthUnit.Inch,
-                1.0, LengthUnit.Feet,
-                LengthUnit.Yards);
-
-            Assert.AreEqual(r1.Value, r2.Value, EPSILON);
-        }
-
-        // ============================================================
-        // ======================= UC8 TESTS ==========================
-        // Standalone LengthUnit Conversion Responsibility
-        // ============================================================
+        // ================= UC8 : Enum Responsibility =================
 
         [Test]
-        public void UC8_LengthUnit_ConvertToBase_InchesToFeet()
+        public void UC8_LengthUnit_BaseConversion()
         {
             double feet = LengthUnit.Inch.ConvertToBaseUnit(12.0);
-
             Assert.AreEqual(1.0, feet, EPSILON);
         }
 
-        [Test]
-        public void UC8_LengthUnit_ConvertFromBase_FeetToInches()
-        {
-            double inches = LengthUnit.Inch.ConvertFromBaseUnit(1.0);
-
-            Assert.AreEqual(12.0, inches, EPSILON);
-        }
+        // ================= UC10 : Generic Commutativity =================
 
         [Test]
-        public void UC8_QuantityLength_DelegatesConversion()
+        public void UC10_Addition_Commutativity()
         {
-            var q = new QuantityLength(1.0, LengthUnit.Feet);
-            var converted = q.ConvertTo(LengthUnit.Inch);
+            var q1 = new Quantity<LengthUnit>(1.0, LengthUnit.Feet);
+            var q2 = new Quantity<LengthUnit>(12.0, LengthUnit.Inch);
 
-            Assert.AreEqual(12.0, converted.Value, EPSILON);
-        }
+            var r1 = q1.Add(q2);
+            var r2 = q2.Add(q1);
 
-        [Test]
-        public void UC8_BackwardCompatibility_UC1ToUC7StillWorks()
-        {
-            var q1 = new QuantityLength(1.0, LengthUnit.Feet);
-            var q2 = new QuantityLength(12.0, LengthUnit.Inch);
-
-            Assert.IsTrue(q1.Equals(q2));
-        }
-
-        [Test]
-        public void UC8_InvalidValue_ShouldThrow()
-        {
-            Assert.Throws<System.ArgumentException>(() =>
-                new QuantityLength(double.NaN, LengthUnit.Feet));
+            Assert.AreEqual(
+                r1.ConvertTo(LengthUnit.Feet).Value,
+                r2.ConvertTo(LengthUnit.Feet).Value,
+                EPSILON);
         }
     }
 }

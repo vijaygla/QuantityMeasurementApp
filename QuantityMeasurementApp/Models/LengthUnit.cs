@@ -12,34 +12,35 @@ namespace QuantityMeasurementApp.Models
 
     public static class LengthUnitExtensions
     {
-        private const double InchesPerFoot = 12.0;
-        private const double FeetPerYard = 3.0;
-        private const double CmPerFoot = 30.48;
-
-        // Convert value from this unit to base unit (Feet)
-        public static double ConvertToBaseUnit(this LengthUnit unit, double value)
+        // Conversion factors relative to base unit (Feet)
+        public static double GetConversionFactor(this LengthUnit unit)
         {
             return unit switch
             {
-                LengthUnit.Feet => value,
-                LengthUnit.Inch => value / InchesPerFoot,
-                LengthUnit.Yards => value * FeetPerYard,
-                LengthUnit.Centimeters => value / CmPerFoot,
-                _ => throw new ArgumentException("Unsupported unit.")
+                LengthUnit.Feet => 1.0,              // Base
+                LengthUnit.Inch => 1.0 / 12.0,       // 12 inches = 1 foot
+                LengthUnit.Yards => 3.0,             // 1 yard = 3 feet
+                LengthUnit.Centimeters => 1.0 / 30.48, // 30.48 cm = 1 foot
+                _ => throw new ArgumentException("Unsupported Length Unit")
             };
+        }
+
+        // Convert value to base unit (Feet)
+        public static double ConvertToBaseUnit(this LengthUnit unit, double value)
+        {
+            return value * unit.GetConversionFactor();
         }
 
         // Convert value from base unit (Feet) to this unit
         public static double ConvertFromBaseUnit(this LengthUnit unit, double baseValue)
         {
-            return unit switch
-            {
-                LengthUnit.Feet => baseValue,
-                LengthUnit.Inch => baseValue * InchesPerFoot,
-                LengthUnit.Yards => baseValue / FeetPerYard,
-                LengthUnit.Centimeters => baseValue * CmPerFoot,
-                _ => throw new ArgumentException("Unsupported unit.")
-            };
+            return baseValue / unit.GetConversionFactor();
+        }
+
+        public static string GetUnitName(this LengthUnit unit)
+        {
+            return unit.ToString().ToUpper();
         }
     }
 }
+
