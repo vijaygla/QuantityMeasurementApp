@@ -1,4 +1,5 @@
 using NUnit.Framework;
+
 using QuantityMeasurementApp.Models;
 
 namespace QuantityMeasurementApp.Tests
@@ -7,7 +8,7 @@ namespace QuantityMeasurementApp.Tests
     {
         private const double EPSILON = 1e-6;
 
-        // ================= UC1–UC4 : Length Equality =================
+        //  UC1–UC4 : Length Equality 
 
         [Test]
         public void UC1_SameUnit_ShouldBeEqual()
@@ -36,7 +37,7 @@ namespace QuantityMeasurementApp.Tests
             Assert.IsTrue(yard.Equals(feet));
         }
 
-        // ================= UC5 : Conversion =================
+        //  UC5 : Conversion 
 
         [Test]
         public void UC5_Convert_FeetToInches()
@@ -58,7 +59,7 @@ namespace QuantityMeasurementApp.Tests
             Assert.AreEqual(10.0, back.Value, EPSILON);
         }
 
-        // ================= UC6 : Addition (Implicit) =================
+        //  UC6 : Addition (Implicit) 
 
         [Test]
         public void UC6_Add_SameUnit()
@@ -78,7 +79,7 @@ namespace QuantityMeasurementApp.Tests
             Assert.AreEqual(2.0, result.Value, EPSILON);
         }
 
-        // ================= UC7 : Addition (Explicit) =================
+        //  UC7 : Addition (Explicit) 
 
         [Test]
         public void UC7_Add_Explicit_Yards()
@@ -90,7 +91,7 @@ namespace QuantityMeasurementApp.Tests
             Assert.AreEqual(LengthUnit.Yards, result.Unit);
         }
 
-        // ================= UC8 : Enum Responsibility =================
+        //  UC8 : Enum Responsibility 
 
         [Test]
         public void UC8_LengthUnit_BaseConversion()
@@ -99,7 +100,7 @@ namespace QuantityMeasurementApp.Tests
             Assert.AreEqual(1.0, feet, EPSILON);
         }
 
-        // ================= UC10 : Generic Commutativity =================
+        //  UC10 : Generic Commutativity 
 
         [Test]
         public void UC10_Addition_Commutativity()
