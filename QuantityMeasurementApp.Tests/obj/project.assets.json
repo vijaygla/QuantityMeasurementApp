@@ -1561,11 +1561,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp.Tests\\QuantityMeasurementApp.Tests.csproj",
+      "projectUniqueName": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Tests\\QuantityMeasurementApp.Tests.csproj",
       "projectName": "QuantityMeasurementApp.Tests",
-      "projectPath": "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp.Tests\\QuantityMeasurementApp.Tests.csproj",
+      "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Tests\\QuantityMeasurementApp.Tests.csproj",
       "packagesPath": "C:\\Users\\pmdhrs\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp.Tests\\obj\\",
+      "outputPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1586,8 +1586,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj": {
-              "projectPath": "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj"
+            "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj": {
+              "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj": {}
+    "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj": {
+    "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj",
+        "projectUniqueName": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj",
         "projectName": "QuantityMeasurementApp",
-        "projectPath": "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj",
+        "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp\\QuantityMeasurementApp.csproj",
         "packagesPath": "C:\\Users\\pmdhrs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pmdhrs\\Downloads\\QuantityMeasurementApp\\QuantityMeasurementApp\\obj\\",
+        "outputPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
