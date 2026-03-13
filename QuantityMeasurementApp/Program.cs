@@ -17,6 +17,9 @@ class Program
             Console.WriteLine("7. UC9 Weight Conversion");
             Console.WriteLine("8. UC9 Weight Addition");
             Console.WriteLine("9. UC10 Generic Quantity Demo");
+            Console.WriteLine("10. UC11 Volume Equality");
+            Console.WriteLine("11. UC11 Volume Conversion");
+            Console.WriteLine("12. UC11 Volume Addition");
             Console.WriteLine("0. Exit");
 
             Console.Write("\nChoose option: ");
@@ -33,6 +36,9 @@ class Program
                 case 7: WeightConversion(); break;
                 case 8: WeightAddition(); break;
                 case 9: GenericDemo(); break;
+                case 10: VolumeEquality(); break;
+                case 11: VolumeConversion(); break;
+                case 12: VolumeAddition(); break;
                 case 0: return;
                 default: Console.WriteLine("Invalid choice"); break;
             }
@@ -80,6 +86,27 @@ class Program
             2 => WeightUnit.Gram,
             3 => WeightUnit.Pound,
             _ => throw new Exception("Invalid Weight Unit")
+        };
+    }
+
+    // ---------------- VOLUME UNIT MENU ----------------
+
+    static VolumeUnit GetVolumeUnit()
+    {
+        Console.WriteLine("\nSelect Volume Unit:");
+        Console.WriteLine("1. Litre");
+        Console.WriteLine("2. Millilitre");
+        Console.WriteLine("3. Gallon");
+
+        Console.Write("Enter choice: ");
+        int choice = Convert.ToInt32(Console.ReadLine());
+
+        return choice switch
+        {
+            1 => VolumeUnit.Litre,
+            2 => VolumeUnit.Millilitre,
+            3 => VolumeUnit.Gallon,
+            _ => throw new Exception("Invalid Volume Unit")
         };
     }
 
@@ -237,5 +264,58 @@ class Program
         var gram = new Quantity<WeightUnit>(1000, WeightUnit.Gram);
 
         Console.WriteLine($"Weight Add: {weight.Add(gram, WeightUnit.Kilogram)}");
+    }
+
+    // ================= UC11 =================
+
+    static void VolumeEquality()
+    {
+        Console.Write("\nEnter first value: ");
+        double v1 = Convert.ToDouble(Console.ReadLine());
+        VolumeUnit u1 = GetVolumeUnit();
+
+        Console.Write("\nEnter second value: ");
+        double v2 = Convert.ToDouble(Console.ReadLine());
+        VolumeUnit u2 = GetVolumeUnit();
+
+        var vq1 = new Quantity<VolumeUnit>(v1, u1);
+        var vq2 = new Quantity<VolumeUnit>(v2, u2);
+
+        Console.WriteLine($"Equality Result: {vq1.Equals(vq2)}");
+    }
+
+    static void VolumeConversion()
+    {
+        Console.Write("\nEnter value: ");
+        double value = Convert.ToDouble(Console.ReadLine());
+
+        VolumeUnit source = GetVolumeUnit();
+        VolumeUnit target = GetVolumeUnit();
+
+        var volume = new Quantity<VolumeUnit>(value, source);
+        var result = volume.ConvertTo(target);
+
+        Console.WriteLine($"Converted Result: {result}");
+    }
+
+    static void VolumeAddition()
+    {
+        Console.Write("\nEnter first value: ");
+        double v1 = Convert.ToDouble(Console.ReadLine());
+        VolumeUnit u1 = GetVolumeUnit();
+
+        Console.Write("\nEnter second value: ");
+        double v2 = Convert.ToDouble(Console.ReadLine());
+        VolumeUnit u2 = GetVolumeUnit();
+
+        Console.WriteLine("\nSelect Result Unit:");
+        VolumeUnit target = GetVolumeUnit();
+
+        var vq1 = new Quantity<VolumeUnit>(v1, u1);
+        var vq2 = new Quantity<VolumeUnit>(v2, u2);
+
+        var result = vq1.Add(vq2, target);
+
+        Console.WriteLine($"Addition Result: {result}");
     }
 }
