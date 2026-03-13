@@ -25,6 +25,17 @@ namespace QuantityMeasurementApp.Models
         public U Unit => unit;
 
         // -------------------------------------------------
+        // ENUM FOR ARITHMETIC OPERATIONS
+        // -------------------------------------------------
+
+        private enum ArithmeticOperation
+        {
+            ADD,
+            SUBTRACT,
+            DIVIDE
+        }
+
+        // -------------------------------------------------
         // INTERNAL BASE CONVERSION (Reflection based)
         // -------------------------------------------------
 
@@ -65,6 +76,45 @@ namespace QuantityMeasurementApp.Models
         }
 
         // -------------------------------------------------
+        // VALIDATION
+        // -------------------------------------------------
+
+        private void ValidateArithmeticOperands(Quantity<U> other)
+        {
+            if (other == null)
+                throw new ArgumentException("Other quantity cannot be null");
+
+            if (!unit.GetType().Equals(other.unit.GetType()))
+                throw new ArgumentException("Measurement category mismatch");
+        }
+
+        // -------------------------------------------------
+        // CENTRALIZED ARITHMETIC HELPER (UC13)
+        // -------------------------------------------------
+
+        private double PerformBaseArithmetic(Quantity<U> other, ArithmeticOperation operation)
+        {
+            ValidateArithmeticOperands(other);
+
+            double base1 = this.ConvertToBase();
+            double base2 = other.ConvertToBase();
+
+            return operation switch
+            {
+                ArithmeticOperation.ADD => base1 + base2,
+
+                ArithmeticOperation.SUBTRACT => base1 - base2,
+
+                ArithmeticOperation.DIVIDE =>
+                    Math.Abs(base2) < EPSILON
+                        ? throw new ArithmeticException("Division by zero")
+                        : base1 / base2,
+
+                _ => throw new NotSupportedException("Unsupported operation")
+            };
+        }
+
+        // -------------------------------------------------
         // UC5 / UC10 : CONVERSION
         // -------------------------------------------------
 
@@ -87,10 +137,9 @@ namespace QuantityMeasurementApp.Models
 
         public Quantity<U> Add(Quantity<U> other, U targetUnit)
         {
-            Validate(other);
+            double baseResult = PerformBaseArithmetic(other, ArithmeticOperation.ADD);
 
-            double resultBase = this.ConvertToBase() + other.ConvertToBase();
-            double result = ConvertFromBase(resultBase, targetUnit);
+            double result = ConvertFromBase(baseResult, targetUnit);
 
             return new Quantity<U>(Math.Round(result, 6), targetUnit);
         }
@@ -106,10 +155,9 @@ namespace QuantityMeasurementApp.Models
 
         public Quantity<U> Subtract(Quantity<U> other, U targetUnit)
         {
-            Validate(other);
+            double baseResult = PerformBaseArithmetic(other, ArithmeticOperation.SUBTRACT);
 
-            double resultBase = this.ConvertToBase() - other.ConvertToBase();
-            double result = ConvertFromBase(resultBase, targetUnit);
+            double result = ConvertFromBase(baseResult, targetUnit);
 
             return new Quantity<U>(Math.Round(result, 6), targetUnit);
         }
@@ -120,28 +168,7 @@ namespace QuantityMeasurementApp.Models
 
         public double Divide(Quantity<U> other)
         {
-            Validate(other);
-
-            double base1 = this.ConvertToBase();
-            double base2 = other.ConvertToBase();
-
-            if (Math.Abs(base2) < EPSILON)
-                throw new ArithmeticException("Division by zero");
-
-            return base1 / base2;
-        }
-
-        // -------------------------------------------------
-        // VALIDATION
-        // -------------------------------------------------
-
-        private void Validate(Quantity<U> other)
-        {
-            if (other == null)
-                throw new ArgumentException("Other quantity cannot be null");
-
-            if (!unit.GetType().Equals(other.unit.GetType()))
-                throw new ArgumentException("Measurement category mismatch");
+            return PerformBaseArithmetic(other, ArithmeticOperation.DIVIDE);
         }
 
         // -------------------------------------------------
@@ -174,3 +201,4 @@ namespace QuantityMeasurementApp.Models
         }
     }
 }
+
