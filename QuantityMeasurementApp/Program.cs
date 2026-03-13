@@ -20,6 +20,8 @@ class Program
             Console.WriteLine("10. UC11 Volume Equality");
             Console.WriteLine("11. UC11 Volume Conversion");
             Console.WriteLine("12. UC11 Volume Addition");
+            Console.WriteLine("13. UC12 Subtraction");
+            Console.WriteLine("14. UC12 Division");
             Console.WriteLine("0. Exit");
 
             Console.Write("\nChoose option: ");
@@ -39,6 +41,8 @@ class Program
                 case 10: VolumeEquality(); break;
                 case 11: VolumeConversion(); break;
                 case 12: VolumeAddition(); break;
+                case 13: QuantitySubtraction(); break;
+                case 14: QuantityDivision(); break;
                 case 0: return;
                 default: Console.WriteLine("Invalid choice"); break;
             }
@@ -55,7 +59,6 @@ class Program
         Console.WriteLine("3. Yards");
         Console.WriteLine("4. Centimeters");
 
-        Console.Write("Enter choice: ");
         int choice = Convert.ToInt32(Console.ReadLine());
 
         return choice switch
@@ -77,7 +80,6 @@ class Program
         Console.WriteLine("2. Gram");
         Console.WriteLine("3. Pound");
 
-        Console.Write("Enter choice: ");
         int choice = Convert.ToInt32(Console.ReadLine());
 
         return choice switch
@@ -98,7 +100,6 @@ class Program
         Console.WriteLine("2. Millilitre");
         Console.WriteLine("3. Gallon");
 
-        Console.Write("Enter choice: ");
         int choice = Convert.ToInt32(Console.ReadLine());
 
         return choice switch
@@ -118,7 +119,7 @@ class Program
         double v1 = Convert.ToDouble(Console.ReadLine());
         LengthUnit u1 = GetLengthUnit();
 
-        Console.Write("\nEnter second value: ");
+        Console.Write("Enter second value: ");
         double v2 = Convert.ToDouble(Console.ReadLine());
         LengthUnit u2 = GetLengthUnit();
 
@@ -139,9 +140,7 @@ class Program
         LengthUnit target = GetLengthUnit();
 
         var q = new Quantity<LengthUnit>(value, source);
-        var result = q.ConvertTo(target);
-
-        Console.WriteLine($"Converted Result: {result}");
+        Console.WriteLine($"Converted Result: {q.ConvertTo(target)}");
     }
 
     // ================= UC6 =================
@@ -152,16 +151,14 @@ class Program
         double v1 = Convert.ToDouble(Console.ReadLine());
         LengthUnit u1 = GetLengthUnit();
 
-        Console.Write("\nEnter second value: ");
+        Console.Write("Enter second value: ");
         double v2 = Convert.ToDouble(Console.ReadLine());
         LengthUnit u2 = GetLengthUnit();
 
         var q1 = new Quantity<LengthUnit>(v1, u1);
         var q2 = new Quantity<LengthUnit>(v2, u2);
 
-        var result = q1.Add(q2);
-
-        Console.WriteLine($"Addition Result: {result}");
+        Console.WriteLine($"Addition Result: {q1.Add(q2)}");
     }
 
     // ================= UC7 =================
@@ -172,19 +169,17 @@ class Program
         double v1 = Convert.ToDouble(Console.ReadLine());
         LengthUnit u1 = GetLengthUnit();
 
-        Console.Write("\nEnter second value: ");
+        Console.Write("Enter second value: ");
         double v2 = Convert.ToDouble(Console.ReadLine());
         LengthUnit u2 = GetLengthUnit();
 
-        Console.WriteLine("\nSelect Result Unit:");
+        Console.WriteLine("Select Result Unit:");
         LengthUnit target = GetLengthUnit();
 
         var q1 = new Quantity<LengthUnit>(v1, u1);
         var q2 = new Quantity<LengthUnit>(v2, u2);
 
-        var result = q1.Add(q2, target);
-
-        Console.WriteLine($"Addition Result: {result}");
+        Console.WriteLine($"Addition Result: {q1.Add(q2, target)}");
     }
 
     // ================= UC8 =================
@@ -207,7 +202,7 @@ class Program
         double v1 = Convert.ToDouble(Console.ReadLine());
         WeightUnit u1 = GetWeightUnit();
 
-        Console.Write("\nEnter second value: ");
+        Console.Write("Enter second value: ");
         double v2 = Convert.ToDouble(Console.ReadLine());
         WeightUnit u2 = GetWeightUnit();
 
@@ -226,9 +221,8 @@ class Program
         WeightUnit target = GetWeightUnit();
 
         var q = new Quantity<WeightUnit>(value, source);
-        var result = q.ConvertTo(target);
 
-        Console.WriteLine($"Converted Result: {result}");
+        Console.WriteLine($"Converted Result: {q.ConvertTo(target)}");
     }
 
     static void WeightAddition()
@@ -237,16 +231,14 @@ class Program
         double v1 = Convert.ToDouble(Console.ReadLine());
         WeightUnit u1 = GetWeightUnit();
 
-        Console.Write("\nEnter second value: ");
+        Console.Write("Enter second value: ");
         double v2 = Convert.ToDouble(Console.ReadLine());
         WeightUnit u2 = GetWeightUnit();
 
         var w1 = new Quantity<WeightUnit>(v1, u1);
         var w2 = new Quantity<WeightUnit>(v2, u2);
 
-        var result = w1.Add(w2);
-
-        Console.WriteLine($"Addition Result: {result}");
+        Console.WriteLine($"Addition Result: {w1.Add(w2)}");
     }
 
     // ================= UC10 =================
@@ -274,14 +266,14 @@ class Program
         double v1 = Convert.ToDouble(Console.ReadLine());
         VolumeUnit u1 = GetVolumeUnit();
 
-        Console.Write("\nEnter second value: ");
+        Console.Write("Enter second value: ");
         double v2 = Convert.ToDouble(Console.ReadLine());
         VolumeUnit u2 = GetVolumeUnit();
 
-        var vq1 = new Quantity<VolumeUnit>(v1, u1);
-        var vq2 = new Quantity<VolumeUnit>(v2, u2);
+        var q1 = new Quantity<VolumeUnit>(v1, u1);
+        var q2 = new Quantity<VolumeUnit>(v2, u2);
 
-        Console.WriteLine($"Equality Result: {vq1.Equals(vq2)}");
+        Console.WriteLine($"Equality Result: {q1.Equals(q2)}");
     }
 
     static void VolumeConversion()
@@ -292,10 +284,9 @@ class Program
         VolumeUnit source = GetVolumeUnit();
         VolumeUnit target = GetVolumeUnit();
 
-        var volume = new Quantity<VolumeUnit>(value, source);
-        var result = volume.ConvertTo(target);
+        var q = new Quantity<VolumeUnit>(value, source);
 
-        Console.WriteLine($"Converted Result: {result}");
+        Console.WriteLine($"Converted Result: {q.ConvertTo(target)}");
     }
 
     static void VolumeAddition()
@@ -304,18 +295,143 @@ class Program
         double v1 = Convert.ToDouble(Console.ReadLine());
         VolumeUnit u1 = GetVolumeUnit();
 
-        Console.Write("\nEnter second value: ");
+        Console.Write("Enter second value: ");
         double v2 = Convert.ToDouble(Console.ReadLine());
         VolumeUnit u2 = GetVolumeUnit();
 
-        Console.WriteLine("\nSelect Result Unit:");
+        Console.WriteLine("Select Result Unit:");
         VolumeUnit target = GetVolumeUnit();
 
-        var vq1 = new Quantity<VolumeUnit>(v1, u1);
-        var vq2 = new Quantity<VolumeUnit>(v2, u2);
+        var q1 = new Quantity<VolumeUnit>(v1, u1);
+        var q2 = new Quantity<VolumeUnit>(v2, u2);
 
-        var result = vq1.Add(vq2, target);
-
-        Console.WriteLine($"Addition Result: {result}");
+        Console.WriteLine($"Addition Result: {q1.Add(q2, target)}");
     }
+
+    // ================= UC12 =================
+
+    // ================= UC12 SUBTRACTION =================
+
+    static void QuantitySubtraction()
+    {
+        Console.WriteLine("\nSelect Category:");
+        Console.WriteLine("1. Length");
+        Console.WriteLine("2. Weight");
+        Console.WriteLine("3. Volume");
+
+        int category = Convert.ToInt32(Console.ReadLine());
+
+        if (category == 1)
+        {
+            Console.Write("\nEnter first value: ");
+            double v1 = Convert.ToDouble(Console.ReadLine());
+            LengthUnit u1 = GetLengthUnit();
+
+            Console.Write("Enter second value: ");
+            double v2 = Convert.ToDouble(Console.ReadLine());
+            LengthUnit u2 = GetLengthUnit();
+
+            var q1 = new Quantity<LengthUnit>(v1, u1);
+            var q2 = new Quantity<LengthUnit>(v2, u2);
+
+            Console.WriteLine($"Subtraction Result: {q1.Subtract(q2)}");
+        }
+        else if (category == 2)
+        {
+            Console.Write("\nEnter first value: ");
+            double v1 = Convert.ToDouble(Console.ReadLine());
+            WeightUnit u1 = GetWeightUnit();
+
+            Console.Write("Enter second value: ");
+            double v2 = Convert.ToDouble(Console.ReadLine());
+            WeightUnit u2 = GetWeightUnit();
+
+            var q1 = new Quantity<WeightUnit>(v1, u1);
+            var q2 = new Quantity<WeightUnit>(v2, u2);
+
+            Console.WriteLine($"Subtraction Result: {q1.Subtract(q2)}");
+        }
+        else if (category == 3)
+        {
+            Console.Write("\nEnter first value: ");
+            double v1 = Convert.ToDouble(Console.ReadLine());
+            VolumeUnit u1 = GetVolumeUnit();
+
+            Console.Write("Enter second value: ");
+            double v2 = Convert.ToDouble(Console.ReadLine());
+            VolumeUnit u2 = GetVolumeUnit();
+
+            var q1 = new Quantity<VolumeUnit>(v1, u1);
+            var q2 = new Quantity<VolumeUnit>(v2, u2);
+
+            Console.WriteLine($"Subtraction Result: {q1.Subtract(q2)}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid category");
+        }
+    }
+
+    // ================= UC12 DIVISION =================
+
+    static void QuantityDivision()
+    {
+        Console.WriteLine("\nSelect Category:");
+        Console.WriteLine("1. Length");
+        Console.WriteLine("2. Weight");
+        Console.WriteLine("3. Volume");
+
+        int category = Convert.ToInt32(Console.ReadLine());
+
+        if (category == 1)
+        {
+            Console.Write("\nEnter first value: ");
+            double v1 = Convert.ToDouble(Console.ReadLine());
+            LengthUnit u1 = GetLengthUnit();
+
+            Console.Write("Enter second value: ");
+            double v2 = Convert.ToDouble(Console.ReadLine());
+            LengthUnit u2 = GetLengthUnit();
+
+            var q1 = new Quantity<LengthUnit>(v1, u1);
+            var q2 = new Quantity<LengthUnit>(v2, u2);
+
+            Console.WriteLine($"Division Result: {q1.Divide(q2)}");
+        }
+        else if (category == 2)
+        {
+            Console.Write("\nEnter first value: ");
+            double v1 = Convert.ToDouble(Console.ReadLine());
+            WeightUnit u1 = GetWeightUnit();
+
+            Console.Write("Enter second value: ");
+            double v2 = Convert.ToDouble(Console.ReadLine());
+            WeightUnit u2 = GetWeightUnit();
+
+            var q1 = new Quantity<WeightUnit>(v1, u1);
+            var q2 = new Quantity<WeightUnit>(v2, u2);
+
+            Console.WriteLine($"Division Result: {q1.Divide(q2)}");
+        }
+        else if (category == 3)
+        {
+            Console.Write("\nEnter first value: ");
+            double v1 = Convert.ToDouble(Console.ReadLine());
+            VolumeUnit u1 = GetVolumeUnit();
+
+            Console.Write("Enter second value: ");
+            double v2 = Convert.ToDouble(Console.ReadLine());
+            VolumeUnit u2 = GetVolumeUnit();
+
+            var q1 = new Quantity<VolumeUnit>(v1, u1);
+            var q2 = new Quantity<VolumeUnit>(v2, u2);
+
+            Console.WriteLine($"Division Result: {q1.Divide(q2)}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid category");
+        }
+    }
+    
 }

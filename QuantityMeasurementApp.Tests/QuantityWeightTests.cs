@@ -94,6 +94,29 @@ namespace QuantityMeasurementApp.Tests
 
             Assert.IsFalse(weight.Equals(length));
         }
+
+        // UC12
+        [Test]
+        public void UC12_Subtraction_FeetMinusInches()
+        {
+            var q1 = new Quantity<LengthUnit>(10, LengthUnit.Feet);
+            var q2 = new Quantity<LengthUnit>(6, LengthUnit.Inch);
+
+            var result = q1.Subtract(q2);
+
+            Assert.AreEqual(9.5, result.Value, 0.01);
+        }
+
+        [Test]
+        public void UC12_Division_FeetByFeet()
+        {
+            var q1 = new Quantity<LengthUnit>(10, LengthUnit.Feet);
+            var q2 = new Quantity<LengthUnit>(2, LengthUnit.Feet);
+
+            double result = q1.Divide(q2);
+
+            Assert.AreEqual(5.0, result);
+        }
     }
 }
                 
