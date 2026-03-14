@@ -22,6 +22,8 @@ class Program
             Console.WriteLine("12. UC11 Volume Addition");
             Console.WriteLine("13. UC12 Subtraction");
             Console.WriteLine("14. UC12 Division");
+            Console.WriteLine("15. UC14 Temperature Equality");
+            Console.WriteLine("16. UC14 Temperature Conversion");
             Console.WriteLine("0. Exit");
 
             Console.Write("\nChoose option: ");
@@ -43,15 +45,17 @@ class Program
                 case 12: VolumeAddition(); break;
                 case 13: QuantitySubtraction(); break;
                 case 14: QuantityDivision(); break;
+                case 15: TemperatureEquality(); break;
+                case 16: TemperatureConversion(); break;
                 case 0: return;
                 default: Console.WriteLine("Invalid choice"); break;
             }
         }
     }
 
-    // ------------------------------------------------
+    // =================================================
     // CATEGORY SELECTION
-    // ------------------------------------------------
+    // =================================================
 
     static int GetCategory()
     {
@@ -63,9 +67,9 @@ class Program
         return Convert.ToInt32(Console.ReadLine());
     }
 
-    // ------------------------------------------------
+    // =================================================
     // LENGTH UNIT MENU
-    // ------------------------------------------------
+    // =================================================
 
     static LengthUnit GetLengthUnit()
     {
@@ -87,9 +91,9 @@ class Program
         };
     }
 
-    // ------------------------------------------------
+    // =================================================
     // WEIGHT UNIT MENU
-    // ------------------------------------------------
+    // =================================================
 
     static WeightUnit GetWeightUnit()
     {
@@ -109,9 +113,9 @@ class Program
         };
     }
 
-    // ------------------------------------------------
+    // =================================================
     // VOLUME UNIT MENU
-    // ------------------------------------------------
+    // =================================================
 
     static VolumeUnit GetVolumeUnit()
     {
@@ -131,9 +135,31 @@ class Program
         };
     }
 
-    // ------------------------------------------------
+    // =================================================
+    // TEMPERATURE UNIT MENU (UC14)
+    // =================================================
+
+    static TemperatureUnit GetTemperatureUnit()
+    {
+        Console.WriteLine("\nSelect Temperature Unit:");
+        Console.WriteLine("1. Celsius");
+        Console.WriteLine("2. Fahrenheit");
+        Console.WriteLine("3. Kelvin");
+
+        int choice = Convert.ToInt32(Console.ReadLine());
+
+        return choice switch
+        {
+            1 => TemperatureUnit.Celsius,
+            2 => TemperatureUnit.Fahrenheit,
+            3 => TemperatureUnit.Kelvin,
+            _ => throw new Exception("Invalid Temperature Unit")
+        };
+    }
+
+    // =================================================
     // UC1–UC4 LENGTH EQUALITY
-    // ------------------------------------------------
+    // =================================================
 
     static void LengthEquality()
     {
@@ -149,9 +175,9 @@ class Program
         Console.WriteLine($"Equality Result: {q1.Equals(q2)}");
     }
 
-    // ------------------------------------------------
-    // UC5 CONVERSION
-    // ------------------------------------------------
+    // =================================================
+    // UC5 LENGTH CONVERSION
+    // =================================================
 
     static void LengthConversion()
     {
@@ -165,9 +191,9 @@ class Program
         Console.WriteLine($"Converted Result: {q.ConvertTo(target)}");
     }
 
-    // ------------------------------------------------
-    // UC6 ADDITION
-    // ------------------------------------------------
+    // =================================================
+    // UC6 LENGTH ADDITION
+    // =================================================
 
     static void LengthAdditionImplicit()
     {
@@ -183,9 +209,9 @@ class Program
         Console.WriteLine($"Addition Result: {q1.Add(q2)}");
     }
 
-    // ------------------------------------------------
-    // UC7 ADDITION EXPLICIT
-    // ------------------------------------------------
+    // =================================================
+    // UC7 LENGTH ADDITION EXPLICIT
+    // =================================================
 
     static void LengthAdditionExplicit()
     {
@@ -204,9 +230,9 @@ class Program
         Console.WriteLine($"Addition Result: {q1.Add(q2, target)}");
     }
 
-    // ------------------------------------------------
-    // UC8
-    // ------------------------------------------------
+    // =================================================
+    // UC8 DIRECT CONVERSION
+    // =================================================
 
     static void LengthUnitDirect()
     {
@@ -217,9 +243,9 @@ class Program
         Console.WriteLine($"Converted to Feet: {feet}");
     }
 
-    // ------------------------------------------------
+    // =================================================
     // UC9 WEIGHT
-    // ------------------------------------------------
+    // =================================================
 
     static void WeightEquality()
     {
@@ -261,28 +287,80 @@ class Program
         Console.WriteLine($"Addition Result: {w1.Add(w2)}");
     }
 
-    // ------------------------------------------------
-    // UC10 DEMO
-    // ------------------------------------------------
+    // =====================================================
+    // UC10 GENERIC DEMO (User Input)
+    // =====================================================
 
     static void GenericDemo()
     {
-        Console.WriteLine("\nGeneric Quantity Demo");
+        Console.WriteLine("\n===== GENERIC QUANTITY DEMO =====");
 
-        var length = new Quantity<LengthUnit>(1, LengthUnit.Feet);
-        var inch = new Quantity<LengthUnit>(12, LengthUnit.Inch);
+        Console.WriteLine("Select Category:");
+        Console.WriteLine("1. Length");
+        Console.WriteLine("2. Weight");
+        Console.WriteLine("3. Volume");
 
-        Console.WriteLine(length.Add(inch, LengthUnit.Feet));
+        int category = Convert.ToInt32(Console.ReadLine());
 
-        var weight = new Quantity<WeightUnit>(1, WeightUnit.Kilogram);
-        var gram = new Quantity<WeightUnit>(1000, WeightUnit.Gram);
+        if (category == 1)
+        {
+            double v1 = ReadDouble("Enter first length value: ");
+            LengthUnit u1 = GetLengthUnit();
 
-        Console.WriteLine(weight.Add(gram, WeightUnit.Kilogram));
+            double v2 = ReadDouble("Enter second length value: ");
+            LengthUnit u2 = GetLengthUnit();
+
+            Console.WriteLine("Select result unit:");
+            LengthUnit target = GetLengthUnit();
+
+            var q1 = new Quantity<LengthUnit>(v1, u1);
+            var q2 = new Quantity<LengthUnit>(v2, u2);
+
+            Console.WriteLine($"Result: {q1.Add(q2, target)}");
+        }
+
+        else if (category == 2)
+        {
+            double v1 = ReadDouble("Enter first weight value: ");
+            WeightUnit u1 = GetWeightUnit();
+
+            double v2 = ReadDouble("Enter second weight value: ");
+            WeightUnit u2 = GetWeightUnit();
+
+            Console.WriteLine("Select result unit:");
+            WeightUnit target = GetWeightUnit();
+
+            var q1 = new Quantity<WeightUnit>(v1, u1);
+            var q2 = new Quantity<WeightUnit>(v2, u2);
+
+            Console.WriteLine($"Result: {q1.Add(q2, target)}");
+        }
+
+        else if (category == 3)
+        {
+            double v1 = ReadDouble("Enter first volume value: ");
+            VolumeUnit u1 = GetVolumeUnit();
+
+            double v2 = ReadDouble("Enter second volume value: ");
+            VolumeUnit u2 = GetVolumeUnit();
+
+            Console.WriteLine("Select result unit:");
+            VolumeUnit target = GetVolumeUnit();
+
+            var q1 = new Quantity<VolumeUnit>(v1, u1);
+            var q2 = new Quantity<VolumeUnit>(v2, u2);
+
+            Console.WriteLine($"Result: {q1.Add(q2, target)}");
+        }
+
+        else
+        {
+            Console.WriteLine("Invalid category.");
+        }
     }
-
-    // ------------------------------------------------
+    // =================================================
     // UC11 VOLUME
-    // ------------------------------------------------
+    // =================================================
 
     static void VolumeEquality()
     {
@@ -326,9 +404,39 @@ class Program
         Console.WriteLine($"Addition Result: {q1.Add(q2, target)}");
     }
 
-    // ------------------------------------------------
-    // UC12 SUBTRACTION
-    // ------------------------------------------------
+    // =================================================
+    // UC14 TEMPERATURE
+    // =================================================
+
+    static void TemperatureEquality()
+    {
+        double v1 = ReadDouble("Enter first temperature: ");
+        TemperatureUnit u1 = GetTemperatureUnit();
+
+        double v2 = ReadDouble("Enter second temperature: ");
+        TemperatureUnit u2 = GetTemperatureUnit();
+
+        var t1 = new Quantity<TemperatureUnit>(v1, u1);
+        var t2 = new Quantity<TemperatureUnit>(v2, u2);
+
+        Console.WriteLine($"Equality Result: {t1.Equals(t2)}");
+    }
+
+    static void TemperatureConversion()
+    {
+        double value = ReadDouble("Enter temperature:");
+
+        TemperatureUnit source = GetTemperatureUnit();
+        TemperatureUnit target = GetTemperatureUnit();
+
+        var temp = new Quantity<TemperatureUnit>(value, source);
+
+        Console.WriteLine($"Converted Result: {temp.ConvertTo(target)}");
+    }
+
+    // =================================================
+    // UC12 GENERIC OPERATIONS
+    // =================================================
 
     static void QuantitySubtraction()
     {
@@ -342,10 +450,6 @@ class Program
             ExecuteSubtraction<VolumeUnit>(GetVolumeUnit);
     }
 
-    // ------------------------------------------------
-    // UC12 DIVISION
-    // ------------------------------------------------
-
     static void QuantityDivision()
     {
         int category = GetCategory();
@@ -357,10 +461,6 @@ class Program
         else if (category == 3)
             ExecuteDivision<VolumeUnit>(GetVolumeUnit);
     }
-
-    // ------------------------------------------------
-    // GENERIC SUBTRACTION
-    // ------------------------------------------------
 
     static void ExecuteSubtraction<U>(Func<U> unitSelector) where U : Enum
     {
@@ -376,10 +476,6 @@ class Program
         Console.WriteLine($"Subtraction Result: {q1.Subtract(q2)}");
     }
 
-    // ------------------------------------------------
-    // GENERIC DIVISION
-    // ------------------------------------------------
-
     static void ExecuteDivision<U>(Func<U> unitSelector) where U : Enum
     {
         double v1 = ReadDouble("Enter first value:");
@@ -394,9 +490,9 @@ class Program
         Console.WriteLine($"Division Result: {q1.Divide(q2)}");
     }
 
-    // ------------------------------------------------
+    // =================================================
     // COMMON INPUT METHOD
-    // ------------------------------------------------
+    // =================================================
 
     static double ReadDouble(string message)
     {

@@ -76,6 +76,34 @@ namespace QuantityMeasurementApp.Models
         }
 
         // -------------------------------------------------
+        // UC14 : VALIDATE OPERATION SUPPORT
+        // -------------------------------------------------
+
+        private void ValidateOperationSupport(string operation)
+        {
+            var unitType = unit.GetType();
+            var extensionType = unitType.Assembly.GetType($"{unitType.Namespace}.{unitType.Name}Extensions");
+
+            if (extensionType == null) return;
+
+            var method = extensionType.GetMethod(
+                "ValidateOperationSupport",
+                System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public);
+
+            if (method != null)
+            {
+                try
+                {
+                    method.Invoke(null, new object[] { unit, operation });
+                }
+                catch (System.Reflection.TargetInvocationException ex)
+                {
+                    throw ex.InnerException ?? ex;
+                }
+            }
+        }
+
+        // -------------------------------------------------
         // VALIDATION
         // -------------------------------------------------
 
@@ -95,6 +123,9 @@ namespace QuantityMeasurementApp.Models
         private double PerformBaseArithmetic(Quantity<U> other, ArithmeticOperation operation)
         {
             ValidateArithmeticOperands(other);
+
+            // UC14: Validate operation support
+            ValidateOperationSupport(operation.ToString());
 
             double base1 = this.ConvertToBase();
             double base2 = other.ConvertToBase();
@@ -172,7 +203,7 @@ namespace QuantityMeasurementApp.Models
         }
 
         // -------------------------------------------------
-        // UC1–UC4 / UC11 : EQUALITY
+        // UC1–UC4 / UC11 / UC14 : EQUALITY
         // -------------------------------------------------
 
         public override bool Equals(object obj)
@@ -201,4 +232,3 @@ namespace QuantityMeasurementApp.Models
         }
     }
 }
-
