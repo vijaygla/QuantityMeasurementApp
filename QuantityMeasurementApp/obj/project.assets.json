@@ -1,11 +1,102 @@
 {
   "version": 3,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "QuantityMeasurementApp.Controller/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "QuantityMeasurementApp.Models": "1.0.0",
+          "QuantityMeasurementApp.Service": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/QuantityMeasurementApp.Controller.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QuantityMeasurementApp.Controller.dll": {}
+        }
+      },
+      "QuantityMeasurementApp.Exceptions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/QuantityMeasurementApp.Exceptions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QuantityMeasurementApp.Exceptions.dll": {}
+        }
+      },
+      "QuantityMeasurementApp.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/QuantityMeasurementApp.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QuantityMeasurementApp.Models.dll": {}
+        }
+      },
+      "QuantityMeasurementApp.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "QuantityMeasurementApp.Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/QuantityMeasurementApp.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QuantityMeasurementApp.Repository.dll": {}
+        }
+      },
+      "QuantityMeasurementApp.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "QuantityMeasurementApp.Exceptions": "1.0.0",
+          "QuantityMeasurementApp.Models": "1.0.0",
+          "QuantityMeasurementApp.Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/QuantityMeasurementApp.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QuantityMeasurementApp.Service.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "QuantityMeasurementApp.Controller/1.0.0": {
+      "type": "project",
+      "path": "../QuantityMeasurementApp.Controller/QuantityMeasurementApp.Controller.csproj",
+      "msbuildProject": "../QuantityMeasurementApp.Controller/QuantityMeasurementApp.Controller.csproj"
+    },
+    "QuantityMeasurementApp.Exceptions/1.0.0": {
+      "type": "project",
+      "path": "../QuantityMeasurementApp.Exceptions/QuantityMeasurementApp.Exceptions.csproj",
+      "msbuildProject": "../QuantityMeasurementApp.Exceptions/QuantityMeasurementApp.Exceptions.csproj"
+    },
+    "QuantityMeasurementApp.Models/1.0.0": {
+      "type": "project",
+      "path": "../QuantityMeasurementApp.Models/QuantityMeasurementApp.Models.csproj",
+      "msbuildProject": "../QuantityMeasurementApp.Models/QuantityMeasurementApp.Models.csproj"
+    },
+    "QuantityMeasurementApp.Repository/1.0.0": {
+      "type": "project",
+      "path": "../QuantityMeasurementApp.Repository/QuantityMeasurementApp.Repository.csproj",
+      "msbuildProject": "../QuantityMeasurementApp.Repository/QuantityMeasurementApp.Repository.csproj"
+    },
+    "QuantityMeasurementApp.Service/1.0.0": {
+      "type": "project",
+      "path": "../QuantityMeasurementApp.Service/QuantityMeasurementApp.Service.csproj",
+      "msbuildProject": "../QuantityMeasurementApp.Service/QuantityMeasurementApp.Service.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "QuantityMeasurementApp.Controller >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\pmdhrs\\.nuget\\packages\\": {},
@@ -38,7 +129,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Controller\\QuantityMeasurementApp.Controller.csproj": {
+              "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Controller\\QuantityMeasurementApp.Controller.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

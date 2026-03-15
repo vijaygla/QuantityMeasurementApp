@@ -362,3 +362,13 @@ C:\Users\pmdhrs\Downloads\QuantityMeasurementApp\QuantityMeasurementApp.Tests\ob
 C:\Users\pmdhrs\Downloads\QuantityMeasurementApp\QuantityMeasurementApp.Tests\obj\Debug\net10.0\QuantityMeasurementApp.Tests.pdb
 C:\Users\pmdhrs\Downloads\QuantityMeasurementApp\QuantityMeasurementApp.Tests\obj\Debug\net10.0\QuantityMeasurementApp.Tests.genruntimeconfig.cache
 C:\Users\pmdhrs\Downloads\QuantityMeasurementApp\QuantityMeasurementApp.Tests\obj\Debug\net10.0\ref\QuantityMeasurementApp.Tests.dll
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Controller.dll
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Exceptions.dll
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Models.dll
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Repository.dll
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Service.dll
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Service.pdb
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Models.pdb
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Controller.pdb
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Exceptions.pdb
+C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Tests\bin\Debug\net10.0\QuantityMeasurementApp.Repository.pdb

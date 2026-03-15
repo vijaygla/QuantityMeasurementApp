@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuantityMeasurementApp.Repository\QuantityMeasurementApp.Repository.csproj" />
+    <ProjectReference Include="..\QuantityMeasurementApp.Models\QuantityMeasurementApp.Models.csproj" />
+    <ProjectReference Include="..\QuantityMeasurementApp.Exceptions\QuantityMeasurementApp.Exceptions.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

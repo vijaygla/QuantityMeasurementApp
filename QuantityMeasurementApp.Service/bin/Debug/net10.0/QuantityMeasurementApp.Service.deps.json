@@ -1,0 +1,70 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "QuantityMeasurementApp.Service/1.0.0": {
+        "dependencies": {
+          "QuantityMeasurementApp.Exceptions": "1.0.0",
+          "QuantityMeasurementApp.Models": "1.0.0",
+          "QuantityMeasurementApp.Repository": "1.0.0"
+        },
+        "runtime": {
+          "QuantityMeasurementApp.Service.dll": {}
+        }
+      },
+      "QuantityMeasurementApp.Exceptions/1.0.0": {
+        "runtime": {
+          "QuantityMeasurementApp.Exceptions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "QuantityMeasurementApp.Models/1.0.0": {
+        "runtime": {
+          "QuantityMeasurementApp.Models.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "QuantityMeasurementApp.Repository/1.0.0": {
+        "dependencies": {
+          "QuantityMeasurementApp.Models": "1.0.0"
+        },
+        "runtime": {
+          "QuantityMeasurementApp.Repository.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "QuantityMeasurementApp.Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuantityMeasurementApp.Exceptions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuantityMeasurementApp.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuantityMeasurementApp.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

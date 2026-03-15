@@ -1,502 +1,181 @@
-﻿using System;
+using System;
+using QuantityMeasurementApp.Controller;
 using QuantityMeasurementApp.Models;
+using QuantityMeasurementApp.Repository;
+using QuantityMeasurementApp.Service;
 
+/// <summary>
+/// Entry point for the Quantity Measurement Application.
+/// Provides a console-based user interface for performing measurement operations.
+/// </summary>
 class Program
 {
+    static QuantityMeasurementController controller;
+
     static void Main()
     {
+        // Setup Dependency Injection manually for this simple console application
+        var repository = new QuantityMeasurementCacheRepository();
+        var service = new QuantityMeasurementServiceImpl(repository);
+        controller = new QuantityMeasurementController(service);
+
+        Console.Title = "Quantity Measurement App";
+
         while (true)
         {
-            Console.WriteLine("\n========== QUANTITY MEASUREMENT APP ==========");
-            Console.WriteLine("1. UC1-UC4 Length Equality");
-            Console.WriteLine("2. UC5 Length Conversion");
-            Console.WriteLine("3. UC6 Length Addition (Implicit Unit)");
-            Console.WriteLine("4. UC7 Length Addition (Explicit Unit)");
-            Console.WriteLine("5. UC8 LengthUnit Direct Conversion");
-            Console.WriteLine("6. UC9 Weight Equality");
-            Console.WriteLine("7. UC9 Weight Conversion");
-            Console.WriteLine("8. UC9 Weight Addition");
-            Console.WriteLine("9. UC10 Generic Quantity Demo");
-            Console.WriteLine("10. UC11 Volume Equality");
-            Console.WriteLine("11. UC11 Volume Conversion");
-            Console.WriteLine("12. UC11 Volume Addition");
-            Console.WriteLine("13. UC12 Subtraction");
-            Console.WriteLine("14. UC12 Division");
-            Console.WriteLine("15. UC14 Temperature Equality");
-            Console.WriteLine("16. UC14 Temperature Conversion");
-            Console.WriteLine("0. Exit");
+            Console.Clear();
+            Console.WriteLine("==================================================");
+            Console.WriteLine("          QUANTITY MEASUREMENT SYSTEM             ");
+            Console.WriteLine("==================================================");
+            Console.WriteLine(" 1. Compare Two Quantities");
+            Console.WriteLine(" 2. Convert a Quantity to Another Unit");
+            Console.WriteLine(" 3. Perform Arithmetic Operations (+, -, /)");
+            Console.WriteLine(" 0. Exit Application");
+            Console.WriteLine("==================================================");
 
-            Console.Write("\nChoose option: ");
-            int choice = Convert.ToInt32(Console.ReadLine());
-
-            switch (choice)
+            Console.Write("\nSelect an option: ");
+            if (!int.TryParse(Console.ReadLine(), out int choice))
             {
-                case 1: LengthEquality(); break;
-                case 2: LengthConversion(); break;
-                case 3: LengthAdditionImplicit(); break;
-                case 4: LengthAdditionExplicit(); break;
-                case 5: LengthUnitDirect(); break;
-                case 6: WeightEquality(); break;
-                case 7: WeightConversion(); break;
-                case 8: WeightAddition(); break;
-                case 9: GenericDemo(); break;
-                case 10: VolumeEquality(); break;
-                case 11: VolumeConversion(); break;
-                case 12: VolumeAddition(); break;
-                case 13: QuantitySubtraction(); break;
-                case 14: QuantityDivision(); break;
-                case 15: TemperatureEquality(); break;
-                case 16: TemperatureConversion(); break;
-                case 0: return;
-                default: Console.WriteLine("Invalid choice"); break;
+                ShowErrorMessage("Invalid input. Please enter a number.");
+                continue;
             }
+
+            try
+            {
+                switch (choice)
+                {
+                    case 1:
+                        CompareMenu();
+                        break;
+                    case 2:
+                        ConvertMenu();
+                        break;
+                    case 3:
+                        ArithmeticMenu();
+                        break;
+                    case 0:
+                        Console.WriteLine("Exiting application. Goodbye!");
+                        return;
+                    default:
+                        ShowErrorMessage("Invalid choice. Please select from the menu.");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage($"An unexpected error occurred: {ex.Message}");
+            }
+
+            Console.WriteLine("\nPress any key to return to the main menu...");
+            Console.ReadKey();
         }
     }
 
-    // =================================================
-    // CATEGORY SELECTION
-    // =================================================
-
-    static int GetCategory()
+    private static void CompareMenu()
     {
-        Console.WriteLine("\nSelect Category:");
-        Console.WriteLine("1. Length");
-        Console.WriteLine("2. Weight");
-        Console.WriteLine("3. Volume");
-
-        return Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("\n--- [COMPARE QUANTITIES] ---");
+        var q1 = ReadQuantity("first");
+        var q2 = ReadQuantity("second");
+        controller.PerformComparison(q1, q2);
     }
 
-    // =================================================
-    // LENGTH UNIT MENU
-    // =================================================
-
-    static LengthUnit GetLengthUnit()
+    private static void ConvertMenu()
     {
-        Console.WriteLine("\nSelect Length Unit:");
-        Console.WriteLine("1. Feet");
-        Console.WriteLine("2. Inch");
-        Console.WriteLine("3. Yards");
-        Console.WriteLine("4. Centimeters");
+        Console.WriteLine("\n--- [CONVERT QUANTITY] ---");
+        var q1 = ReadQuantity("source");
+        
+        Console.WriteLine("\nSelect Target Unit:");
+        string target = SelectUnit();
 
-        int choice = Convert.ToInt32(Console.ReadLine());
+        controller.PerformConversion(q1, target);
+    }
 
-        return choice switch
+    private static void ArithmeticMenu()
+    {
+        Console.WriteLine("\n--- [ARITHMETIC OPERATIONS] ---");
+        Console.WriteLine(" 1. Addition (+)");
+        Console.WriteLine(" 2. Subtraction (-)");
+        Console.WriteLine(" 3. Division (/)");
+        Console.WriteLine(" 0. Back");
+
+        Console.Write("\nSelect operation: ");
+        if (!int.TryParse(Console.ReadLine(), out int op) || op == 0) return;
+
+        var q1 = ReadQuantity("first");
+        var q2 = ReadQuantity("second");
+
+        switch (op)
         {
-            1 => LengthUnit.Feet,
-            2 => LengthUnit.Inch,
-            3 => LengthUnit.Yards,
-            4 => LengthUnit.Centimeters,
-            _ => throw new Exception("Invalid Length Unit")
+            case 1:
+                controller.PerformAddition(q1, q2);
+                break;
+            case 2:
+                controller.PerformSubtraction(q1, q2);
+                break;
+            case 3:
+                controller.PerformDivision(q1, q2);
+                break;
+            default:
+                ShowErrorMessage("Invalid operation selected.");
+                break;
+        }
+    }
+
+    private static QuantityDTO ReadQuantity(string label)
+    {
+        Console.Write($"Enter {label} numeric value: ");
+        if (!double.TryParse(Console.ReadLine(), out double value))
+        {
+            throw new Exception("Invalid numeric value entered.");
+        }
+
+        string unit = SelectUnit();
+        return new QuantityDTO(value, unit);
+    }
+
+    private static string SelectUnit()
+    {
+        Console.WriteLine("\nSelect Measurement Category:");
+        Console.WriteLine(" 1. Length (Feet, Inch, Yards, Centimeters)");
+        Console.WriteLine(" 2. Weight (Kilogram, Gram, Pound)");
+        Console.WriteLine(" 3. Volume (Litre, Millilitre, Gallon)");
+        Console.WriteLine(" 4. Temperature (Celsius, Fahrenheit, Kelvin)");
+
+        Console.Write("\nEnter category: ");
+        if (!int.TryParse(Console.ReadLine(), out int category)) throw new Exception("Invalid category selection.");
+
+        return category switch
+        {
+            1 => SelectFromEnum<LengthUnit>(),
+            2 => SelectFromEnum<WeightUnit>(),
+            3 => SelectFromEnum<VolumeUnit>(),
+            4 => SelectFromEnum<TemperatureUnit>(),
+            _ => throw new Exception("Unsupported category.")
         };
     }
 
-    // =================================================
-    // WEIGHT UNIT MENU
-    // =================================================
-
-    static WeightUnit GetWeightUnit()
+    private static string SelectFromEnum<T>() where T : Enum
     {
-        Console.WriteLine("\nSelect Weight Unit:");
-        Console.WriteLine("1. Kilogram");
-        Console.WriteLine("2. Gram");
-        Console.WriteLine("3. Pound");
-
-        int choice = Convert.ToInt32(Console.ReadLine());
-
-        return choice switch
+        Console.WriteLine($"\nSelect {typeof(T).Name}:");
+        var names = Enum.GetNames(typeof(T));
+        for (int i = 0; i < names.Length; i++)
         {
-            1 => WeightUnit.Kilogram,
-            2 => WeightUnit.Gram,
-            3 => WeightUnit.Pound,
-            _ => throw new Exception("Invalid Weight Unit")
-        };
-    }
-
-    // =================================================
-    // VOLUME UNIT MENU
-    // =================================================
-
-    static VolumeUnit GetVolumeUnit()
-    {
-        Console.WriteLine("\nSelect Volume Unit:");
-        Console.WriteLine("1. Litre");
-        Console.WriteLine("2. Millilitre");
-        Console.WriteLine("3. Gallon");
-
-        int choice = Convert.ToInt32(Console.ReadLine());
-
-        return choice switch
-        {
-            1 => VolumeUnit.Litre,
-            2 => VolumeUnit.Millilitre,
-            3 => VolumeUnit.Gallon,
-            _ => throw new Exception("Invalid Volume Unit")
-        };
-    }
-
-    // =================================================
-    // TEMPERATURE UNIT MENU (UC14)
-    // =================================================
-
-    static TemperatureUnit GetTemperatureUnit()
-    {
-        Console.WriteLine("\nSelect Temperature Unit:");
-        Console.WriteLine("1. Celsius");
-        Console.WriteLine("2. Fahrenheit");
-        Console.WriteLine("3. Kelvin");
-
-        int choice = Convert.ToInt32(Console.ReadLine());
-
-        return choice switch
-        {
-            1 => TemperatureUnit.Celsius,
-            2 => TemperatureUnit.Fahrenheit,
-            3 => TemperatureUnit.Kelvin,
-            _ => throw new Exception("Invalid Temperature Unit")
-        };
-    }
-
-    // =================================================
-    // UC1–UC4 LENGTH EQUALITY
-    // =================================================
-
-    static void LengthEquality()
-    {
-        double v1 = ReadDouble("Enter first value: ");
-        LengthUnit u1 = GetLengthUnit();
-
-        double v2 = ReadDouble("Enter second value: ");
-        LengthUnit u2 = GetLengthUnit();
-
-        var q1 = new Quantity<LengthUnit>(v1, u1);
-        var q2 = new Quantity<LengthUnit>(v2, u2);
-
-        Console.WriteLine($"Equality Result: {q1.Equals(q2)}");
-    }
-
-    // =================================================
-    // UC5 LENGTH CONVERSION
-    // =================================================
-
-    static void LengthConversion()
-    {
-        double value = ReadDouble("Enter value: ");
-
-        LengthUnit source = GetLengthUnit();
-        LengthUnit target = GetLengthUnit();
-
-        var q = new Quantity<LengthUnit>(value, source);
-
-        Console.WriteLine($"Converted Result: {q.ConvertTo(target)}");
-    }
-
-    // =================================================
-    // UC6 LENGTH ADDITION
-    // =================================================
-
-    static void LengthAdditionImplicit()
-    {
-        double v1 = ReadDouble("Enter first value: ");
-        LengthUnit u1 = GetLengthUnit();
-
-        double v2 = ReadDouble("Enter second value: ");
-        LengthUnit u2 = GetLengthUnit();
-
-        var q1 = new Quantity<LengthUnit>(v1, u1);
-        var q2 = new Quantity<LengthUnit>(v2, u2);
-
-        Console.WriteLine($"Addition Result: {q1.Add(q2)}");
-    }
-
-    // =================================================
-    // UC7 LENGTH ADDITION EXPLICIT
-    // =================================================
-
-    static void LengthAdditionExplicit()
-    {
-        double v1 = ReadDouble("Enter first value: ");
-        LengthUnit u1 = GetLengthUnit();
-
-        double v2 = ReadDouble("Enter second value: ");
-        LengthUnit u2 = GetLengthUnit();
-
-        Console.WriteLine("Select Result Unit:");
-        LengthUnit target = GetLengthUnit();
-
-        var q1 = new Quantity<LengthUnit>(v1, u1);
-        var q2 = new Quantity<LengthUnit>(v2, u2);
-
-        Console.WriteLine($"Addition Result: {q1.Add(q2, target)}");
-    }
-
-    // =================================================
-    // UC8 DIRECT CONVERSION
-    // =================================================
-
-    static void LengthUnitDirect()
-    {
-        double value = ReadDouble("Enter inch value: ");
-
-        double feet = LengthUnit.Inch.ConvertToBaseUnit(value);
-
-        Console.WriteLine($"Converted to Feet: {feet}");
-    }
-
-    // =================================================
-    // UC9 WEIGHT
-    // =================================================
-
-    static void WeightEquality()
-    {
-        double v1 = ReadDouble("Enter first value: ");
-        WeightUnit u1 = GetWeightUnit();
-
-        double v2 = ReadDouble("Enter second value: ");
-        WeightUnit u2 = GetWeightUnit();
-
-        var w1 = new Quantity<WeightUnit>(v1, u1);
-        var w2 = new Quantity<WeightUnit>(v2, u2);
-
-        Console.WriteLine($"Equality Result: {w1.Equals(w2)}");
-    }
-
-    static void WeightConversion()
-    {
-        double value = ReadDouble("Enter value:");
-
-        WeightUnit source = GetWeightUnit();
-        WeightUnit target = GetWeightUnit();
-
-        var q = new Quantity<WeightUnit>(value, source);
-
-        Console.WriteLine($"Converted Result: {q.ConvertTo(target)}");
-    }
-
-    static void WeightAddition()
-    {
-        double v1 = ReadDouble("Enter first value:");
-        WeightUnit u1 = GetWeightUnit();
-
-        double v2 = ReadDouble("Enter second value:");
-        WeightUnit u2 = GetWeightUnit();
-
-        var w1 = new Quantity<WeightUnit>(v1, u1);
-        var w2 = new Quantity<WeightUnit>(v2, u2);
-
-        Console.WriteLine($"Addition Result: {w1.Add(w2)}");
-    }
-
-    // =====================================================
-    // UC10 GENERIC DEMO (User Input)
-    // =====================================================
-
-    static void GenericDemo()
-    {
-        Console.WriteLine("\n===== GENERIC QUANTITY DEMO =====");
-
-        Console.WriteLine("Select Category:");
-        Console.WriteLine("1. Length");
-        Console.WriteLine("2. Weight");
-        Console.WriteLine("3. Volume");
-
-        int category = Convert.ToInt32(Console.ReadLine());
-
-        if (category == 1)
-        {
-            double v1 = ReadDouble("Enter first length value: ");
-            LengthUnit u1 = GetLengthUnit();
-
-            double v2 = ReadDouble("Enter second length value: ");
-            LengthUnit u2 = GetLengthUnit();
-
-            Console.WriteLine("Select result unit:");
-            LengthUnit target = GetLengthUnit();
-
-            var q1 = new Quantity<LengthUnit>(v1, u1);
-            var q2 = new Quantity<LengthUnit>(v2, u2);
-
-            Console.WriteLine($"Result: {q1.Add(q2, target)}");
+            Console.WriteLine($" {i + 1}. {names[i]}");
         }
 
-        else if (category == 2)
+        Console.Write("\nEnter choice: ");
+        if (!int.TryParse(Console.ReadLine(), out int choice) || choice < 1 || choice > names.Length)
         {
-            double v1 = ReadDouble("Enter first weight value: ");
-            WeightUnit u1 = GetWeightUnit();
-
-            double v2 = ReadDouble("Enter second weight value: ");
-            WeightUnit u2 = GetWeightUnit();
-
-            Console.WriteLine("Select result unit:");
-            WeightUnit target = GetWeightUnit();
-
-            var q1 = new Quantity<WeightUnit>(v1, u1);
-            var q2 = new Quantity<WeightUnit>(v2, u2);
-
-            Console.WriteLine($"Result: {q1.Add(q2, target)}");
+            throw new Exception($"Invalid {typeof(T).Name} selection.");
         }
 
-        else if (category == 3)
-        {
-            double v1 = ReadDouble("Enter first volume value: ");
-            VolumeUnit u1 = GetVolumeUnit();
-
-            double v2 = ReadDouble("Enter second volume value: ");
-            VolumeUnit u2 = GetVolumeUnit();
-
-            Console.WriteLine("Select result unit:");
-            VolumeUnit target = GetVolumeUnit();
-
-            var q1 = new Quantity<VolumeUnit>(v1, u1);
-            var q2 = new Quantity<VolumeUnit>(v2, u2);
-
-            Console.WriteLine($"Result: {q1.Add(q2, target)}");
-        }
-
-        else
-        {
-            Console.WriteLine("Invalid category.");
-        }
-    }
-    // =================================================
-    // UC11 VOLUME
-    // =================================================
-
-    static void VolumeEquality()
-    {
-        double v1 = ReadDouble("Enter first value:");
-        VolumeUnit u1 = GetVolumeUnit();
-
-        double v2 = ReadDouble("Enter second value:");
-        VolumeUnit u2 = GetVolumeUnit();
-
-        var q1 = new Quantity<VolumeUnit>(v1, u1);
-        var q2 = new Quantity<VolumeUnit>(v2, u2);
-
-        Console.WriteLine($"Equality Result: {q1.Equals(q2)}");
+        return names[choice - 1];
     }
 
-    static void VolumeConversion()
+    private static void ShowErrorMessage(string message)
     {
-        double value = ReadDouble("Enter value:");
-
-        VolumeUnit source = GetVolumeUnit();
-        VolumeUnit target = GetVolumeUnit();
-
-        var q = new Quantity<VolumeUnit>(value, source);
-
-        Console.WriteLine($"Converted Result: {q.ConvertTo(target)}");
-    }
-
-    static void VolumeAddition()
-    {
-        double v1 = ReadDouble("Enter first value:");
-        VolumeUnit u1 = GetVolumeUnit();
-
-        double v2 = ReadDouble("Enter second value:");
-        VolumeUnit u2 = GetVolumeUnit();
-
-        VolumeUnit target = GetVolumeUnit();
-
-        var q1 = new Quantity<VolumeUnit>(v1, u1);
-        var q2 = new Quantity<VolumeUnit>(v2, u2);
-
-        Console.WriteLine($"Addition Result: {q1.Add(q2, target)}");
-    }
-
-    // =================================================
-    // UC14 TEMPERATURE
-    // =================================================
-
-    static void TemperatureEquality()
-    {
-        double v1 = ReadDouble("Enter first temperature: ");
-        TemperatureUnit u1 = GetTemperatureUnit();
-
-        double v2 = ReadDouble("Enter second temperature: ");
-        TemperatureUnit u2 = GetTemperatureUnit();
-
-        var t1 = new Quantity<TemperatureUnit>(v1, u1);
-        var t2 = new Quantity<TemperatureUnit>(v2, u2);
-
-        Console.WriteLine($"Equality Result: {t1.Equals(t2)}");
-    }
-
-    static void TemperatureConversion()
-    {
-        double value = ReadDouble("Enter temperature:");
-
-        TemperatureUnit source = GetTemperatureUnit();
-        TemperatureUnit target = GetTemperatureUnit();
-
-        var temp = new Quantity<TemperatureUnit>(value, source);
-
-        Console.WriteLine($"Converted Result: {temp.ConvertTo(target)}");
-    }
-
-    // =================================================
-    // UC12 GENERIC OPERATIONS
-    // =================================================
-
-    static void QuantitySubtraction()
-    {
-        int category = GetCategory();
-
-        if (category == 1)
-            ExecuteSubtraction<LengthUnit>(GetLengthUnit);
-        else if (category == 2)
-            ExecuteSubtraction<WeightUnit>(GetWeightUnit);
-        else if (category == 3)
-            ExecuteSubtraction<VolumeUnit>(GetVolumeUnit);
-    }
-
-    static void QuantityDivision()
-    {
-        int category = GetCategory();
-
-        if (category == 1)
-            ExecuteDivision<LengthUnit>(GetLengthUnit);
-        else if (category == 2)
-            ExecuteDivision<WeightUnit>(GetWeightUnit);
-        else if (category == 3)
-            ExecuteDivision<VolumeUnit>(GetVolumeUnit);
-    }
-
-    static void ExecuteSubtraction<U>(Func<U> unitSelector) where U : Enum
-    {
-        double v1 = ReadDouble("Enter first value:");
-        U u1 = unitSelector();
-
-        double v2 = ReadDouble("Enter second value:");
-        U u2 = unitSelector();
-
-        var q1 = new Quantity<U>(v1, u1);
-        var q2 = new Quantity<U>(v2, u2);
-
-        Console.WriteLine($"Subtraction Result: {q1.Subtract(q2)}");
-    }
-
-    static void ExecuteDivision<U>(Func<U> unitSelector) where U : Enum
-    {
-        double v1 = ReadDouble("Enter first value:");
-        U u1 = unitSelector();
-
-        double v2 = ReadDouble("Enter second value:");
-        U u2 = unitSelector();
-
-        var q1 = new Quantity<U>(v1, u1);
-        var q2 = new Quantity<U>(v2, u2);
-
-        Console.WriteLine($"Division Result: {q1.Divide(q2)}");
-    }
-
-    // =================================================
-    // COMMON INPUT METHOD
-    // =================================================
-
-    static double ReadDouble(string message)
-    {
-        Console.Write(message);
-        return Convert.ToDouble(Console.ReadLine());
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"\nERROR: {message}");
+        Console.ResetColor();
     }
 }

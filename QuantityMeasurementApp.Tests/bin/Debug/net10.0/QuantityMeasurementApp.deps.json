@@ -7,14 +7,94 @@
   "targets": {
     ".NETCoreApp,Version=v10.0": {
       "QuantityMeasurementApp/1.0.0": {
+        "dependencies": {
+          "QuantityMeasurementApp.Controller": "1.0.0"
+        },
         "runtime": {
           "QuantityMeasurementApp.dll": {}
+        }
+      },
+      "QuantityMeasurementApp.Controller/1.0.0": {
+        "dependencies": {
+          "QuantityMeasurementApp.Models": "1.0.0",
+          "QuantityMeasurementApp.Service": "1.0.0"
+        },
+        "runtime": {
+          "QuantityMeasurementApp.Controller.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "QuantityMeasurementApp.Exceptions/1.0.0": {
+        "runtime": {
+          "QuantityMeasurementApp.Exceptions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "QuantityMeasurementApp.Models/1.0.0": {
+        "runtime": {
+          "QuantityMeasurementApp.Models.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "QuantityMeasurementApp.Repository/1.0.0": {
+        "dependencies": {
+          "QuantityMeasurementApp.Models": "1.0.0"
+        },
+        "runtime": {
+          "QuantityMeasurementApp.Repository.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "QuantityMeasurementApp.Service/1.0.0": {
+        "dependencies": {
+          "QuantityMeasurementApp.Exceptions": "1.0.0",
+          "QuantityMeasurementApp.Models": "1.0.0",
+          "QuantityMeasurementApp.Repository": "1.0.0"
+        },
+        "runtime": {
+          "QuantityMeasurementApp.Service.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "QuantityMeasurementApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuantityMeasurementApp.Controller/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuantityMeasurementApp.Exceptions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuantityMeasurementApp.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuantityMeasurementApp.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "QuantityMeasurementApp.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
