@@ -6,16 +6,32 @@ using QuantityMeasurementApp.Service;
 
 /// <summary>
 /// Entry point for the Quantity Measurement Application.
-/// Provides a console-based user interface for performing measurement operations.
+/// Why: To provide a user-friendly console interface for interacting with the measurement system.
+/// How: Uses a simple loop-based UI, manual Dependency Injection (DI) to assemble the layers, and calls the Controller for all operations.
 /// </summary>
 class Program
 {
-    static QuantityMeasurementController controller;
+    // The main controller that orchestrates UI interactions.
+    // Why: Keeping it at class level (static) simplifies access within this simple console entry point.
+    static QuantityMeasurementController controller = null!;
 
+    /// <summary>
+    /// The application's entry method.
+    /// How: 
+    /// 1. Initializes the repository (SQL persistence), service (business logic), and controller (orchestration).
+    /// 2. Sets up a main application loop.
+    /// 3. Navigates based on user menu selection.
+    /// </summary>
     static void Main()
     {
-        // Setup Dependency Injection manually for this simple console application
-        var repository = new QuantityMeasurementCacheRepository();
+        // First, ensure the database and table are correctly set up.
+        // This handles cases where the user hasn't manually run the schema.sql file.
+        QuantityMeasurementApp.Utilities.DatabaseInitializer.Initialize();
+
+        // Setup Dependency Injection (DI) manually.
+        // Why: For a small console app, manual DI is simpler than setting up a full container (like Microsoft.Extensions.DependencyInjection).
+        // Database Repository is used here to enable persistent storage as requested (UC-16).
+        var repository = new QuantityMeasurementDatabaseRepository();
         var service = new QuantityMeasurementServiceImpl(repository);
         controller = new QuantityMeasurementController(service);
 
@@ -26,6 +42,7 @@ class Program
             Console.Clear();
             Console.WriteLine("==================================================");
             Console.WriteLine("          QUANTITY MEASUREMENT SYSTEM             ");
+            Console.WriteLine("          (Data Persistence Enabled)              ");
             Console.WriteLine("==================================================");
             Console.WriteLine(" 1. Compare Two Quantities");
             Console.WriteLine(" 2. Convert a Quantity to Another Unit");
@@ -42,6 +59,7 @@ class Program
 
             try
             {
+                // Navigate to sub-menus based on the choice.
                 switch (choice)
                 {
                     case 1:
@@ -63,6 +81,7 @@ class Program
             }
             catch (Exception ex)
             {
+                // Final safety net for errors not caught deeper in the stack.
                 ShowErrorMessage($"An unexpected error occurred: {ex.Message}");
             }
 
@@ -71,6 +90,10 @@ class Program
         }
     }
 
+    /// <summary>
+    /// Displays the comparison menu.
+    /// Why: To collect two inputs and check for logical equality (e.g., 1 foot vs 12 inches).
+    /// </summary>
     private static void CompareMenu()
     {
         Console.WriteLine("\n--- [COMPARE QUANTITIES] ---");
@@ -79,6 +102,10 @@ class Program
         controller.PerformComparison(q1, q2);
     }
 
+    /// <summary>
+    /// Displays the conversion menu.
+    /// Why: To transform a source value (e.g., Celsius) into a target unit (e.g., Fahrenheit).
+    /// </summary>
     private static void ConvertMenu()
     {
         Console.WriteLine("\n--- [CONVERT QUANTITY] ---");
@@ -90,6 +117,10 @@ class Program
         controller.PerformConversion(q1, target);
     }
 
+    /// <summary>
+    /// Displays the arithmetic operations menu.
+    /// Why: To support adding or subtracting different units within the same category (UC-10, UC-12, etc.).
+    /// </summary>
     private static void ArithmeticMenu()
     {
         Console.WriteLine("\n--- [ARITHMETIC OPERATIONS] ---");
@@ -121,6 +152,10 @@ class Program
         }
     }
 
+    /// <summary>
+    /// Helper to read a quantity from the console.
+    /// Why: Standardizes how values and units are collected from the user.
+    /// </summary>
     private static QuantityDTO ReadQuantity(string label)
     {
         Console.Write($"Enter {label} numeric value: ");
@@ -133,6 +168,10 @@ class Program
         return new QuantityDTO(value, unit);
     }
 
+    /// <summary>
+    /// Helper to select a unit category and then a specific unit.
+    /// How: Uses a two-step selection process (Category -> Unit).
+    /// </summary>
     private static string SelectUnit()
     {
         Console.WriteLine("\nSelect Measurement Category:");
@@ -154,6 +193,10 @@ class Program
         };
     }
 
+    /// <summary>
+    /// Helper to display and select a value from a specific Enum type.
+    /// Why: Avoids hardcoding unit names and uses reflection to build the menu dynamically.
+    /// </summary>
     private static string SelectFromEnum<T>() where T : Enum
     {
         Console.WriteLine($"\nSelect {typeof(T).Name}:");
@@ -172,6 +215,10 @@ class Program
         return names[choice - 1];
     }
 
+    /// <summary>
+    /// Helper to display error messages in a distinct color.
+    /// Why: Visual cues help users identify when they've provided invalid input.
+    /// </summary>
     private static void ShowErrorMessage(string message)
     {
         Console.ForegroundColor = ConsoleColor.Red;

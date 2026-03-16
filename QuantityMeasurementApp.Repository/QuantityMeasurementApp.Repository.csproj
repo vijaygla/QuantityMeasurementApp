@@ -2,6 +2,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QuantityMeasurementApp.Models\QuantityMeasurementApp.Models.csproj" />
+    <ProjectReference Include="..\QuantityMeasurementApp.Exceptions\QuantityMeasurementApp.Exceptions.csproj" />
+    <ProjectReference Include="..\QuantityMeasurementApp.Utilities\QuantityMeasurementApp.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.4" />
   </ItemGroup>
 
   <PropertyGroup>

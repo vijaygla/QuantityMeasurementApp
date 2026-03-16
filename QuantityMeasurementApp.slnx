@@ -5,5 +5,6 @@
   <Project Path="QuantityMeasurementApp.Repository/QuantityMeasurementApp.Repository.csproj" />
   <Project Path="QuantityMeasurementApp.Service/QuantityMeasurementApp.Service.csproj" />
   <Project Path="QuantityMeasurementApp.Tests/QuantityMeasurementApp.Tests.csproj" />
+  <Project Path="QuantityMeasurementApp.Utilities/QuantityMeasurementApp.Utilities.csproj" />
   <Project Path="QuantityMeasurementApp/QuantityMeasurementApp.csproj" />
 </Solution>

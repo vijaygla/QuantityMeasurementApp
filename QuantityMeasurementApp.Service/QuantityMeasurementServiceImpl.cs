@@ -65,7 +65,7 @@ namespace QuantityMeasurementApp.Service
             {
                 QuantityDTO result = ExecuteSingleOperandOperation(source, (q) =>
                 {
-                    if (TryParseUnit(source.Unit, out Enum _, out Type enumType))
+                    if (TryParseUnit(source.Unit, out Enum? sourceEnumUnit, out Type? enumType) && sourceEnumUnit != null && enumType != null)
                     {
                         try
                         {
@@ -75,9 +75,9 @@ namespace QuantityMeasurementApp.Service
                             var quantityType = typeof(Quantity<>).MakeGenericType(enumType);
                             var quantityInstance = Activator.CreateInstance(quantityType, source.Value, (Enum)Enum.Parse(enumType, source.Unit, true));
                             var convertMethod = quantityType.GetMethod("ConvertTo");
-                            var resultQuantity = convertMethod.Invoke(quantityInstance, new object[] { targetEnum });
+                            var resultQuantity = convertMethod!.Invoke(quantityInstance, new object[] { targetEnum });
 
-                            double val = (double)resultQuantity.GetType().GetProperty("Value").GetValue(resultQuantity);
+                            double val = (double)(resultQuantity!.GetType().GetProperty("Value")!.GetValue(resultQuantity) ?? 0.0);
                             return new QuantityDTO(val, targetUnit);
                         }
                         catch (ArgumentException)
@@ -116,10 +116,10 @@ namespace QuantityMeasurementApp.Service
             {
                 var result = ExecuteOperation(q1, q2, (a, b) => {
                     var addMethod = a.GetType().GetMethod("Add", new[] { a.GetType() });
-                    var resultObj = addMethod.Invoke(a, new object[] { b });
+                    var resultObj = addMethod!.Invoke(a, new object[] { b });
                     
-                    double val = (double)resultObj.GetType().GetProperty("Value").GetValue(resultObj);
-                    string unit = resultObj.GetType().GetProperty("Unit").GetValue(resultObj).ToString();
+                    double val = (double)(resultObj!.GetType().GetProperty("Value")!.GetValue(resultObj) ?? 0.0);
+                    string unit = resultObj.GetType().GetProperty("Unit")!.GetValue(resultObj)!.ToString() ?? string.Empty;
                     return new QuantityDTO(val, unit);
                 });
 
@@ -151,10 +151,10 @@ namespace QuantityMeasurementApp.Service
             {
                 var result = ExecuteOperation(q1, q2, (a, b) => {
                     var subMethod = a.GetType().GetMethod("Subtract", new[] { a.GetType() });
-                    var resultObj = subMethod.Invoke(a, new object[] { b });
+                    var resultObj = subMethod!.Invoke(a, new object[] { b });
                     
-                    double val = (double)resultObj.GetType().GetProperty("Value").GetValue(resultObj);
-                    string unit = resultObj.GetType().GetProperty("Unit").GetValue(resultObj).ToString();
+                    double val = (double)(resultObj!.GetType().GetProperty("Value")!.GetValue(resultObj) ?? 0.0);
+                    string unit = resultObj.GetType().GetProperty("Unit")!.GetValue(resultObj)!.ToString() ?? string.Empty;
                     return new QuantityDTO(val, unit);
                 });
 
@@ -186,7 +186,7 @@ namespace QuantityMeasurementApp.Service
             {
                 double result = ExecuteOperation(q1, q2, (a, b) => {
                     var divMethod = a.GetType().GetMethod("Divide", new[] { a.GetType() });
-                    return (double)divMethod.Invoke(a, new object[] { b });
+                    return (double)(divMethod!.Invoke(a, new object[] { b }) ?? 0.0);
                 });
 
                 entity.Result = new QuantityDTO(result, "RATIO");
@@ -218,8 +218,8 @@ namespace QuantityMeasurementApp.Service
 
         private T ExecuteOperation<T>(QuantityDTO q1, QuantityDTO q2, Func<object, object, T> operation)
         {
-            if (!TryParseUnit(q1.Unit, out Enum u1, out Type type1) ||
-                !TryParseUnit(q2.Unit, out Enum u2, out Type type2))
+            if (!TryParseUnit(q1.Unit, out Enum? u1, out Type? type1) || u1 == null || type1 == null ||
+                !TryParseUnit(q2.Unit, out Enum? u2, out Type? type2) || u2 == null || type2 == null)
             {
                 throw new QuantityMeasurementException("Invalid or unsupported unit provided.");
             }
@@ -235,6 +235,11 @@ namespace QuantityMeasurementApp.Service
                 var inst1 = Activator.CreateInstance(quantityType, q1.Value, u1);
                 var inst2 = Activator.CreateInstance(quantityType, q2.Value, u2);
 
+                if (inst1 == null || inst2 == null)
+                {
+                    throw new QuantityMeasurementException("Failed to instantiate quantity objects.");
+                }
+
                 return operation(inst1, inst2);
             }
             catch (System.Reflection.TargetInvocationException ex)
@@ -248,7 +253,7 @@ namespace QuantityMeasurementApp.Service
             return operation(q);
         }
 
-        private bool TryParseUnit(string unitStr, out Enum unit, out Type enumType)
+        private bool TryParseUnit(string unitStr, out Enum? unit, out Type? enumType)
         {
             if (Enum.TryParse<LengthUnit>(unitStr, true, out var l))
             {
@@ -275,10 +280,9 @@ namespace QuantityMeasurementApp.Service
                 return true;
             }
 
-            unit = default;
-            enumType = default;
+            unit = null;
+            enumType = null;
             return false;
         }
     }
 }
-
