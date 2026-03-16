@@ -12,7 +12,8 @@ namespace QuantityMeasurementApp.Models
         Feet,
         Inch,
         Yards,
-        Centimeters
+        Centimeters,
+        Meter
     }
 
     /// <summary>
@@ -34,6 +35,7 @@ namespace QuantityMeasurementApp.Models
                 LengthUnit.Inch => 1.0 / 12.0,       // 12.0 inches = 1.0 foot
                 LengthUnit.Yards => 3.0,             // 1.0 yard = 3.0 feet
                 LengthUnit.Centimeters => 1.0 / 30.48, // 30.48 cm = 1.0 foot
+                LengthUnit.Meter => 1.0 / 0.3048,   // 0.3048 meters = 1.0 foot
                 _ => throw new ArgumentException("Unsupported Length Unit")
             };
         }

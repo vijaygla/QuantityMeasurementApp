@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="QuantityMeasurementApp.API/QuantityMeasurementApp.API.csproj" />
   <Project Path="QuantityMeasurementApp.Controller/QuantityMeasurementApp.Controller.csproj" />
   <Project Path="QuantityMeasurementApp.Exceptions/QuantityMeasurementApp.Exceptions.csproj" />
   <Project Path="QuantityMeasurementApp.Models/QuantityMeasurementApp.Models.csproj" />

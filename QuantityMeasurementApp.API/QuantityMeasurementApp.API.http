@@ -1,0 +1,48 @@
+### Compare
+POST http://localhost:5248/api/quantity/compare
+Content-Type: application/json
+
+[
+ { "value": 10, "unit": "Feet" },
+ { "value": 120, "unit": "Inch" }
+]
+
+
+### Convert
+POST http://localhost:5248/api/quantity/convert/Meter
+Content-Type: application/json
+
+{
+ "value": 10,
+ "unit": "Feet"
+}
+
+
+### Addition
+POST http://localhost:5248/api/quantity/add
+Content-Type: application/json
+
+[
+ { "value": 5, "unit": "Feet" },
+ { "value": 5, "unit": "Feet" }
+]
+
+
+### Subtraction
+POST http://localhost:5248/api/quantity/subtract
+Content-Type: application/json
+
+[
+ { "value": 10, "unit": "Feet" },
+ { "value": 5, "unit": "Feet" }
+]
+
+
+### Division
+POST http://localhost:5248/api/quantity/divide
+Content-Type: application/json
+
+[
+ { "value": 10, "unit": "Feet" },
+ { "value": 5, "unit": "Feet" }
+]
