@@ -1,81 +1,121 @@
 using QuantityMeasurementApp.Service;
 using QuantityMeasurementApp.Repository;
 using QuantityMeasurementApp.API.Middleware;
+using QuantityMeasurementApp.Utilities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using NLog;
 using NLog.Web;
+using StackExchange.Redis;
 
-/// <summary>
-/// Entry point for the Quantity Measurement Web API.
-/// Why: To expose the measurement business logic to external clients (web, mobile, or third-party services) over HTTP.
-/// How: Uses ASP.NET Core Minimal API and Controllers to provide RESTful endpoints, with Swagger for documentation.
-/// </summary>
 var builder = WebApplication.CreateBuilder(args);
 
-// --- [LOGGING CONFIGURATION] ---
-// Why: To track application behavior, capture errors, and facilitate debugging in production.
-// How: Using NLog to write logs to both file and console as defined in Logging/NLog.config.
-var logger = LogManager.Setup().LoadConfigurationFromFile("Logging/NLog.config").GetCurrentClassLogger();
+// Initialize DB config
+DatabaseConfig.Initialize(builder.Configuration);
+
+// Setup NLog
+var logger = LogManager.Setup()
+    .LoadConfigurationFromFile("Logging/NLog.config")
+    .GetCurrentClassLogger();
+
 builder.Logging.ClearProviders();
 builder.Host.UseNLog();
 
-try 
+try
 {
-    // --- [SERVICES REGISTRATION] ---
-    // Why: To enable dependency injection (DI) so controllers can focus on coordination without knowing implementation details.
-    // How: Scoped lifetime ensures a new instance is created for each HTTP request, matching database connection patterns.
+    // -------------------- Controllers + Swagger --------------------
     builder.Services.AddControllers();
-
-    // Swagger/OpenAPI setup for API discovery and testing.
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
-    // --- [BUSINESS LOGIC DI] ---
-    // Why: To ensure the API uses the same core logic and persistence layer as the console application.
+    // -------------------- Repository + Service --------------------
     builder.Services.AddScoped<IQuantityMeasurementRepository, QuantityMeasurementDatabaseRepository>();
     builder.Services.AddScoped<IQuantityMeasurementService, QuantityMeasurementServiceImpl>();
 
+    // -------------------- Auth (JWT) --------------------
+    var jwtKey = builder.Configuration["Jwt:Key"] ?? "DEFAULT_SECRET_KEY";
+
+    builder.Services.AddSingleton(new JwtService(jwtKey));
+    builder.Services.AddScoped<IUserRepository, UserRepository>();
+    builder.Services.AddScoped<IAuthService, AuthService>();
+
+    var key = Encoding.UTF8.GetBytes(jwtKey);
+
+    builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key)
+        };
+    });
+
+    // -------------------- Redis --------------------
+    var redisConnection = builder.Configuration["Redis:ConnectionString"] ?? "localhost:6379";
+
+    builder.Services.AddSingleton<IConnectionMultiplexer>(
+        ConnectionMultiplexer.Connect(redisConnection)
+    );
+
+    builder.Services.AddScoped<RedisCacheService>();
+
+    // -------------------- RabbitMQ --------------------
+    // Config values from appsettings.json
+    var rabbitHost = builder.Configuration["RabbitMQ:Host"] ?? "localhost";
+    var rabbitQueue = builder.Configuration["RabbitMQ:QueueName"] ?? "QuantityQueue";
+
+    // Register Producer (send messages)
+    builder.Services.AddSingleton(new RabbitMQProducer(rabbitHost, rabbitQueue));
+
+    // Register Consumer (background processing)
+    builder.Services.AddHostedService<RabbitMQConsumer>();
+
+    // -------------------------------------------------
+
     var app = builder.Build();
 
-    // --- [DATABASE INITIALIZATION] ---
-    // Why: Real-time apps must ensure the underlying storage is ready before accepting requests.
-    // How: Calls the shared DatabaseInitializer to check/create SQL DB and tables automatically.
-    QuantityMeasurementApp.Utilities.DatabaseInitializer.Initialize();
+    // Initialize DB
+    DatabaseInitializer.Initialize();
 
-    // --- [MIDDLEWARE PIPELINE] ---
-    // Why: To process requests in a consistent manner (security, logging, error handling).
-
-    // Global Exception Handling Middleware
-    // Why: To catch unhandled errors and return consistent JSON responses instead of exposing stack traces.
+    // Global exception middleware
     app.UseMiddleware<ExceptionMiddleware>();
 
-    // Enable Swagger in Development or Production based on needs.
+    // Swagger
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
         app.UseSwaggerUI();
     }
 
-    // Redirect HTTP to HTTPS for security.
     app.UseHttpsRedirection();
 
-    // Mapping controllers to routes.
+    // Auth middleware
+    app.UseAuthentication();
+    app.UseAuthorization();
+
     app.MapControllers();
 
-    // Default Landing Route
-    // Why: To provide a quick sanity check if the API is running correctly.
+    // Health check
     app.MapGet("/", () => "Quantity Measurement API is online and healthy.");
 
-    logger.Info("Quantity Measurement API successfully started.");
+    logger.Info("API started successfully.");
     app.Run();
 }
-catch (Exception exception)
+catch (Exception ex)
 {
-    // Capture any startup errors that prevent the app from booting.
-    logger.Error(exception, "Stopped program because of exception during startup.");
+    logger.Error(ex, "Startup failed.");
     throw;
 }
 finally
 {
-    // Ensure the logger is properly closed when the app shuts down.
     LogManager.Shutdown();
 }

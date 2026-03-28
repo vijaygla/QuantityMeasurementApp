@@ -474,3 +474,231 @@ Error Number:2,State:0,Class:20
 2026-03-17 03:09:23.0100|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API)' 
 2026-03-17 03:09:23.0100|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/divide - 200 - application/json;+charset=utf-8 17.0986ms 
 2026-03-17 03:09:37.7319|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
+2026-03-28 11:29:13.4445|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
+2026-03-28 11:29:13.4795|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2026-03-28 11:29:13.5387|ERROR|Microsoft.Extensions.Hosting.Internal.Host|BackgroundService failed System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-03-28 11:29:13.5584|FATAL|Microsoft.Extensions.Hosting.Internal.Host|The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted. System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-03-28 11:29:13.5584|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
+2026-03-28 11:29:13.6136|ERROR|Microsoft.Extensions.Hosting.Internal.Host|Hosting failed to start System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-03-28 11:29:13.6136|ERROR|QuantityMeasurementApp.API.Program|Startup failed. System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 111
+2026-03-28 11:36:15.9856|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
+2026-03-28 11:36:16.0421|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2026-03-28 11:36:16.1247|ERROR|Microsoft.Extensions.Hosting.Internal.Host|BackgroundService failed System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-03-28 11:36:16.1539|FATAL|Microsoft.Extensions.Hosting.Internal.Host|The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted. System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-03-28 11:36:16.1539|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
+2026-03-28 11:36:16.2468|ERROR|Microsoft.Extensions.Hosting.Internal.Host|Hosting failed to start System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-03-28 11:36:16.2667|ERROR|QuantityMeasurementApp.API.Program|Startup failed. System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 111
+2026-03-28 11:44:58.9040|ERROR|QuantityMeasurementApp.API.Program|Startup failed. StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s). Error connecting right now. To allow this multiplexer to continue retrying until it's able to connect, use abortConnect=false in your connection string or AbortOnConnectFail=false; in your code.
+   at StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(ConfigurationOptions configuration, TextWriter writer, Nullable`1 serverType, EndPointCollection endpoints) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 691
+   at StackExchange.Redis.ConnectionMultiplexer.Connect(ConfigurationOptions configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 663
+   at StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 641
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 65
+2026-03-28 11:47:48.0966|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
+2026-03-28 11:47:48.1489|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2026-03-28 11:47:48.2169|ERROR|Microsoft.Extensions.Hosting.Internal.Host|BackgroundService failed System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-03-28 11:47:48.2497|FATAL|Microsoft.Extensions.Hosting.Internal.Host|The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted. System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
+   at System.Threading.Tasks.Task`1.InnerInvoke()
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2026-03-28 11:47:48.2497|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
+2026-03-28 11:47:48.3267|ERROR|Microsoft.Extensions.Hosting.Internal.Host|Hosting failed to start System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-03-28 11:47:48.3478|ERROR|QuantityMeasurementApp.API.Program|Startup failed. System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 111
+2026-03-28 12:04:56.5977|ERROR|QuantityMeasurementApp.API.Program|Startup failed. StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s). Error connecting right now. To allow this multiplexer to continue retrying until it's able to connect, use abortConnect=false in your connection string or AbortOnConnectFail=false; in your code.
+   at StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(ConfigurationOptions configuration, TextWriter writer, Nullable`1 serverType, EndPointCollection endpoints) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 691
+   at StackExchange.Redis.ConnectionMultiplexer.Connect(ConfigurationOptions configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 663
+   at StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 641
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 65
+2026-03-28 12:18:58.2558|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
+2026-03-28 12:18:58.2925|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2026-03-28 12:18:58.2987|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer initialized with host: localhost, queue: QuantityQueue 
+2026-03-28 12:18:58.3410|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer.ExecuteAsync started. 
+2026-03-28 12:18:58.3472|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Attempting to connect to RabbitMQ at localhost... 
+2026-03-28 12:18:58.4439|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
+2026-03-28 12:18:58.4439|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2026-03-28 12:18:58.4439|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2026-03-28 12:18:58.4439|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
+2026-03-28 12:18:58.4694|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Successfully connected to RabbitMQ. 
+2026-03-28 12:18:58.4803|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Started consuming from queue: QuantityQueue 
+2026-03-28 12:19:44.3545|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/register - application/json 99 
+2026-03-28 12:19:44.5903|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect. 
+2026-03-28 12:19:44.7208|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
+2026-03-28 12:19:44.7882|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(QuantityMeasurementApp.API.DTO.RegisterRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
+2026-03-28 12:19:45.3413|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2026-03-28 12:19:45.3860|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API) in 580.4718ms 
+2026-03-28 12:19:45.3860|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
+2026-03-28 12:19:45.3860|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/register - 200 - application/json;+charset=utf-8 1055.8843ms 
+2026-03-28 12:20:00.9119|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/login - application/json 81 
+2026-03-28 12:20:00.9119|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:00.9323|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(QuantityMeasurementApp.API.DTO.LoginRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
+2026-03-28 12:20:01.0184|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2026-03-28 12:20:01.0184|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API) in 89.0946ms 
+2026-03-28 12:20:01.0184|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:01.0184|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/login - 200 - application/json;+charset=utf-8 110.6590ms 
+2026-03-28 12:20:27.0953|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/compare - application/json 72 
+2026-03-28 12:20:27.2967|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:27.3049|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Compare", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Compare(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
+2026-03-28 12:20:27.4020|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Boolean'. 
+2026-03-28 12:20:27.4020|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API) in 97.1645ms 
+2026-03-28 12:20:27.4020|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:27.4020|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/compare - 200 - application/json;+charset=utf-8 312.2600ms 
+2026-03-28 12:20:31.1274|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - application/json 34 
+2026-03-28 12:20:31.1551|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.ConvertWithUrlParam (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:31.1793|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "ConvertWithUrlParam", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConvertWithUrlParam(QuantityMeasurementApp.Models.QuantityDTO, System.String) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
+2026-03-28 12:20:31.4419|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Received message: {"Operand1":{"Value":10,"Unit":"Feet"},"Operand2":null,"Operation":"CONVERT","Result":{"Value":3.048,"Unit":"Meter"},"ErrorMessage":null,"HasError":false} 
+2026-03-28 12:20:31.4691|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Successfully saved entity to database. 
+2026-03-28 12:20:31.4775|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'QuantityMeasurementApp.Models.QuantityDTO'. 
+2026-03-28 12:20:31.4775|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.ConvertWithUrlParam (QuantityMeasurementApp.API) in 300.0042ms 
+2026-03-28 12:20:31.4775|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.ConvertWithUrlParam (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:31.4775|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - 200 - application/json;+charset=utf-8 355.2545ms 
+2026-03-28 12:20:34.8805|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/add - application/json 69 
+2026-03-28 12:20:34.8805|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:34.8805|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Add", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
+2026-03-28 12:20:34.9004|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'QuantityMeasurementApp.Models.QuantityDTO'. 
+2026-03-28 12:20:34.9004|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API) in 9.3466ms 
+2026-03-28 12:20:34.9004|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:34.9004|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/add - 200 - application/json;+charset=utf-8 20.6266ms 
+2026-03-28 12:20:37.5578|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/subtract - application/json 70 
+2026-03-28 12:20:37.5726|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Subtract", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Subtract(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
+2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'QuantityMeasurementApp.Models.QuantityDTO'. 
+2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API) in 3.2277ms 
+2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/subtract - 200 - application/json;+charset=utf-8 31.3227ms 
+2026-03-28 12:20:41.8572|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/divide - application/json 70 
+2026-03-28 12:20:41.8634|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:41.8785|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Divide", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Divide(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
+2026-03-28 12:20:41.8785|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Double'. 
+2026-03-28 12:20:41.8973|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API) in 14.4387ms 
+2026-03-28 12:20:41.8973|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API)' 
+2026-03-28 12:20:41.8973|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/divide - 200 - application/json;+charset=utf-8 43.2063ms 
+2026-03-28 12:34:29.3204|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/register - application/json 99 
+2026-03-28 12:34:29.3492|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
+2026-03-28 12:34:29.3703|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(QuantityMeasurementApp.API.DTO.RegisterRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
+2026-03-28 12:34:29.4631|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API) in 92.0461ms 
+2026-03-28 12:34:29.4631|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
+2026-03-28 12:34:29.4725|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. System.Exception: User already exists with this email
+   at QuantityMeasurementApp.Service.AuthService.Register(String name, String email, String password) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\AuthService.cs:line 28
+   at QuantityMeasurementApp.API.Controllers.AuthController.Register(RegisterRequest request) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\AuthController.cs:line 25
+   at lambda_method4(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
+2026-03-28 12:34:29.5414|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/register - 500 - application/json 222.6869ms 
+2026-03-28 12:34:34.3239|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/login - application/json 81 
+2026-03-28 12:34:34.3239|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
+2026-03-28 12:34:34.3355|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(QuantityMeasurementApp.API.DTO.LoginRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
+2026-03-28 12:34:34.3537|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2026-03-28 12:34:34.3537|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API) in 19.3908ms 
+2026-03-28 12:34:34.3537|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
+2026-03-28 12:34:34.3537|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/login - 200 - application/json;+charset=utf-8 31.9273ms 

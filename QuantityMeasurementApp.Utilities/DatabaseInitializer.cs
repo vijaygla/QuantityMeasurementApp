@@ -27,78 +27,106 @@ namespace QuantityMeasurementApp.Utilities
             // Create a connection string for the 'master' database to perform DB creation.
             string masterConnectionString = Regex.Replace(fullConnectionString, @"Database=[^;]+", "Database=master", RegexOptions.IgnoreCase);
 
-            try
+            int retryCount = 0;
+            const int maxRetries = 10;
+            
+            while (retryCount < maxRetries)
             {
-                Console.WriteLine("--- [DB INITIALIZATION] Checking Database existence...");
-                using (var masterConn = new SqlConnection(masterConnectionString))
+                try
                 {
-                    masterConn.Open();
-                    
-                    // Check if DB exists.
-                    string checkDbQuery = $"SELECT database_id FROM sys.databases WHERE name = '{dbName}'";
-                    using (var cmd = new SqlCommand(checkDbQuery, masterConn))
+                    Console.WriteLine($"--- [DB INITIALIZATION] Checking Database existence (Attempt {retryCount + 1})...");
+                    using (var masterConn = new SqlConnection(masterConnectionString))
                     {
-                        var result = cmd.ExecuteScalar();
-                        if (result == null)
+                        masterConn.Open();
+                        
+                        // Check if DB exists.
+                        string checkDbQuery = $"SELECT database_id FROM sys.databases WHERE name = '{dbName}'";
+                        using (var cmd = new SqlCommand(checkDbQuery, masterConn))
                         {
-                            Console.WriteLine($"--- [DB INITIALIZATION] Creating Database '{dbName}'...");
-                            string createDbQuery = $"CREATE DATABASE [{dbName}]";
-                            using (var createCmd = new SqlCommand(createDbQuery, masterConn))
+                            var result = cmd.ExecuteScalar();
+                            if (result == null)
                             {
-                                createCmd.ExecuteNonQuery();
+                                Console.WriteLine($"--- [DB INITIALIZATION] Creating Database '{dbName}'...");
+                                string createDbQuery = $"CREATE DATABASE [{dbName}]";
+                                using (var createCmd = new SqlCommand(createDbQuery, masterConn))
+                                {
+                                    createCmd.ExecuteNonQuery();
+                                }
                             }
                         }
                     }
-                }
 
-                // Now connect to the actual database to create the table.
-                using (var appConn = new SqlConnection(fullConnectionString))
-                {
-                    appConn.Open();
-                    
-                    Console.WriteLine("--- [DB INITIALIZATION] Ensuring schema exists...");
-                    string createTableQuery = @"
-                        IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'QuantityMeasurements')
-                        BEGIN
-                            CREATE TABLE QuantityMeasurements
-                            (
-                                Id INT IDENTITY(1,1) PRIMARY KEY,
-                                Operand1Value FLOAT,
-                                Operand1Unit NVARCHAR(50),
-                                Operand2Value FLOAT NULL,
-                                Operand2Unit NVARCHAR(50) NULL,
-                                Operation NVARCHAR(50),
-                                Result NVARCHAR(100) NULL,
-                                ErrorMessage NVARCHAR(MAX) NULL,
-                                CreatedAt DATETIME DEFAULT GETDATE()
-                            );
-                        END
-                        ELSE
-                        BEGIN
-                            -- Ensure ErrorMessage column exists in case an older version was used.
-                            IF NOT EXISTS (SELECT * FROM sys.columns 
-                                           WHERE object_id = OBJECT_ID('QuantityMeasurements') 
-                                           AND name = 'ErrorMessage')
-                            BEGIN
-                                ALTER TABLE QuantityMeasurements ADD ErrorMessage NVARCHAR(MAX) NULL;
-                            END
-                        END";
-
-                    using (var cmd = new SqlCommand(createTableQuery, appConn))
+                    // Now connect to the actual database to create the table.
+                    using (var appConn = new SqlConnection(fullConnectionString))
                     {
-                        cmd.ExecuteNonQuery();
+                        appConn.Open();
+                        
+                        Console.WriteLine("--- [DB INITIALIZATION] Ensuring schema exists...");
+                        string createTableQuery = @"
+                            IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'QuantityMeasurements')
+                            BEGIN
+                                CREATE TABLE QuantityMeasurements
+                                (
+                                    Id INT IDENTITY(1,1) PRIMARY KEY,
+                                    Operand1Value FLOAT,
+                                    Operand1Unit NVARCHAR(50),
+                                    Operand2Value FLOAT NULL,
+                                    Operand2Unit NVARCHAR(50) NULL,
+                                    Operation NVARCHAR(50),
+                                    Result NVARCHAR(100) NULL,
+                                    ErrorMessage NVARCHAR(MAX) NULL,
+                                    CreatedAt DATETIME DEFAULT GETDATE()
+                                );
+                            END
+                            ELSE
+                            BEGIN
+                                -- Ensure ErrorMessage column exists in case an older version was used.
+                                IF NOT EXISTS (SELECT * FROM sys.columns 
+                                               WHERE object_id = OBJECT_ID('QuantityMeasurements') 
+                                               AND name = 'ErrorMessage')
+                                BEGIN
+                                    ALTER TABLE QuantityMeasurements ADD ErrorMessage NVARCHAR(MAX) NULL;
+                                END
+                            END
+                            
+                            -- Ensure Users table exists
+                            IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Users')
+                            BEGIN
+                                CREATE TABLE Users
+                                (
+                                    Id INT IDENTITY(1,1) PRIMARY KEY,
+                                    Name NVARCHAR(100) NOT NULL,
+                                    Email NVARCHAR(100) NOT NULL UNIQUE,
+                                    PasswordHash NVARCHAR(255) NOT NULL,
+                                    Salt NVARCHAR(255) NOT NULL,
+                                    CreatedAt DATETIME DEFAULT GETDATE()
+                                );
+                            END";
+
+                        using (var cmd = new SqlCommand(createTableQuery, appConn))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    Console.WriteLine("--- [DB INITIALIZATION] Database is ready.");
+                    return; // Success!
+                }
+                catch (Exception ex)
+                {
+                    retryCount++;
+                    if (retryCount >= maxRetries)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"--- [DB INITIALIZATION WARNING] Could not auto-initialize database after {maxRetries} attempts: {ex.Message}");
+                        Console.WriteLine("--- [DB INITIALIZATION WARNING] Please ensure SQL Server is running and connection string is correct.");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.WriteLine($"--- [DB INITIALIZATION] SQL Server not ready, retrying in 5s... ({ex.Message})");
+                        System.Threading.Thread.Sleep(5000);
                     }
                 }
-                Console.WriteLine("--- [DB INITIALIZATION] Database is ready.");
-            }
-            catch (Exception ex)
-            {
-                // We log the error but don't re-throw immediately to let the app attempt a regular run,
-                // as the user might have set up the DB manually.
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"--- [DB INITIALIZATION WARNING] Could not auto-initialize database: {ex.Message}");
-                Console.WriteLine("--- [DB INITIALIZATION WARNING] Please ensure SQL Server is running and connection string is correct.");
-                Console.ResetColor();
             }
         }
     }

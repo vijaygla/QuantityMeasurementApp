@@ -1,38 +1,46 @@
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using System;
 
 namespace QuantityMeasurementApp.Utilities
 {
     /// <summary>
-    /// Configuration helper for the database layer.
-    /// Manages retrieval of settings from the appsettings.json configuration file.
+    /// Manages the database connection string configuration.
     /// </summary>
     public static class DatabaseConfig
     {
+        private static string? _connectionString;
+
         /// <summary>
-        /// Retrieves the connection string named "DefaultConnection" from the configuration.
-        /// Why: To abstract the configuration source (JSON) from the database layer.
-        /// How: Loads appsettings.json via ConfigurationBuilder and fetches the specific key.
+        /// Initializes the connection string from the provided configuration.
         /// </summary>
-        /// <returns>The configured SQL connection string.</returns>
-        /// <exception cref="System.Exception">Thrown when the connection string is missing.</exception>
+        public static void Initialize(IConfiguration configuration)
+        {
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            if (string.IsNullOrWhiteSpace(_connectionString))
+            {
+                throw new Exception("DefaultConnection not found in configuration.");
+            }
+        }
+
+        /// <summary>
+        /// Gets the current database connection string.
+        /// </summary>
         public static string GetConnectionString()
         {
-            // Set base path to current directory to ensure file is found in both build and run scenarios.
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .Build();
-
-            // Extract connection string by name.
-            string? connStr = config.GetConnectionString("DefaultConnection");
-
-            if (string.IsNullOrWhiteSpace(connStr))
+            if (string.IsNullOrEmpty(_connectionString))
             {
-                throw new System.Exception("Critical Error: 'DefaultConnection' string not found in appsettings.json.");
+                var config = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json", optional: true)
+                    .Build();
+
+                _connectionString = config.GetConnectionString("DefaultConnection") 
+                    ?? "Server=localhost,1433;Database=QuantityMeasurementDB;User Id=sa;Password=Your_Password123;TrustServerCertificate=True;";
             }
 
-            return connStr;
+            return _connectionString;
         }
     }
 }

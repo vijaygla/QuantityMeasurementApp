@@ -1,212 +1,169 @@
 using System;
+using System.Text.Json;
 using QuantityMeasurementApp.Models;
 using QuantityMeasurementApp.Repository;
 using QuantityMeasurementApp.Exceptions;
+using QuantityMeasurementApp.Utilities;
 
 namespace QuantityMeasurementApp.Service
 {
-    /// <summary>
-    /// Implementation of the Quantity Measurement Service.
-    /// Handles the orchestration of measurement operations by leveraging the domain models.
-    /// </summary>
     public class QuantityMeasurementServiceImpl : IQuantityMeasurementService
     {
         private readonly IQuantityMeasurementRepository repository;
+        private readonly RedisCacheService _cache;
+        private readonly RabbitMQProducer _producer; // 🔥 RabbitMQ added
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="QuantityMeasurementServiceImpl"/> class.
-        /// </summary>
-        /// <param name="repo">The repository for storing measurement entities.</param>
-        public QuantityMeasurementServiceImpl(IQuantityMeasurementRepository repo)
+        // 🔥 Updated constructor
+        public QuantityMeasurementServiceImpl(
+            IQuantityMeasurementRepository repo,
+            RedisCacheService cache,
+            RabbitMQProducer producer)
         {
             repository = repo;
+            _cache = cache;
+            _producer = producer;
         }
 
-        /// <summary>
-        /// Compares two quantities for equality after normalizing them to their base units.
-        /// </summary>
-        /// <param name="q1">The first quantity.</param>
-        /// <param name="q2">The second quantity.</param>
-        /// <returns>True if the quantities are equal within a small tolerance; otherwise, false.</returns>
-        /// <exception cref="QuantityMeasurementException">Thrown if units are incompatible or invalid.</exception>
-        public bool Compare(QuantityDTO q1, QuantityDTO q2)
-        {
-            var entity = CreateEntity(q1, q2, "COMPARE");
-            try
-            {
-                bool result = ExecuteOperation(q1, q2, (a, b) => a.Equals(b));
-                entity.Result = new QuantityDTO(result ? 1 : 0, "BOOLEAN");
-                return result;
-            }
-            catch (Exception ex)
-            {
-                entity.ErrorMessage = ex.Message;
-                // Re-throw as QuantityMeasurementException if it's not already one
-                if (ex is QuantityMeasurementException) throw;
-                throw new QuantityMeasurementException($"Comparison failed: {ex.Message}");
-            }
-            finally
-            {
-                repository.Save(entity);
-            }
-        }
-
-        /// <summary>
-        /// Converts a quantity from one unit to another within the same category.
-        /// </summary>
-        /// <param name="source">The source quantity.</param>
-        /// <param name="targetUnit">The target unit name.</param>
-        /// <returns>A new <see cref="QuantityDTO"/> containing the converted value and unit.</returns>
-        /// <exception cref="QuantityMeasurementException">Thrown if unit conversion is not supported.</exception>
+        // 🔥 Convert with Redis + RabbitMQ
         public QuantityDTO Convert(QuantityDTO source, string targetUnit)
         {
             var entity = CreateEntity(source, null, "CONVERT");
+
+            // Unique cache key
+            string cacheKey = $"convert_{source.Value}_{source.Unit}_{targetUnit}";
+
             try
             {
+                // 🔍 1. Check Redis cache
+                var cachedResult = _cache.GetAsync<QuantityDTO>(cacheKey).Result;
+                if (cachedResult != null)
+                {
+                    return cachedResult; // ⚡ return cached result
+                }
+
+                // ❌ Cache miss → perform calculation
                 QuantityDTO result = ExecuteSingleOperandOperation(source, (q) =>
                 {
-                    if (TryParseUnit(source.Unit, out Enum? sourceEnumUnit, out Type? enumType) && sourceEnumUnit != null && enumType != null)
+                    if (TryParseUnit(source.Unit, out Enum? sourceEnumUnit, out Type? enumType)
+                        && sourceEnumUnit != null && enumType != null)
                     {
                         try
                         {
                             var targetEnum = (Enum)Enum.Parse(enumType, targetUnit, true);
-                            
-                            // Use reflection to call ConvertTo on Quantity<U>
-                            var quantityType = typeof(Quantity<>).MakeGenericType(enumType);
-                            var quantityInstance = Activator.CreateInstance(quantityType, source.Value, (Enum)Enum.Parse(enumType, source.Unit, true));
-                            var convertMethod = quantityType.GetMethod("ConvertTo");
-                            var resultQuantity = convertMethod!.Invoke(quantityInstance, new object[] { targetEnum });
 
-                            double val = (double)(resultQuantity!.GetType().GetProperty("Value")!.GetValue(resultQuantity) ?? 0.0);
+                            var quantityType = typeof(Quantity<>).MakeGenericType(enumType);
+                            var quantityInstance = Activator.CreateInstance(
+                                quantityType,
+                                source.Value,
+                                (Enum)Enum.Parse(enumType, source.Unit, true)
+                            );
+
+                            var convertMethod = quantityType.GetMethod("ConvertTo");
+                            var resultQuantity = convertMethod!.Invoke(
+                                quantityInstance,
+                                new object[] { targetEnum });
+
+                            double val = (double)(resultQuantity!
+                                .GetType().GetProperty("Value")!
+                                .GetValue(resultQuantity) ?? 0.0);
+
                             return new QuantityDTO(val, targetUnit);
                         }
                         catch (ArgumentException)
                         {
-                            throw new QuantityMeasurementException($"Target unit '{targetUnit}' is not valid for the category of '{source.Unit}'.");
+                            throw new QuantityMeasurementException(
+                                $"Target unit '{targetUnit}' is not valid.");
                         }
                     }
-                    throw new QuantityMeasurementException($"Source unit '{source.Unit}' is not recognized.");
+
+                    throw new QuantityMeasurementException(
+                        $"Source unit '{source.Unit}' is not recognized.");
                 });
 
+                // 💾 2. Store in Redis
+                _cache.SetAsync(cacheKey, result).Wait();
+
                 entity.Result = result;
+
+                // 📤 3. Send to RabbitMQ instead of direct DB save
+                var message = JsonSerializer.Serialize(entity);
+                _producer.SendMessage(message);
+
                 return result;
             }
             catch (Exception ex)
             {
                 entity.ErrorMessage = ex.Message;
+
+                // Send error log to RabbitMQ
+                var message = JsonSerializer.Serialize(entity);
+                _producer.SendMessage(message);
+
                 if (ex is QuantityMeasurementException) throw;
                 throw new QuantityMeasurementException($"Conversion failed: {ex.Message}");
             }
-            finally
-            {
-                repository.Save(entity);
-            }
         }
 
-        /// <summary>
-        /// Adds two quantities and returns the result in the unit of the first operand.
-        /// </summary>
-        /// <param name="q1">The first quantity.</param>
-        /// <param name="q2">The second quantity.</param>
-        /// <returns>A new <see cref="QuantityDTO"/> representing the sum.</returns>
+        // ---------------- HELPER METHODS ----------------
+
+        private T ExecuteDoubleOperandOperation<T>(QuantityDTO q1, QuantityDTO q2, Func<object, object, T> operation)
+        {
+            if (TryParseUnit(q1.Unit, out Enum? unit1, out Type? type1) &&
+                TryParseUnit(q2.Unit, out Enum? unit2, out Type? type2))
+            {
+                if (type1 != type2)
+                    throw new QuantityMeasurementException($"Cannot operate on {q1.Unit} and {q2.Unit} as they are different measurement types.");
+
+                var quantityType = typeof(Quantity<>).MakeGenericType(type1!);
+                var instance1 = Activator.CreateInstance(quantityType, q1.Value, unit1);
+                var instance2 = Activator.CreateInstance(quantityType, q2.Value, unit2);
+
+                return operation(instance1!, instance2!);
+            }
+            throw new QuantityMeasurementException($"Invalid units: {q1.Unit} or {q2.Unit}");
+        }
+
+        public bool Compare(QuantityDTO q1, QuantityDTO q2)
+        {
+            return ExecuteDoubleOperandOperation(q1, q2, (inst1, inst2) =>
+            {
+                var equalsMethod = inst1.GetType().GetMethod("Equals");
+                return (bool)equalsMethod!.Invoke(inst1, new[] { inst2 })!;
+            });
+        }
+
         public QuantityDTO Add(QuantityDTO q1, QuantityDTO q2)
         {
-            var entity = CreateEntity(q1, q2, "ADD");
-            try
+            return ExecuteDoubleOperandOperation(q1, q2, (inst1, inst2) =>
             {
-                var result = ExecuteOperation(q1, q2, (a, b) => {
-                    var addMethod = a.GetType().GetMethod("Add", new[] { a.GetType() });
-                    var resultObj = addMethod!.Invoke(a, new object[] { b });
-                    
-                    double val = (double)(resultObj!.GetType().GetProperty("Value")!.GetValue(resultObj) ?? 0.0);
-                    string unit = resultObj.GetType().GetProperty("Unit")!.GetValue(resultObj)!.ToString() ?? string.Empty;
-                    return new QuantityDTO(val, unit);
-                });
-
-                entity.Result = result;
-                return result;
-            }
-            catch (Exception ex)
-            {
-                entity.ErrorMessage = ex.Message;
-                if (ex is QuantityMeasurementException) throw;
-                throw new QuantityMeasurementException($"Addition failed: {ex.Message}");
-            }
-            finally
-            {
-                repository.Save(entity);
-            }
+                var addMethod = inst1.GetType().GetMethod("Add", new[] { inst1.GetType() });
+                var resultQuantity = addMethod!.Invoke(inst1, new[] { inst2 });
+                double val = (double)resultQuantity!.GetType().GetProperty("Value")!.GetValue(resultQuantity)!;
+                string unit = resultQuantity.GetType().GetProperty("Unit")!.GetValue(resultQuantity)!.ToString()!;
+                return new QuantityDTO(val, unit);
+            });
         }
 
-        /// <summary>
-        /// Subtracts the second quantity from the first and returns the result in the unit of the first operand.
-        /// </summary>
-        /// <param name="q1">The first quantity.</param>
-        /// <param name="q2">The second quantity.</param>
-        /// <returns>A new <see cref="QuantityDTO"/> representing the difference.</returns>
         public QuantityDTO Subtract(QuantityDTO q1, QuantityDTO q2)
         {
-            var entity = CreateEntity(q1, q2, "SUBTRACT");
-            try
+            return ExecuteDoubleOperandOperation(q1, q2, (inst1, inst2) =>
             {
-                var result = ExecuteOperation(q1, q2, (a, b) => {
-                    var subMethod = a.GetType().GetMethod("Subtract", new[] { a.GetType() });
-                    var resultObj = subMethod!.Invoke(a, new object[] { b });
-                    
-                    double val = (double)(resultObj!.GetType().GetProperty("Value")!.GetValue(resultObj) ?? 0.0);
-                    string unit = resultObj.GetType().GetProperty("Unit")!.GetValue(resultObj)!.ToString() ?? string.Empty;
-                    return new QuantityDTO(val, unit);
-                });
-
-                entity.Result = result;
-                return result;
-            }
-            catch (Exception ex)
-            {
-                entity.ErrorMessage = ex.Message;
-                if (ex is QuantityMeasurementException) throw;
-                throw new QuantityMeasurementException($"Subtraction failed: {ex.Message}");
-            }
-            finally
-            {
-                repository.Save(entity);
-            }
+                var subMethod = inst1.GetType().GetMethod("Subtract", new[] { inst1.GetType() });
+                var resultQuantity = subMethod!.Invoke(inst1, new[] { inst2 });
+                double val = (double)resultQuantity!.GetType().GetProperty("Value")!.GetValue(resultQuantity)!;
+                string unit = resultQuantity.GetType().GetProperty("Unit")!.GetValue(resultQuantity)!.ToString()!;
+                return new QuantityDTO(val, unit);
+            });
         }
 
-        /// <summary>
-        /// Divides the first quantity by the second, resulting in a dimensionless ratio.
-        /// </summary>
-        /// <param name="q1">The first quantity.</param>
-        /// <param name="q2">The second quantity.</param>
-        /// <returns>The ratio of the two quantities.</returns>
         public double Divide(QuantityDTO q1, QuantityDTO q2)
         {
-            var entity = CreateEntity(q1, q2, "DIVIDE");
-            try
+            return ExecuteDoubleOperandOperation(q1, q2, (inst1, inst2) =>
             {
-                double result = ExecuteOperation(q1, q2, (a, b) => {
-                    var divMethod = a.GetType().GetMethod("Divide", new[] { a.GetType() });
-                    return (double)(divMethod!.Invoke(a, new object[] { b }) ?? 0.0);
-                });
-
-                entity.Result = new QuantityDTO(result, "RATIO");
-                return result;
-            }
-            catch (Exception ex)
-            {
-                entity.ErrorMessage = ex.Message;
-                if (ex is QuantityMeasurementException) throw;
-                throw new QuantityMeasurementException($"Division failed: {ex.Message}");
-            }
-            finally
-            {
-                repository.Save(entity);
-            }
+                var divMethod = inst1.GetType().GetMethod("Divide", new[] { inst1.GetType() });
+                return (double)divMethod!.Invoke(inst1, new[] { inst2 })!;
+            });
         }
-
-        // -----------------------------------------------------------------------------------------
-        // HELPER METHODS
-        // -----------------------------------------------------------------------------------------
 
         private QuantityMeasurementEntity CreateEntity(QuantityDTO q1, QuantityDTO? q2, string op)
         {
@@ -214,38 +171,6 @@ namespace QuantityMeasurementApp.Service
             {
                 Operand2 = q2
             };
-        }
-
-        private T ExecuteOperation<T>(QuantityDTO q1, QuantityDTO q2, Func<object, object, T> operation)
-        {
-            if (!TryParseUnit(q1.Unit, out Enum? u1, out Type? type1) || u1 == null || type1 == null ||
-                !TryParseUnit(q2.Unit, out Enum? u2, out Type? type2) || u2 == null || type2 == null)
-            {
-                throw new QuantityMeasurementException("Invalid or unsupported unit provided.");
-            }
-
-            if (type1 != type2)
-            {
-                throw new QuantityMeasurementException($"Category mismatch: Cannot operate on {type1.Name} and {type2.Name}.");
-            }
-
-            try
-            {
-                var quantityType = typeof(Quantity<>).MakeGenericType(type1);
-                var inst1 = Activator.CreateInstance(quantityType, q1.Value, u1);
-                var inst2 = Activator.CreateInstance(quantityType, q2.Value, u2);
-
-                if (inst1 == null || inst2 == null)
-                {
-                    throw new QuantityMeasurementException("Failed to instantiate quantity objects.");
-                }
-
-                return operation(inst1, inst2);
-            }
-            catch (System.Reflection.TargetInvocationException ex)
-            {
-                throw ex.InnerException ?? ex;
-            }
         }
 
         private T ExecuteSingleOperandOperation<T>(QuantityDTO q, Func<QuantityDTO, T> operation)

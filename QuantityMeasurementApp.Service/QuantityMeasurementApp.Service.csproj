@@ -4,6 +4,12 @@
     <ProjectReference Include="..\QuantityMeasurementApp.Repository\QuantityMeasurementApp.Repository.csproj" />
     <ProjectReference Include="..\QuantityMeasurementApp.Models\QuantityMeasurementApp.Models.csproj" />
     <ProjectReference Include="..\QuantityMeasurementApp.Exceptions\QuantityMeasurementApp.Exceptions.csproj" />
+    <ProjectReference Include="..\QuantityMeasurementApp.Utilities\QuantityMeasurementApp.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.5" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
   </ItemGroup>
 
   <PropertyGroup>

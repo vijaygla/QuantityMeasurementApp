@@ -20,3 +20,42 @@
 2026-03-17 03:09:37.7440 Info LogFactory shutting down ...
 2026-03-17 03:09:37.7440 Info Closing old configuration.
 2026-03-17 03:09:37.7440 Info LogFactory shutdown completed.
+2026-03-28 11:28:57.5168 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2026-03-28 11:28:57.5249 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2026-03-28 11:28:57.5249 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-28 11:28:57.5765 Info Configuration initialized: TargetNames=logfile, logconsole, ConfigItems=21, AutoReload=true, FilePath=C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\bin\Debug\net10.0\Logging\NLog.config
+2026-03-28 11:29:13.6374 Info LogFactory shutting down ...
+2026-03-28 11:29:13.6374 Info Closing old configuration.
+2026-03-28 11:29:13.6444 Info LogFactory shutdown completed.
+2026-03-28 11:35:54.4154 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2026-03-28 11:35:54.4456 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2026-03-28 11:35:54.4456 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-28 11:35:54.6843 Info Configuration initialized: TargetNames=logfile, logconsole, ConfigItems=21, AutoReload=true, FilePath=C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\bin\Debug\net10.0\Logging\NLog.config
+2026-03-28 11:36:16.2879 Info LogFactory shutting down ...
+2026-03-28 11:36:16.2879 Info Closing old configuration.
+2026-03-28 11:36:16.3047 Info LogFactory shutdown completed.
+2026-03-28 11:44:50.5435 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2026-03-28 11:44:50.5504 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2026-03-28 11:44:50.5504 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-28 11:44:50.5894 Info Configuration initialized: TargetNames=logfile, logconsole, ConfigItems=21, AutoReload=true, FilePath=C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\bin\Debug\net10.0\Logging\NLog.config
+2026-03-28 11:44:58.9496 Info LogFactory shutting down ...
+2026-03-28 11:44:58.9496 Info Closing old configuration.
+2026-03-28 11:44:58.9572 Info LogFactory shutdown completed.
+2026-03-28 11:47:41.6811 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2026-03-28 11:47:41.6811 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2026-03-28 11:47:41.6958 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-28 11:47:41.7501 Info Configuration initialized: TargetNames=logfile, logconsole, ConfigItems=21, AutoReload=true, FilePath=C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\bin\Debug\net10.0\Logging\NLog.config
+2026-03-28 11:47:48.3765 Info LogFactory shutting down ...
+2026-03-28 11:47:48.3765 Info Closing old configuration.
+2026-03-28 11:47:48.4027 Info LogFactory shutdown completed.
+2026-03-28 12:04:48.1418 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2026-03-28 12:04:48.1522 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2026-03-28 12:04:48.1644 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-28 12:04:48.2248 Info Configuration initialized: TargetNames=logfile, logconsole, ConfigItems=21, AutoReload=true, FilePath=C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\bin\Debug\net10.0\Logging\NLog.config
+2026-03-28 12:04:56.7023 Info LogFactory shutting down ...
+2026-03-28 12:04:56.7023 Info Closing old configuration.
+2026-03-28 12:04:56.7218 Info LogFactory shutdown completed.
+2026-03-28 12:18:57.1439 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2026-03-28 12:18:57.1439 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2026-03-28 12:18:57.1439 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.1.1.5033. Product version: 6.1.1+0e83056311dfcda0493d7db60b7191d0927eb5da. GlobalAssemblyCache: False
+2026-03-28 12:18:57.1886 Info Configuration initialized: TargetNames=logfile, logconsole, ConfigItems=21, AutoReload=true, FilePath=C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\bin\Debug\net10.0\Logging\NLog.config

@@ -1,48 +1,141 @@
-### Compare
-POST http://localhost:5248/api/quantity/compare
-Content-Type: application/json
+# ### Compare
+# POST http://localhost:5248/api/quantity/compare
+# Content-Type: application/json
 
-[
- { "value": 10, "unit": "Feet" },
- { "value": 120, "unit": "Inch" }
-]
+# [
+#  { "value": 10, "unit": "Feet" },
+#  { "value": 120, "unit": "Inch" }
+# ]
 
 
-### Convert
-POST http://localhost:5248/api/quantity/convert/Meter
+# ### Convert
+# POST http://localhost:5248/api/quantity/convert/Meter
+# Content-Type: application/json
+
+# {
+#  "value": 10,
+#  "unit": "Feet"
+# }
+
+
+# ### Addition
+# POST http://localhost:5248/api/quantity/add
+# Content-Type: application/json
+
+# [
+#  { "value": 5, "unit": "Feet" },
+#  { "value": 5, "unit": "Feet" }
+# ]
+
+
+# ### Subtraction
+# POST http://localhost:5248/api/quantity/subtract
+# Content-Type: application/json
+
+# [
+#  { "value": 10, "unit": "Feet" },
+#  { "value": 5, "unit": "Feet" }
+# ]
+
+
+# ### Division
+# POST http://localhost:5248/api/quantity/divide
+# Content-Type: application/json
+
+# [
+#  { "value": 10, "unit": "Feet" },
+#  { "value": 5, "unit": "Feet" }
+# ]
+
+
+### ================================
+
+### 🔐 AUTH APIs
+
+### ================================
+
+### Register User
+
+POST http://localhost:5248/api/auth/register
 Content-Type: application/json
 
 {
- "value": 10,
- "unit": "Feet"
+"name": "Vijay",
+"email": "[vijay@gmail.com](mailto:vijay@gmail.com)",
+"password": "123456"
 }
 
+### Login User
+
+POST http://localhost:5248/api/auth/login
+Content-Type: application/json
+
+{
+"email": "[vijay@gmail.com](mailto:vijay@gmail.com)",
+"password": "123456"
+}
+
+### 🔑 Copy token from login response and paste below
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJbdmlqYXlAZ21haWwuY29tXShtYWlsdG86dmlqYXlAZ21haWwuY29tKSIsImV4cCI6MTc3NDY4NzgwMH0.gZ76cROjy6oAAxkW4-8-6FtzIYMhzM40uvCGIqm1y20
+
+### ================================
+
+### ⚖️ QUANTITY APIs (PROTECTED)
+
+### ================================
+
+### Compare
+
+POST http://localhost:5248/api/quantity/compare
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+{ "value": 10, "unit": "Feet" },
+{ "value": 120, "unit": "Inch" }
+]
+
+### Convert
+
+POST http://localhost:5248/api/quantity/convert/Meter
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+"value": 10,
+"unit": "Feet"
+}
 
 ### Addition
+
 POST http://localhost:5248/api/quantity/add
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 [
- { "value": 5, "unit": "Feet" },
- { "value": 5, "unit": "Feet" }
+{ "value": 5, "unit": "Feet" },
+{ "value": 5, "unit": "Feet" }
 ]
-
 
 ### Subtraction
+
 POST http://localhost:5248/api/quantity/subtract
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 [
- { "value": 10, "unit": "Feet" },
- { "value": 5, "unit": "Feet" }
+{ "value": 10, "unit": "Feet" },
+{ "value": 5, "unit": "Feet" }
 ]
 
-
 ### Division
+
 POST http://localhost:5248/api/quantity/divide
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 [
- { "value": 10, "unit": "Feet" },
- { "value": 5, "unit": "Feet" }
+{ "value": 10, "unit": "Feet" },
+{ "value": 5, "unit": "Feet" }
 ]

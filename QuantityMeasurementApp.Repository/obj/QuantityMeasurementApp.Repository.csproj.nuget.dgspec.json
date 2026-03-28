@@ -1094,6 +1094,10 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[10.0.5, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.12.8, )"
             }
           },
           "imports": [
