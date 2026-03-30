@@ -34,3 +34,6 @@ CREATE TABLE Users
     -- Unique email constraint
     CONSTRAINT UQ_Users_Email UNIQUE (Email)
 );
+
+
+select * from dbo.Users;

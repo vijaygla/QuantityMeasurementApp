@@ -60,9 +60,9 @@ POST http://localhost:5248/api/auth/register
 Content-Type: application/json
 
 {
-"name": "Vijay",
-"email": "[vijay@gmail.com](mailto:vijay@gmail.com)",
-"password": "123456"
+"name": "Vijay Kumar",
+"email": "pmdhrs@gmail.com",
+"password": "Vijay@841238"
 }
 
 ### Login User
@@ -71,13 +71,13 @@ POST http://localhost:5248/api/auth/login
 Content-Type: application/json
 
 {
-"email": "[vijay@gmail.com](mailto:vijay@gmail.com)",
-"password": "123456"
+"email": "pmdhrs@gmail.com",
+"password": "Vijay@841238"
 }
 
 ### 🔑 Copy token from login response and paste below
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJbdmlqYXlAZ21haWwuY29tXShtYWlsdG86dmlqYXlAZ21haWwuY29tKSIsImV4cCI6MTc3NDY4NzgwMH0.gZ76cROjy6oAAxkW4-8-6FtzIYMhzM40uvCGIqm1y20
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJwbWRocnNAZ21haWwuY29tIiwiZXhwIjoxNzc0Njk5MTA3fQ.xndVstr9OtXpByqzuIq_5feAABKOiZI3T2z26ZYJdqA
 
 ### ================================
 
