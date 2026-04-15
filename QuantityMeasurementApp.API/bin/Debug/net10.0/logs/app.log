@@ -1,53 +1,15 @@
-2026-03-17 02:57:29.2118|INFO|QuantityMeasurementApp.API.Program|Quantity Measurement API successfully started.
-2026-03-17 02:57:29.3107|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5100
-2026-03-17 02:57:29.3107|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
-2026-03-17 02:57:29.3107|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Production
-2026-03-17 02:57:29.3107|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API
-2026-03-17 03:00:29.1696|INFO|QuantityMeasurementApp.API.Program|Quantity Measurement API successfully started. 
-2026-03-17 03:00:29.2522|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
-2026-03-17 03:00:29.2522|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
-2026-03-17 03:00:29.2522|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
-2026-03-17 03:00:29.2522|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
-2026-03-17 03:00:47.8731|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
-2026-03-17 03:01:10.7515|INFO|QuantityMeasurementApp.API.Program|Quantity Measurement API successfully started. 
-2026-03-17 03:01:10.8158|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
-2026-03-17 03:01:10.8158|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
-2026-03-17 03:01:10.8158|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
-2026-03-17 03:01:10.8158|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
-2026-03-17 03:01:21.3566|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/ - - - 
-2026-03-17 03:01:21.4086|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect. 
-2026-03-17 03:01:21.4121|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'HTTP: GET /' 
-2026-03-17 03:01:21.4121|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'HTTP: GET /' 
-2026-03-17 03:01:21.4121|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/ - 200 - text/plain;+charset=utf-8 67.7109ms 
-2026-03-17 03:01:21.6144|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/favicon.ico - - - 
-2026-03-17 03:01:21.6144|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/favicon.ico - 404 0 - 5.2146ms 
-2026-03-17 03:01:21.6144|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5248/favicon.ico, Response status code: 404 
-2026-03-17 03:01:38.1236|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger - - - 
-2026-03-17 03:01:38.1269|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger - 301 0 - 3.3574ms 
-2026-03-17 03:01:38.1420|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/index.html - - - 
-2026-03-17 03:01:38.2035|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/index.html - 200 - text/html;charset=utf-8 61.4797ms 
-2026-03-17 03:01:38.2712|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui.css - - - 
-2026-03-17 03:01:38.2712|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/index.css - - - 
-2026-03-17 03:01:38.2712|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui-bundle.js - - - 
-2026-03-17 03:01:38.2712|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/index.js - - - 
-2026-03-17 03:01:38.2712|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui-standalone-preset.js - - - 
-2026-03-17 03:01:38.2815|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/index.js - 200 - application/javascript;charset=utf-8 2.3874ms 
-2026-03-17 03:01:38.2815|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/index.css - 200 152 text/css 15.5065ms 
-2026-03-17 03:01:38.2815|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui.css - 200 26388 text/css 16.2155ms 
-2026-03-17 03:01:38.3356|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui-standalone-preset.js - 200 76581 text/javascript 56.0741ms 
-2026-03-17 03:01:38.3356|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui-bundle.js - 200 417806 text/javascript 62.2033ms 
-2026-03-17 03:01:38.5189|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/v1/swagger.json - - - 
-2026-03-17 03:01:38.5586|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/favicon-32x32.png - - - 
-2026-03-17 03:01:38.5633|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/favicon-32x32.png - 200 628 image/png 2.0595ms 
-2026-03-17 03:01:38.6478|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 128.8561ms 
-2026-03-17 03:02:11.3300|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/compare - application/json 74 
-2026-03-17 03:02:11.3300|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
-2026-03-17 03:02:11.3607|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Compare", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Compare(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:02:26.4271|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API) in 15059.6571ms 
-2026-03-17 03:02:26.4271|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
-2026-03-17 03:02:26.4271|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. QuantityMeasurementApp.Exceptions.DatabaseException: Database error while saving measurement
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
- ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+2026-04-15 14:04:52.3992|ERROR|QuantityMeasurementApp.API.Program|Startup failed. StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s). Error connecting right now. To allow this multiplexer to continue retrying until it's able to connect, use abortConnect=false in your connection string or AbortOnConnectFail=false; in your code.
+   at StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(ConfigurationOptions configuration, TextWriter writer, Nullable`1 serverType, EndPointCollection endpoints) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 691
+   at StackExchange.Redis.ConnectionMultiplexer.Connect(ConfigurationOptions configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 663
+   at StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 641
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 34
+2026-04-15 14:05:18.2116|ERROR|QuantityMeasurementApp.API.Program|Startup failed. StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s). Error connecting right now. To allow this multiplexer to continue retrying until it's able to connect, use abortConnect=false in your connection string or AbortOnConnectFail=false; in your code.
+   at StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(ConfigurationOptions configuration, TextWriter writer, Nullable`1 serverType, EndPointCollection endpoints) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 691
+   at StackExchange.Redis.ConnectionMultiplexer.Connect(ConfigurationOptions configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 663
+   at StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 641
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 34
+2026-04-15 14:10:16.1765|ERROR|QuantityMeasurementApp.API.Program|Startup failed. Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
    at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
@@ -66,66 +28,22 @@
    at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
    at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
    at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at QuantityMeasurementApp.Utilities.ConnectionPool.GetConnection() in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Utilities\ConnectionPool.cs:line 56
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 46
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 80
 ClientConnectionId:00000000-0000-0000-0000-000000000000
-Error Number:2,State:0,Class:20
-   --- End of inner exception stack trace ---
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 85
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Compare(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 50
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Compare(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 33
-   at QuantityMeasurementApp.API.Controllers.QuantityController.Compare(QuantityDTO[] quantities) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\QuantityController.cs:line 44
-   at lambda_method4(Closure, Object, Object[])
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
-2026-03-17 03:02:26.4503|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/compare - 500 - application/json 15119.9421ms 
-2026-03-17 03:02:44.5468|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - application/json 36 
-2026-03-17 03:02:44.5493|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - 404 0 - 2.4187ms 
-2026-03-17 03:02:44.5493|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5248/api/quantity/convert/Meter, Response status code: 404 
-2026-03-17 03:02:52.4451|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - application/json 36 
-2026-03-17 03:02:52.4451|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - 404 0 - 0.4522ms 
-2026-03-17 03:02:52.4451|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5248/api/quantity/convert/Meter, Response status code: 404 
-2026-03-17 03:02:54.6475|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - application/json 36 
-2026-03-17 03:02:54.6475|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - 404 0 - 1.8665ms 
-2026-03-17 03:02:54.6475|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5248/api/quantity/convert/Meter, Response status code: 404 
-2026-03-17 03:02:58.2646|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - application/json 36 
-2026-03-17 03:02:58.2646|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - 404 0 - 0.9823ms 
-2026-03-17 03:02:58.2646|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5248/api/quantity/convert/Meter, Response status code: 404 
-2026-03-17 03:03:05.4695|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/add - application/json 71 
-2026-03-17 03:03:05.4706|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:05.4706|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Add", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:03:10.8241|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/add - application/json 71 
-2026-03-17 03:03:10.8241|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:10.8241|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Add", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:03:13.0291|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/add - application/json 71 
-2026-03-17 03:03:13.0291|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:13.0291|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Add", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:03:14.1251|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/add - application/json 71 
-2026-03-17 03:03:14.1251|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:14.1251|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Add", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:03:17.4829|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - application/json 36 
-2026-03-17 03:03:17.4829|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - 404 0 - 0.9808ms 
-2026-03-17 03:03:17.4829|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5248/api/quantity/convert/Meter, Response status code: 404 
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API) in 15023.6023ms 
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:20.5006|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. QuantityMeasurementApp.Exceptions.DatabaseException: Database error while saving measurement
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
- ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+Error Number:258,State:0,Class:20
+2026-04-15 14:12:31.3882|ERROR|QuantityMeasurementApp.API.Program|Startup failed. Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
    at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
    at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
    at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
@@ -144,43 +62,41 @@ Error Number:2,State:0,Class:20
    at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
    at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
    at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at QuantityMeasurementApp.Utilities.ConnectionPool.GetConnection() in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Utilities\ConnectionPool.cs:line 56
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 46
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 80
 ClientConnectionId:00000000-0000-0000-0000-000000000000
-Error Number:2,State:0,Class:20
-   --- End of inner exception stack trace ---
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 85
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 137
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 113
-   at QuantityMeasurementApp.API.Controllers.QuantityController.Add(QuantityDTO[] quantities) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\QuantityController.cs:line 80
-   at lambda_method7(Closure, Object, Object[])
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API) in 9676.4101ms 
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API) in 7469.9622ms 
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API) in 6375.5566ms 
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/add - 500 - application/json 15032.8190ms 
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:20.5006|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. QuantityMeasurementApp.Exceptions.DatabaseException: Database error while saving measurement
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
- ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+Error Number:258,State:0,Class:20
+2026-04-15 14:23:37.9408|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:23:54.1431|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (9 attempts left) 
+2026-04-15 14:23:57.1446|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:23:57.1446|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (8 attempts left) 
+2026-04-15 14:24:00.1538|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:24:15.1621|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (7 attempts left) 
+2026-04-15 14:24:18.1666|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:24:18.1666|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (6 attempts left) 
+2026-04-15 14:24:21.1843|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:24:21.1843|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (5 attempts left) 
+2026-04-15 14:24:24.1975|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:24:24.1975|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (4 attempts left) 
+2026-04-15 14:24:27.2148|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:24:42.2131|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (3 attempts left) 
+2026-04-15 14:24:45.2281|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:24:45.2316|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (2 attempts left) 
+2026-04-15 14:24:48.2361|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:24:48.2361|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (1 attempts left) 
+2026-04-15 14:24:51.2403|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:24:51.2403|ERROR|QuantityMeasurementApp.API.Program|Failed to connect to the database after several attempts. Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
    at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
@@ -188,36 +104,24 @@ Error Number:2,State:0,Class:20
    at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
    at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
    at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at QuantityMeasurementApp.Utilities.ConnectionPool.GetConnection() in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Utilities\ConnectionPool.cs:line 56
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 46
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState innerState)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 95
 ClientConnectionId:00000000-0000-0000-0000-000000000000
-Error Number:2,State:0,Class:20
-   --- End of inner exception stack trace ---
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 85
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 137
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 113
-   at QuantityMeasurementApp.API.Controllers.QuantityController.Add(QuantityDTO[] quantities) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\QuantityController.cs:line 80
-   at lambda_method7(Closure, Object, Object[])
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
-2026-03-17 03:03:20.5006|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. QuantityMeasurementApp.Exceptions.DatabaseException: Database error while saving measurement
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
- ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+Error Number:258,State:0,Class:20
+2026-04-15 14:24:51.2748|ERROR|QuantityMeasurementApp.API.Program|Startup failed. Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
    at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
@@ -225,36 +129,43 @@ Error Number:2,State:0,Class:20
    at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
    at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
    at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at QuantityMeasurementApp.Utilities.ConnectionPool.GetConnection() in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Utilities\ConnectionPool.cs:line 56
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 46
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState innerState)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 95
 ClientConnectionId:00000000-0000-0000-0000-000000000000
-Error Number:2,State:0,Class:20
-   --- End of inner exception stack trace ---
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 85
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 137
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 113
-   at QuantityMeasurementApp.API.Controllers.QuantityController.Add(QuantityDTO[] quantities) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\QuantityController.cs:line 80
-   at lambda_method7(Closure, Object, Object[])
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
-2026-03-17 03:03:20.5006|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. QuantityMeasurementApp.Exceptions.DatabaseException: Database error while saving measurement
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
- ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+Error Number:258,State:0,Class:20
+2026-04-15 14:28:40.4970|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:28:56.5533|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (9 attempts left) 
+2026-04-15 14:28:59.5547|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:28:59.5547|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (8 attempts left) 
+2026-04-15 14:29:02.5589|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:29:17.5701|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (7 attempts left) 
+2026-04-15 14:29:20.5779|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:29:20.5779|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (6 attempts left) 
+2026-04-15 14:29:23.5843|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:29:23.5843|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (5 attempts left) 
+2026-04-15 14:29:26.5879|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:29:26.5879|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (4 attempts left) 
+2026-04-15 14:29:29.5922|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:29:44.5967|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (3 attempts left) 
+2026-04-15 14:29:47.6095|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:29:47.6095|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (2 attempts left) 
+2026-04-15 14:29:50.6186|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:29:50.6186|WARN|QuantityMeasurementApp.API.Program|Database not ready. Retrying in 3 seconds... (1 attempts left) 
+2026-04-15 14:29:53.6231|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:29:53.6231|ERROR|QuantityMeasurementApp.API.Program|Failed to connect to the database after several attempts. Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
    at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
@@ -262,44 +173,24 @@ Error Number:2,State:0,Class:20
    at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
    at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
    at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at QuantityMeasurementApp.Utilities.ConnectionPool.GetConnection() in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Utilities\ConnectionPool.cs:line 56
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 46
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState innerState)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 95
 ClientConnectionId:00000000-0000-0000-0000-000000000000
-Error Number:2,State:0,Class:20
-   --- End of inner exception stack trace ---
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 85
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 137
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 113
-   at QuantityMeasurementApp.API.Controllers.QuantityController.Add(QuantityDTO[] quantities) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\QuantityController.cs:line 80
-   at lambda_method7(Closure, Object, Object[])
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
-2026-03-17 03:03:20.5006|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/add - 500 - application/json 9679.8853ms 
-2026-03-17 03:03:20.5047|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/add - 500 - application/json 6379.7293ms 
-2026-03-17 03:03:20.5047|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/add - 500 - application/json 7476.1970ms 
-2026-03-17 03:03:28.9387|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/add - application/json 71 
-2026-03-17 03:03:28.9411|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:28.9411|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Add", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:03:28.9411|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API) in 2.2282ms 
-2026-03-17 03:03:28.9411|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:28.9411|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. QuantityMeasurementApp.Exceptions.DatabaseException: Database error while saving measurement
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
- ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
+Error Number:258,State:0,Class:20
+2026-04-15 14:29:53.6555|ERROR|QuantityMeasurementApp.API.Program|Startup failed. Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
    at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
    at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
@@ -307,468 +198,139 @@ Error Number:2,State:0,Class:20
    at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
    at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
    at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at QuantityMeasurementApp.Utilities.ConnectionPool.GetConnection() in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Utilities\ConnectionPool.cs:line 56
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 46
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState innerState)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 95
 ClientConnectionId:00000000-0000-0000-0000-000000000000
-Error Number:2,State:0,Class:20
-   --- End of inner exception stack trace ---
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 85
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 137
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Add(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 113
-   at QuantityMeasurementApp.API.Controllers.QuantityController.Add(QuantityDTO[] quantities) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\QuantityController.cs:line 80
-   at lambda_method7(Closure, Object, Object[])
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
-2026-03-17 03:03:28.9411|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/add - 500 - application/json 7.0472ms 
-2026-03-17 03:03:34.2137|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/subtract - application/json 72 
-2026-03-17 03:03:34.2137|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:34.2137|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Subtract", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Subtract(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:03:38.6325|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/divide - application/json 72 
-2026-03-17 03:03:38.6364|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:38.6364|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Divide", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Divide(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:03:49.2401|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API) in 15021.6568ms 
-2026-03-17 03:03:49.2401|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API) in 10598.2866ms 
-2026-03-17 03:03:49.2401|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:49.2401|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API)' 
-2026-03-17 03:03:49.2401|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. QuantityMeasurementApp.Exceptions.DatabaseException: Database error while saving measurement
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
- ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
-   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
-   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback)
-   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(IDbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
-   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at QuantityMeasurementApp.Utilities.ConnectionPool.GetConnection() in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Utilities\ConnectionPool.cs:line 56
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 46
-ClientConnectionId:00000000-0000-0000-0000-000000000000
-Error Number:2,State:0,Class:20
-   --- End of inner exception stack trace ---
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 85
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Subtract(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 172
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Subtract(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 148
-   at QuantityMeasurementApp.API.Controllers.QuantityController.Subtract(QuantityDTO[] quantities) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\QuantityController.cs:line 96
-   at lambda_method9(Closure, Object, Object[])
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
-2026-03-17 03:03:49.2401|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. QuantityMeasurementApp.Exceptions.DatabaseException: Database error while saving measurement
- ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
- ---> System.ComponentModel.Win32Exception (2): The system cannot find the file specified.
-   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
-   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
-   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
-   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
-   at Microsoft.Data.SqlClient.SqlConnection.Open()
-   at QuantityMeasurementApp.Utilities.ConnectionPool.GetConnection() in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Utilities\ConnectionPool.cs:line 56
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 46
-ClientConnectionId:00000000-0000-0000-0000-000000000000
-Error Number:2,State:0,Class:20
-   --- End of inner exception stack trace ---
-   at QuantityMeasurementApp.Repository.QuantityMeasurementDatabaseRepository.Save(QuantityMeasurementEntity entity) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Repository\QuantityMeasurementDatabaseRepository.cs:line 85
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Divide(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 203
-   at QuantityMeasurementApp.Service.QuantityMeasurementServiceImpl.Divide(QuantityDTO q1, QuantityDTO q2) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\QuantityMeasurementServiceImpl.cs:line 183
-   at QuantityMeasurementApp.API.Controllers.QuantityController.Divide(QuantityDTO[] quantities) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\QuantityController.cs:line 112
-   at lambda_method11(Closure, Object, Object[])
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
-2026-03-17 03:03:49.2401|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/subtract - 500 - application/json 15028.2913ms 
-2026-03-17 03:03:49.2401|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/divide - 500 - application/json 10609.8997ms 
-2026-03-17 03:08:44.7419|INFO|QuantityMeasurementApp.API.Program|Quantity Measurement API successfully started. 
-2026-03-17 03:08:44.8360|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
-2026-03-17 03:08:44.8360|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
-2026-03-17 03:08:44.8360|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
-2026-03-17 03:08:44.8360|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
-2026-03-17 03:08:54.7996|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/compare - application/json 74 
-2026-03-17 03:08:54.8364|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect. 
-2026-03-17 03:08:54.8364|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
-2026-03-17 03:08:54.8364|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Compare", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Compare(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:08:54.9378|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Boolean'. 
-2026-03-17 03:08:54.9483|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API) in 92.4794ms 
-2026-03-17 03:08:54.9483|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
-2026-03-17 03:08:54.9483|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/compare - 200 - application/json;+charset=utf-8 153.2101ms 
-2026-03-17 03:09:01.7005|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - application/json 36 
-2026-03-17 03:09:01.7005|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.ConvertWithUrlParam (QuantityMeasurementApp.API)' 
-2026-03-17 03:09:01.7186|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "ConvertWithUrlParam", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConvertWithUrlParam(QuantityMeasurementApp.Models.QuantityDTO, System.String) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:09:01.7396|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'QuantityMeasurementApp.Models.QuantityDTO'. 
-2026-03-17 03:09:01.7469|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.ConvertWithUrlParam (QuantityMeasurementApp.API) in 27.4431ms 
-2026-03-17 03:09:01.7469|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.ConvertWithUrlParam (QuantityMeasurementApp.API)' 
-2026-03-17 03:09:01.7469|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - 200 - application/json;+charset=utf-8 47.0147ms 
-2026-03-17 03:09:08.0218|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/add - application/json 71 
-2026-03-17 03:09:08.0286|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:09:08.0286|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Add", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:09:08.0482|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'QuantityMeasurementApp.Models.QuantityDTO'. 
-2026-03-17 03:09:08.0482|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API) in 13.6519ms 
-2026-03-17 03:09:08.0482|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-17 03:09:08.0482|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/add - 200 - application/json;+charset=utf-8 27.8784ms 
-2026-03-17 03:09:20.0498|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/subtract - application/json 72 
-2026-03-17 03:09:20.0498|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API)' 
-2026-03-17 03:09:20.0540|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Subtract", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Subtract(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:09:20.0697|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'QuantityMeasurementApp.Models.QuantityDTO'. 
-2026-03-17 03:09:20.0697|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API) in 14.8296ms 
-2026-03-17 03:09:20.0697|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API)' 
-2026-03-17 03:09:20.0697|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/subtract - 200 - application/json;+charset=utf-8 24.3358ms 
-2026-03-17 03:09:22.9965|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/divide - application/json 72 
-2026-03-17 03:09:22.9965|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API)' 
-2026-03-17 03:09:22.9965|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Divide", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Divide(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-17 03:09:23.0100|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Double'. 
-2026-03-17 03:09:23.0100|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API) in 10.8955ms 
-2026-03-17 03:09:23.0100|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API)' 
-2026-03-17 03:09:23.0100|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/divide - 200 - application/json;+charset=utf-8 17.0986ms 
-2026-03-17 03:09:37.7319|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
-2026-03-28 11:29:13.4445|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
-2026-03-28 11:29:13.4795|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
-2026-03-28 11:29:13.5387|ERROR|Microsoft.Extensions.Hosting.Internal.Host|BackgroundService failed System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
-2026-03-28 11:29:13.5584|FATAL|Microsoft.Extensions.Hosting.Internal.Host|The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted. System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
-2026-03-28 11:29:13.5584|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
-2026-03-28 11:29:13.6136|ERROR|Microsoft.Extensions.Hosting.Internal.Host|Hosting failed to start System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
-   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
-   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
-2026-03-28 11:29:13.6136|ERROR|QuantityMeasurementApp.API.Program|Startup failed. System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
-   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
-   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
-   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
-   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
-   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
-   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
-   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 111
-2026-03-28 11:36:15.9856|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
-2026-03-28 11:36:16.0421|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
-2026-03-28 11:36:16.1247|ERROR|Microsoft.Extensions.Hosting.Internal.Host|BackgroundService failed System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
-2026-03-28 11:36:16.1539|FATAL|Microsoft.Extensions.Hosting.Internal.Host|The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted. System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
-2026-03-28 11:36:16.1539|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
-2026-03-28 11:36:16.2468|ERROR|Microsoft.Extensions.Hosting.Internal.Host|Hosting failed to start System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
-   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
-   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
-2026-03-28 11:36:16.2667|ERROR|QuantityMeasurementApp.API.Program|Startup failed. System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
-   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
-   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
-   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
-   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
-   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
-   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
-   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 111
-2026-03-28 11:44:58.9040|ERROR|QuantityMeasurementApp.API.Program|Startup failed. StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s). Error connecting right now. To allow this multiplexer to continue retrying until it's able to connect, use abortConnect=false in your connection string or AbortOnConnectFail=false; in your code.
-   at StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(ConfigurationOptions configuration, TextWriter writer, Nullable`1 serverType, EndPointCollection endpoints) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 691
-   at StackExchange.Redis.ConnectionMultiplexer.Connect(ConfigurationOptions configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 663
-   at StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 641
-   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 65
-2026-03-28 11:47:48.0966|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
-2026-03-28 11:47:48.1489|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
-2026-03-28 11:47:48.2169|ERROR|Microsoft.Extensions.Hosting.Internal.Host|BackgroundService failed System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
-2026-03-28 11:47:48.2497|FATAL|Microsoft.Extensions.Hosting.Internal.Host|The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted. System.TypeLoadException: Could not load type 'RabbitMQ.Client.IModel' from assembly 'RabbitMQ.Client, Version=7.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce'.
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 28
-   at System.Threading.Tasks.Task`1.InnerInvoke()
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
---- End of stack trace from previous location ---
-   at System.Threading.ExecutionContext.RunFromThreadPoolDispatchLoop(Thread threadPoolThread, ExecutionContext executionContext, ContextCallback callback, Object state)
-   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
---- End of stack trace from previous location ---
-   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
-2026-03-28 11:47:48.2497|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
-2026-03-28 11:47:48.3267|ERROR|Microsoft.Extensions.Hosting.Internal.Host|Hosting failed to start System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
-   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
-   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
-2026-03-28 11:47:48.3478|ERROR|QuantityMeasurementApp.API.Program|Startup failed. System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
-   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
-   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
-   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
-   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
-   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
-   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
-   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
-   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 111
-2026-03-28 12:04:56.5977|ERROR|QuantityMeasurementApp.API.Program|Startup failed. StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s). Error connecting right now. To allow this multiplexer to continue retrying until it's able to connect, use abortConnect=false in your connection string or AbortOnConnectFail=false; in your code.
-   at StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(ConfigurationOptions configuration, TextWriter writer, Nullable`1 serverType, EndPointCollection endpoints) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 691
-   at StackExchange.Redis.ConnectionMultiplexer.Connect(ConfigurationOptions configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 663
-   at StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 641
-   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 65
-2026-03-28 12:18:58.2558|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
-2026-03-28 12:18:58.2925|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
-2026-03-28 12:18:58.2987|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer initialized with host: localhost, queue: QuantityQueue 
-2026-03-28 12:18:58.3410|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer.ExecuteAsync started. 
-2026-03-28 12:18:58.3472|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Attempting to connect to RabbitMQ at localhost... 
-2026-03-28 12:18:58.4439|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
-2026-03-28 12:18:58.4439|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
-2026-03-28 12:18:58.4439|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
-2026-03-28 12:18:58.4439|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
-2026-03-28 12:18:58.4694|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Successfully connected to RabbitMQ. 
-2026-03-28 12:18:58.4803|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Started consuming from queue: QuantityQueue 
-2026-03-28 12:19:44.3545|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/register - application/json 99 
-2026-03-28 12:19:44.5903|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect. 
-2026-03-28 12:19:44.7208|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
-2026-03-28 12:19:44.7882|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(QuantityMeasurementApp.API.DTO.RegisterRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
-2026-03-28 12:19:45.3413|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
-2026-03-28 12:19:45.3860|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API) in 580.4718ms 
-2026-03-28 12:19:45.3860|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
-2026-03-28 12:19:45.3860|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/register - 200 - application/json;+charset=utf-8 1055.8843ms 
-2026-03-28 12:20:00.9119|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/login - application/json 81 
-2026-03-28 12:20:00.9119|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:00.9323|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(QuantityMeasurementApp.API.DTO.LoginRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
-2026-03-28 12:20:01.0184|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
-2026-03-28 12:20:01.0184|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API) in 89.0946ms 
-2026-03-28 12:20:01.0184|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:01.0184|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/login - 200 - application/json;+charset=utf-8 110.6590ms 
-2026-03-28 12:20:27.0953|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/compare - application/json 72 
-2026-03-28 12:20:27.2967|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:27.3049|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Compare", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Compare(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-28 12:20:27.4020|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Boolean'. 
-2026-03-28 12:20:27.4020|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API) in 97.1645ms 
-2026-03-28 12:20:27.4020|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:27.4020|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/compare - 200 - application/json;+charset=utf-8 312.2600ms 
-2026-03-28 12:20:31.1274|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - application/json 34 
-2026-03-28 12:20:31.1551|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.ConvertWithUrlParam (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:31.1793|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "ConvertWithUrlParam", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ConvertWithUrlParam(QuantityMeasurementApp.Models.QuantityDTO, System.String) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-28 12:20:31.4419|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Received message: {"Operand1":{"Value":10,"Unit":"Feet"},"Operand2":null,"Operation":"CONVERT","Result":{"Value":3.048,"Unit":"Meter"},"ErrorMessage":null,"HasError":false} 
-2026-03-28 12:20:31.4691|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Successfully saved entity to database. 
-2026-03-28 12:20:31.4775|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'QuantityMeasurementApp.Models.QuantityDTO'. 
-2026-03-28 12:20:31.4775|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.ConvertWithUrlParam (QuantityMeasurementApp.API) in 300.0042ms 
-2026-03-28 12:20:31.4775|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.ConvertWithUrlParam (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:31.4775|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/convert/Meter - 200 - application/json;+charset=utf-8 355.2545ms 
-2026-03-28 12:20:34.8805|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/add - application/json 69 
-2026-03-28 12:20:34.8805|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:34.8805|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Add", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Add(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-28 12:20:34.9004|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'QuantityMeasurementApp.Models.QuantityDTO'. 
-2026-03-28 12:20:34.9004|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API) in 9.3466ms 
-2026-03-28 12:20:34.9004|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Add (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:34.9004|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/add - 200 - application/json;+charset=utf-8 20.6266ms 
-2026-03-28 12:20:37.5578|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/subtract - application/json 70 
-2026-03-28 12:20:37.5726|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Subtract", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Subtract(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'QuantityMeasurementApp.Models.QuantityDTO'. 
-2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API) in 3.2277ms 
-2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Subtract (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:37.5815|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/subtract - 200 - application/json;+charset=utf-8 31.3227ms 
-2026-03-28 12:20:41.8572|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/divide - application/json 70 
-2026-03-28 12:20:41.8634|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:41.8785|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Divide", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Divide(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-28 12:20:41.8785|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Double'. 
-2026-03-28 12:20:41.8973|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API) in 14.4387ms 
-2026-03-28 12:20:41.8973|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Divide (QuantityMeasurementApp.API)' 
-2026-03-28 12:20:41.8973|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/divide - 200 - application/json;+charset=utf-8 43.2063ms 
-2026-03-28 12:34:29.3204|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/register - application/json 99 
-2026-03-28 12:34:29.3492|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
-2026-03-28 12:34:29.3703|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(QuantityMeasurementApp.API.DTO.RegisterRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
-2026-03-28 12:34:29.4631|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API) in 92.0461ms 
-2026-03-28 12:34:29.4631|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
-2026-03-28 12:34:29.4725|ERROR|QuantityMeasurementApp.API.Middleware.ExceptionMiddleware|CRITICAL ERROR: An unhandled exception occurred in the API pipeline. System.Exception: User already exists with this email
-   at QuantityMeasurementApp.Service.AuthService.Register(String name, String email, String password) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\AuthService.cs:line 28
-   at QuantityMeasurementApp.API.Controllers.AuthController.Register(RegisterRequest request) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Controllers\AuthController.cs:line 25
-   at lambda_method4(Closure, Object, Object[])
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
---- End of stack trace from previous location ---
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
-   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at QuantityMeasurementApp.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Middleware\ExceptionMiddleware.cs:line 39
-2026-03-28 12:34:29.5414|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/register - 500 - application/json 222.6869ms 
-2026-03-28 12:34:34.3239|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/login - application/json 81 
-2026-03-28 12:34:34.3239|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
-2026-03-28 12:34:34.3355|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(QuantityMeasurementApp.API.DTO.LoginRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
-2026-03-28 12:34:34.3537|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
-2026-03-28 12:34:34.3537|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API) in 19.3908ms 
-2026-03-28 12:34:34.3537|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
-2026-03-28 12:34:34.3537|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/login - 200 - application/json;+charset=utf-8 31.9273ms 
-2026-03-28 15:27:53.8927|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/register - application/json 86 
-2026-03-28 15:27:53.9259|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
-2026-03-28 15:27:53.9394|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(QuantityMeasurementApp.API.DTO.RegisterRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
-2026-03-28 15:27:54.2818|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
-2026-03-28 15:27:54.2853|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API) in 344.2141ms 
-2026-03-28 15:27:54.2853|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
-2026-03-28 15:27:54.2853|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/register - 200 - application/json;+charset=utf-8 398.1313ms 
-2026-03-28 15:28:27.2790|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/login - application/json 62 
-2026-03-28 15:28:27.2790|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
-2026-03-28 15:28:27.2790|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(QuantityMeasurementApp.API.DTO.LoginRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
-2026-03-28 15:28:27.3057|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
-2026-03-28 15:28:27.3057|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API) in 24.5788ms 
-2026-03-28 15:28:27.3057|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
-2026-03-28 15:28:27.3057|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/login - 200 - application/json;+charset=utf-8 29.6168ms 
-2026-03-28 15:28:41.7334|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/quantity/compare - application/json 72 
-2026-03-28 15:28:41.7548|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
-2026-03-28 15:28:41.7548|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Compare", controller = "Quantity"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Compare(QuantityMeasurementApp.Models.QuantityDTO[]) on controller QuantityMeasurementApp.API.Controllers.QuantityController (QuantityMeasurementApp.API). 
-2026-03-28 15:28:41.7686|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Boolean'. 
-2026-03-28 15:28:41.7686|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API) in 17.4473ms 
-2026-03-28 15:28:41.7686|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.QuantityController.Compare (QuantityMeasurementApp.API)' 
-2026-03-28 15:28:41.7686|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/quantity/compare - 200 - application/json;+charset=utf-8 40.5280ms 
-2026-03-28 15:47:45.0685|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
-2026-03-28 15:47:45.1536|FATAL|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer encountered a fatal error. System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 111
-2026-03-28 15:48:18.8018|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
-2026-03-28 15:48:18.8619|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
-2026-03-28 15:48:18.8619|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer initialized with host: localhost, queue: QuantityQueue 
-2026-03-28 15:48:18.9120|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer.ExecuteAsync started. 
-2026-03-28 15:48:18.9120|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Attempting to connect to RabbitMQ at localhost... 
-2026-03-28 15:48:19.0187|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
-2026-03-28 15:48:19.0187|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
-2026-03-28 15:48:19.0187|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
-2026-03-28 15:48:19.0187|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
-2026-03-28 15:48:19.2043|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Successfully connected to RabbitMQ. 
-2026-03-28 15:48:19.2549|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Started consuming from queue: QuantityQueue 
-2026-03-28 15:52:16.6716|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Received message: {"Operand1":{"Value":10,"Unit":"Inch"},"Operand2":null,"Operation":"CONVERT","Result":{"Value":0.277778,"Unit":"Yards"},"ErrorMessage":null,"HasError":false} 
-2026-03-28 15:52:16.8626|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Successfully saved entity to database. 
-2026-03-28 16:11:21.2345|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
-2026-03-28 16:11:21.2651|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
-2026-03-28 16:11:21.2704|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer initialized with host: localhost, queue: QuantityQueue 
-2026-03-28 16:11:21.3070|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer.ExecuteAsync started. 
-2026-03-28 16:11:21.3070|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Attempting to connect to RabbitMQ at localhost... 
-2026-03-28 16:11:21.3972|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
-2026-03-28 16:11:21.3972|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
-2026-03-28 16:11:21.3972|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
-2026-03-28 16:11:21.3972|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
-2026-03-28 16:11:21.4946|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Successfully connected to RabbitMQ. 
-2026-03-28 16:11:21.5212|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Started consuming from queue: QuantityQueue 
-2026-03-28 16:13:31.4276|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
-2026-03-28 16:13:31.4485|FATAL|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer encountered a fatal error. System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 110
-2026-03-29 04:21:14.5033|ERROR|QuantityMeasurementApp.API.Program|Startup failed. StackExchange.Redis.RedisConnectionException: It was not possible to connect to the redis server(s). Error connecting right now. To allow this multiplexer to continue retrying until it's able to connect, use abortConnect=false in your connection string or AbortOnConnectFail=false; in your code.
-   at StackExchange.Redis.ConnectionMultiplexer.ConnectImpl(ConfigurationOptions configuration, TextWriter writer, Nullable`1 serverType, EndPointCollection endpoints) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 691
-   at StackExchange.Redis.ConnectionMultiplexer.Connect(ConfigurationOptions configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 663
-   at StackExchange.Redis.ConnectionMultiplexer.Connect(String configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 641
-   at Program.<Main>$(String[] args) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API\Program.cs:line 65
-2026-03-29 04:23:06.7559|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
-2026-03-29 04:23:06.8096|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
-2026-03-29 04:23:06.8173|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer initialized with host: localhost, queue: QuantityQueue 
-2026-03-29 04:23:06.8682|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer.ExecuteAsync started. 
-2026-03-29 04:23:06.8682|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Attempting to connect to RabbitMQ at localhost... 
-2026-03-29 04:23:07.0350|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
-2026-03-29 04:23:07.0350|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
-2026-03-29 04:23:07.0350|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
-2026-03-29 04:23:07.0350|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
-2026-03-29 04:23:07.0926|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Successfully connected to RabbitMQ. 
-2026-03-29 04:23:07.1171|INFO|QuantityMeasurementApp.Service.RabbitMQConsumer|Started consuming from queue: QuantityQueue 
-2026-03-29 04:23:56.5492|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
-2026-03-29 04:23:56.5736|FATAL|QuantityMeasurementApp.Service.RabbitMQConsumer|RabbitMQConsumer encountered a fatal error. System.Threading.Tasks.TaskCanceledException: A task was canceled.
-   at QuantityMeasurementApp.Service.RabbitMQConsumer.ExecuteAsync(CancellationToken stoppingToken) in C:\v\QuantityMeasurementApp\QuantityMeasurementApp.Service\RabbitMQConsumer.cs:line 110
+Error Number:258,State:0,Class:20
+2026-04-15 14:38:02.4494|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:38:04.6330|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (566ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [QuantityMeasurementDB]; 
+2026-04-15 14:38:05.0268|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (384ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [QuantityMeasurementDB] SET READ_COMMITTED_SNAPSHOT ON;
+END; 
+2026-04-15 14:38:05.0907|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2026-04-15 14:38:05.2129|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [QuantityMeasurements] (
+    [Id] int NOT NULL IDENTITY,
+    [Operand1Value] float NOT NULL,
+    [Operand1Unit] nvarchar(max) NOT NULL,
+    [Operand2Value] float NULL,
+    [Operand2Unit] nvarchar(max) NULL,
+    [Operation] nvarchar(max) NOT NULL,
+    [ResultValue] float NULL,
+    [ResultUnit] nvarchar(max) NULL,
+    [ErrorMessage] nvarchar(max) NULL,
+    CONSTRAINT [PK_QuantityMeasurements] PRIMARY KEY ([Id])
+); 
+2026-04-15 14:38:05.2175|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Email] nvarchar(450) NOT NULL,
+    [PasswordHash] nvarchar(max) NOT NULL,
+    [Salt] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+); 
+2026-04-15 14:38:05.2315|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Users_Email] ON [Users] ([Email]); 
+2026-04-15 14:38:05.2484|INFO|QuantityMeasurementApp.API.Program|Database connection successful. 
+2026-04-15 14:38:05.3584|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
+2026-04-15 14:38:05.3851|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2026-04-15 14:38:05.5223|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
+2026-04-15 14:38:05.5287|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2026-04-15 14:38:05.5287|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2026-04-15 14:38:05.5287|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
+2026-04-15 14:38:18.1400|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/ - - - 
+2026-04-15 14:38:18.2049|WARN|Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware|Failed to determine the https port for redirect. 
+2026-04-15 14:38:18.2560|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'HTTP: GET /' 
+2026-04-15 14:38:18.2560|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'HTTP: GET /' 
+2026-04-15 14:38:18.2620|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/ - 200 - text/plain;+charset=utf-8 131.4653ms 
+2026-04-15 14:38:18.4496|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/favicon.ico - - - 
+2026-04-15 14:38:18.4628|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/favicon.ico - 404 0 - 13.0914ms 
+2026-04-15 14:38:18.4776|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5248/favicon.ico, Response status code: 404 
+2026-04-15 14:38:24.8077|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger - - - 
+2026-04-15 14:38:24.8131|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger - 301 0 - 5.2568ms 
+2026-04-15 14:38:24.8389|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/index.html - - - 
+2026-04-15 14:38:25.0416|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/index.html - 200 - text/html;charset=utf-8 202.5998ms 
+2026-04-15 14:38:25.1276|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/index.css - - - 
+2026-04-15 14:38:25.1276|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui-bundle.js - - - 
+2026-04-15 14:38:25.1276|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui.css - - - 
+2026-04-15 14:38:25.1276|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui-standalone-preset.js - - - 
+2026-04-15 14:38:25.1565|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui.css - 200 26388 text/css 27.9224ms 
+2026-04-15 14:38:25.1565|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/index.css - 200 152 text/css 29.2671ms 
+2026-04-15 14:38:25.1565|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/index.js - - - 
+2026-04-15 14:38:25.1880|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/index.js - 200 - application/javascript;charset=utf-8 25.8421ms 
+2026-04-15 14:38:25.2311|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui-standalone-preset.js - 200 76581 text/javascript 102.2614ms 
+2026-04-15 14:38:25.2311|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/swagger-ui-bundle.js - 200 417806 text/javascript 103.2594ms 
+2026-04-15 14:38:25.4628|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5248/swagger/v1/swagger.json - - - 
+2026-04-15 14:38:25.7961|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5248/swagger/v1/swagger.json - 200 - application/json;charset=utf-8 333.2696ms 
+2026-04-15 14:38:51.7334|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/register - application/json 75 
+2026-04-15 14:38:51.7474|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
+2026-04-15 14:38:51.7785|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(QuantityMeasurementApp.API.DTO.RegisterRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
+2026-04-15 14:38:52.2779|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (65ms) [Parameters=[@email='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Salt]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email 
+2026-04-15 14:38:52.4486|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (14ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [PasswordHash], [Salt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3); 
+2026-04-15 14:38:52.4852|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2026-04-15 14:38:52.5097|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API) in 713.4864ms 
+2026-04-15 14:38:52.5097|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Register (QuantityMeasurementApp.API)' 
+2026-04-15 14:38:52.5204|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/register - 200 - application/json;+charset=utf-8 787.0545ms 
+2026-04-15 14:39:15.8937|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5248/api/auth/login - application/json 56 
+2026-04-15 14:39:15.8937|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
+2026-04-15 14:39:15.9050|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(QuantityMeasurementApp.API.DTO.LoginRequest) on controller QuantityMeasurementApp.API.Controllers.AuthController (QuantityMeasurementApp.API). 
+2026-04-15 14:39:16.0261|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (3ms) [Parameters=[@email='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Salt]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email 
+2026-04-15 14:39:16.0676|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2026-04-15 14:39:16.0676|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API) in 164.0816ms 
+2026-04-15 14:39:16.0676|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'QuantityMeasurementApp.API.Controllers.AuthController.Login (QuantityMeasurementApp.API)' 
+2026-04-15 14:39:16.0676|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5248/api/auth/login - 200 - application/json;+charset=utf-8 176.3412ms 
+2026-04-15 14:40:57.6054|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
+2026-04-15 14:41:16.4840|INFO|QuantityMeasurementApp.API.Program|Attempting to connect to the database... 
+2026-04-15 14:41:17.9523|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2026-04-15 14:41:18.2465|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (269ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND [o].[object_id] NOT IN (SELECT [ep].[major_id]
+        FROM [sys].[extended_properties] AS [ep]
+        WHERE [ep].[minor_id] = 0
+            AND [ep].[class] = 1
+            AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0 
+2026-04-15 14:41:18.2465|INFO|QuantityMeasurementApp.API.Program|Database connection successful. 
+2026-04-15 14:41:18.3561|INFO|QuantityMeasurementApp.API.Program|API started successfully. 
+2026-04-15 14:41:18.3820|INFO|Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|User profile is available. Using 'C:\Users\pmdhrs\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest. 
+2026-04-15 14:41:18.4893|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5248 
+2026-04-15 14:41:18.4893|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down. 
+2026-04-15 14:41:18.4893|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development 
+2026-04-15 14:41:18.4893|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\v\QuantityMeasurementApp\QuantityMeasurementApp.API 
+2026-04-15 14:43:17.8510|INFO|Microsoft.Hosting.Lifetime|Application is shutting down... 
