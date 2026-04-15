@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /app
 
 # Copy the solution file and restore dependencies
-COPY *.sln .
+COPY *.slnx .
 COPY QuantityMeasurementApp.API/*.csproj ./QuantityMeasurementApp.API/
 COPY QuantityMeasurementApp.Models/*.csproj ./QuantityMeasurementApp.Models/
 COPY QuantityMeasurementApp.Service/*.csproj ./QuantityMeasurementApp.Service/
@@ -11,8 +11,6 @@ COPY QuantityMeasurementApp.Repository/*.csproj ./QuantityMeasurementApp.Reposit
 COPY QuantityMeasurementApp.Utilities/*.csproj ./QuantityMeasurementApp.Utilities/
 COPY QuantityMeasurementApp.Exceptions/*.csproj ./QuantityMeasurementApp.Exceptions/
 COPY QuantityMeasurementApp.Controller/*.csproj ./QuantityMeasurementApp.Controller/
-COPY QuantityMeasurementApp/*.csproj ./QuantityMeasurementApp/
-COPY QuantityMeasurementApp.Tests/*.csproj ./QuantityMeasurementApp.Tests/
 
 RUN dotnet restore QuantityMeasurementApp.API/QuantityMeasurementApp.API.csproj
 

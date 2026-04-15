@@ -4,6 +4,8 @@ using QuantityMeasurementApp.API.Middleware;
 using QuantityMeasurementApp.Utilities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using System.Text;
 using NLog;
 using NLog.Web;
@@ -11,42 +13,70 @@ using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Initialize DB config
-DatabaseConfig.Initialize(builder.Configuration);
-
-// Setup NLog
+// Setup NLog (Quiet Mode)
 var logger = LogManager.Setup()
     .LoadConfigurationFromFile("Logging/NLog.config")
     .GetCurrentClassLogger();
 
 builder.Logging.ClearProviders();
-builder.Host.UseNLog();
+builder.Logging.AddConsole(); 
 
 try
 {
-    // -------------------- Controllers + Swagger --------------------
+    // -------------------- EF Core DbContext --------------------
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+                           ?? "Server=127.0.0.1,1433;Database=QuantityMeasurementDB;User Id=sa;Password=Your_Password123;TrustServerCertificate=True;";
+    
+    builder.Services.AddDbContext<QuantityMeasurementDbContext>(options =>
+        options.UseSqlServer(connectionString, sqlServerOptions =>
+        {
+            sqlServerOptions.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+        }));
+
+    // -------------------- Redis --------------------
+    var redisConnection = builder.Configuration["Redis:ConnectionString"] ?? "localhost:6379";
+    var redisOptions = ConfigurationOptions.Parse(redisConnection);
+    redisOptions.AbortOnConnectFail = false; 
+    builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisOptions));
+    builder.Services.AddScoped<RedisCacheService>();
+
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
+    
+    // --- 🔐 Configure Swagger for JWT ---
+    builder.Services.AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "Quantity Measurement API", Version = "v1" });
+        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
+            Name = "Authorization",
+            In = ParameterLocation.Header,
+            Type = SecuritySchemeType.ApiKey,
+            Scheme = "Bearer"
+        });
+        c.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
+                },
+                new string[] { }
+            }
+        });
+    });
 
-    // -------------------- Repository + Service --------------------
     builder.Services.AddScoped<IQuantityMeasurementRepository, QuantityMeasurementDatabaseRepository>();
     builder.Services.AddScoped<IQuantityMeasurementService, QuantityMeasurementServiceImpl>();
 
-    // -------------------- Auth (JWT) --------------------
-    var jwtKey = builder.Configuration["Jwt:Key"] ?? "DEFAULT_SECRET_KEY";
-
+    var jwtKey = builder.Configuration["Jwt:Key"] ?? "THIS_IS_A_SECURE_32_CHARACTER_KEY_!!!";
     builder.Services.AddSingleton(new JwtService(jwtKey));
     builder.Services.AddScoped<IUserRepository, UserRepository>();
     builder.Services.AddScoped<IAuthService, AuthService>();
 
     var key = Encoding.UTF8.GetBytes(jwtKey);
-
-    builder.Services.AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    })
+    builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
@@ -59,60 +89,52 @@ try
         };
     });
 
-    // -------------------- Redis --------------------
-    var redisConnection = builder.Configuration["Redis:ConnectionString"] ?? "localhost:6379";
-
-    builder.Services.AddSingleton<IConnectionMultiplexer>(
-        ConnectionMultiplexer.Connect(redisConnection)
-    );
-
-    builder.Services.AddScoped<RedisCacheService>();
-
-    // -------------------- RabbitMQ --------------------
-    // Config values from appsettings.json
-    var rabbitHost = builder.Configuration["RabbitMQ:Host"] ?? "localhost";
-    var rabbitQueue = builder.Configuration["RabbitMQ:QueueName"] ?? "QuantityQueue";
-
-    // Register Producer (send messages)
-    builder.Services.AddSingleton(new RabbitMQProducer(rabbitHost, rabbitQueue));
-
-    // Register Consumer (background processing)
-    builder.Services.AddHostedService<RabbitMQConsumer>();
-
-    // -------------------------------------------------
-
     var app = builder.Build();
 
-    // Initialize DB
-    DatabaseInitializer.Initialize();
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<QuantityMeasurementDbContext>();
+        int retryCount = 10;
+        while (retryCount > 0)
+        {
+            try
+            {
+                dbContext.Database.EnsureCreated();
+                Console.WriteLine("✅ Database connected successfully.");
+                break;
+            }
+            catch
+            {
+                retryCount--;
+                if (retryCount == 0) throw;
+                Console.WriteLine($"⏳ Database not ready. Retrying... ({retryCount} attempts left)");
+                Thread.Sleep(3000);
+            }
+        }
+    }
 
-    // Global exception middleware
     app.UseMiddleware<ExceptionMiddleware>();
-
-    // Swagger
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
         app.UseSwaggerUI();
     }
 
-    app.UseHttpsRedirection();
-
-    // Auth middleware
+    // app.UseHttpsRedirection(); // Commented out for cleaner local dev
     app.UseAuthentication();
     app.UseAuthorization();
-
     app.MapControllers();
 
-    // Health check
     app.MapGet("/", () => "Quantity Measurement API is online and healthy.");
 
-    logger.Info("API started successfully.");
+    Console.WriteLine($"🚀 Backend is running at: http://localhost:5248");
+    Console.WriteLine("👉 Open Swagger at: http://localhost:5248/swagger");
+    
     app.Run();
 }
 catch (Exception ex)
 {
-    logger.Error(ex, "Startup failed.");
+    Console.WriteLine($"❌ Startup failed: {ex.Message}");
     throw;
 }
 finally

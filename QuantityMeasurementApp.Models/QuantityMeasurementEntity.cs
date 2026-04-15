@@ -12,6 +12,11 @@ namespace QuantityMeasurementApp.Models
     public class QuantityMeasurementEntity
     {
         /// <summary>
+        /// Gets or sets the unique identifier for the entity.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Gets or sets the first operand of the operation.
         /// </summary>
         public required QuantityDTO Operand1 { get; set; }

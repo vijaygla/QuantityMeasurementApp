@@ -5,6 +5,6 @@ namespace QuantityMeasurementApp.Repository
     public interface IUserRepository
     {
         void AddUser(UserEntity user);
-        UserEntity GetUserByEmail(string email);
+        UserEntity? GetUserByEmail(string email);
     }
 }

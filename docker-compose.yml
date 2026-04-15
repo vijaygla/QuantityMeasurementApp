@@ -19,13 +19,6 @@ services:
     ports:
       - "6379:6379"
 
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: quantity-rabbitmq
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-
   api:
     build:
       context: .
@@ -37,12 +30,10 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=QuantityMeasurementDB;User Id=sa;Password=Your_Password123;TrustServerCertificate=True;
       - Redis__ConnectionString=redis:6379
-      - RabbitMQ__Host=rabbitmq
       - Jwt__Key=THIS_IS_A_SECURE_32_CHARACTER_KEY_!!!
     depends_on:
       - sqlserver
       - redis
-      - rabbitmq
 
 volumes:
   sqlvolume:

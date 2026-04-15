@@ -1,7 +1,10 @@
 using QuantityMeasurementApp.Repository;
 using QuantityMeasurementApp.Models;
 using QuantityMeasurementApp.Utilities;
-using Microsoft.Data.SqlClient;
+using QuantityMeasurementApp.Exceptions;
+using Microsoft.EntityFrameworkCore;
+using System;
+
 namespace QuantityMeasurementApp.Service
 {
     public class AuthService : IAuthService
@@ -20,12 +23,12 @@ namespace QuantityMeasurementApp.Service
         {
             // Basic validation
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
-                throw new Exception("Email and Password are required");
+                throw new QuantityMeasurementException("Email and Password are required");
 
-            // Check if user already exists (first level validation)
+            // Check if user already exists
             var existingUser = _repo.GetUserByEmail(email);
             if (existingUser != null)
-                throw new Exception("User already exists with this email");
+                throw new QuantityMeasurementException("User already exists with this email, please login.");
 
             // Create secure password (salt + hash)
             var salt = PasswordHasher.GenerateSalt();
@@ -39,18 +42,18 @@ namespace QuantityMeasurementApp.Service
                 Salt = salt
             };
 
-            // Save user (second level protection using DB constraint)
+            // Save user
             try
             {
                 _repo.AddUser(user);
             }
-            catch (SqlException ex) when (ex.Number == 2627) // duplicate key
+            catch (DbUpdateException)
             {
-                throw new Exception("Email already exists");
+                throw new QuantityMeasurementException("User already exists with this email, please login.");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Error while registering user");
+                throw new Exception($"Error while registering user: {ex.Message}");
             }
 
             return "User registered successfully";
@@ -61,17 +64,17 @@ namespace QuantityMeasurementApp.Service
         {
             // Basic validation
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
-                throw new Exception("Email and Password are required");
+                throw new QuantityMeasurementException("Email and Password are required");
 
             // Fetch user from DB
             var user = _repo.GetUserByEmail(email);
             if (user == null)
-                throw new Exception("User not found");
+                throw new QuantityMeasurementException("User not found");
 
             // Verify password
             var hash = PasswordHasher.HashPassword(password, user.Salt);
             if (hash != user.PasswordHash)
-                throw new Exception("Invalid password");
+                throw new QuantityMeasurementException("Invalid password");
 
             // Generate JWT token
             return _jwt.GenerateToken(email);
