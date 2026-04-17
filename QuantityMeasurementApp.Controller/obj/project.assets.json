@@ -2304,11 +2304,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Controller\\QuantityMeasurementApp.Controller.csproj",
+      "projectUniqueName": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Controller\\QuantityMeasurementApp.Controller.csproj",
       "projectName": "QuantityMeasurementApp.Controller",
-      "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Controller\\QuantityMeasurementApp.Controller.csproj",
+      "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Controller\\QuantityMeasurementApp.Controller.csproj",
       "packagesPath": "C:\\Users\\pmdhrs\\.nuget\\packages\\",
-      "outputPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Controller\\obj\\",
+      "outputPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Controller\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pmdhrs\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -2323,11 +2323,11 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj": {
-              "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj"
+            "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj": {
+              "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj"
             },
-            "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Service\\QuantityMeasurementApp.Service.csproj": {
-              "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Service\\QuantityMeasurementApp.Service.csproj"
+            "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Service\\QuantityMeasurementApp.Service.csproj": {
+              "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Service\\QuantityMeasurementApp.Service.csproj"
             }
           }
         }

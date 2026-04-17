@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj": {}
+    "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj": {}
   },
   "projects": {
-    "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj": {
+    "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj",
+        "projectUniqueName": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj",
         "projectName": "QuantityMeasurementApp.Exceptions",
-        "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj",
+        "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj",
         "packagesPath": "C:\\Users\\pmdhrs\\.nuget\\packages\\",
-        "outputPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Exceptions\\obj\\",
+        "outputPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Exceptions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pmdhrs\\AppData\\Roaming\\NuGet\\NuGet.Config"

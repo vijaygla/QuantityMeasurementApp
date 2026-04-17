@@ -873,11 +873,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Utilities\\QuantityMeasurementApp.Utilities.csproj",
+      "projectUniqueName": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Utilities\\QuantityMeasurementApp.Utilities.csproj",
       "projectName": "QuantityMeasurementApp.Utilities",
-      "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Utilities\\QuantityMeasurementApp.Utilities.csproj",
+      "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Utilities\\QuantityMeasurementApp.Utilities.csproj",
       "packagesPath": "C:\\Users\\pmdhrs\\.nuget\\packages\\",
-      "outputPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Utilities\\obj\\",
+      "outputPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Utilities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pmdhrs\\AppData\\Roaming\\NuGet\\NuGet.Config"

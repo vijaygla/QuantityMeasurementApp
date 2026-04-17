@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: msvc-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Your_Password123
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlvolume:/var/opt/mssql
+
+  redis:
+    image: redis:alpine
+    container_name: msvc-redis
+    ports:
+      - "6379:6379"
+
+  auth-service:
+    build:
+      context: ./AuthService
+    container_name: auth-service
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=AuthServiceDB;User Id=sa;Password=Your_Password123;TrustServerCertificate=True;
+      - Jwt__Key=THIS_IS_A_SECURE_32_CHARACTER_KEY_!!!
+    depends_on:
+      - sqlserver
+
+  quantity-service:
+    build:
+      context: ./QuantityService
+    container_name: quantity-service
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=QuantityServiceDB;User Id=sa;Password=Your_Password123;TrustServerCertificate=True;
+      - Redis__ConnectionString=redis:6379
+      - Jwt__Key=THIS_IS_A_SECURE_32_CHARACTER_KEY_!!!
+    depends_on:
+      - sqlserver
+      - redis
+
+  gateway-service:
+    build:
+      context: ./GatewayService
+    container_name: gateway-service
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - auth-service
+      - quantity-service
+
+volumes:
+  sqlvolume:

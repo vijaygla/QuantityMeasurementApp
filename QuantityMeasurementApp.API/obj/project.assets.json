@@ -3943,11 +3943,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.API\\QuantityMeasurementApp.API.csproj",
+      "projectUniqueName": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.API\\QuantityMeasurementApp.API.csproj",
       "projectName": "QuantityMeasurementApp.API",
-      "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.API\\QuantityMeasurementApp.API.csproj",
+      "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.API\\QuantityMeasurementApp.API.csproj",
       "packagesPath": "C:\\Users\\pmdhrs\\.nuget\\packages\\",
-      "outputPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.API\\obj\\",
+      "outputPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\pmdhrs\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3962,20 +3962,20 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj": {
-              "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj"
+            "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj": {
+              "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Exceptions\\QuantityMeasurementApp.Exceptions.csproj"
             },
-            "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj": {
-              "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj"
+            "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj": {
+              "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj"
             },
-            "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Repository\\QuantityMeasurementApp.Repository.csproj": {
-              "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Repository\\QuantityMeasurementApp.Repository.csproj"
+            "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Repository\\QuantityMeasurementApp.Repository.csproj": {
+              "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Repository\\QuantityMeasurementApp.Repository.csproj"
             },
-            "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Service\\QuantityMeasurementApp.Service.csproj": {
-              "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Service\\QuantityMeasurementApp.Service.csproj"
+            "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Service\\QuantityMeasurementApp.Service.csproj": {
+              "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Service\\QuantityMeasurementApp.Service.csproj"
             },
-            "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Utilities\\QuantityMeasurementApp.Utilities.csproj": {
-              "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Utilities\\QuantityMeasurementApp.Utilities.csproj"
+            "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Utilities\\QuantityMeasurementApp.Utilities.csproj": {
+              "projectPath": "C:\\v\\FB\\Backend\\QuantityMeasurementApp.Utilities\\QuantityMeasurementApp.Utilities.csproj"
             }
           }
         }
