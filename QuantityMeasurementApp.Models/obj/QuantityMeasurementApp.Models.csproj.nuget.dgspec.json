@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj": {}
+    "C:\\Users\\pmdhrs\\Downloads\\FB\\Backend\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj": {}
   },
   "projects": {
-    "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj": {
+    "C:\\Users\\pmdhrs\\Downloads\\FB\\Backend\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj",
+        "projectUniqueName": "C:\\Users\\pmdhrs\\Downloads\\FB\\Backend\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj",
         "projectName": "QuantityMeasurementApp.Models",
-        "projectPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj",
+        "projectPath": "C:\\Users\\pmdhrs\\Downloads\\FB\\Backend\\QuantityMeasurementApp.Models\\QuantityMeasurementApp.Models.csproj",
         "packagesPath": "C:\\Users\\pmdhrs\\.nuget\\packages\\",
-        "outputPath": "C:\\v\\QuantityMeasurementApp\\QuantityMeasurementApp.Models\\obj\\",
+        "outputPath": "C:\\Users\\pmdhrs\\Downloads\\FB\\Backend\\QuantityMeasurementApp.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pmdhrs\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.202/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
